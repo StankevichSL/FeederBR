@@ -9,5 +9,6 @@
     <LibraryObject Name="sys_lib" Source="Libraries.sys_lib.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="AsBrStr" Source="Libraries.AsBrStr.lby" Memory="UserROM" Language="binary" Debugging="true" />
     <LibraryObject Name="runtime" Source="Libraries.runtime.lby" Memory="UserROM" Language="binary" Debugging="true" />
+    <LibraryObject Name="FeederLib" Source="FeederLib.lby" Memory="UserROM" Language="IEC" Debugging="true" />
   </Libraries>
 </SwConfiguration>
