@@ -16,5 +16,8 @@
 		i : UDINT;
 		weight : REFERENCE TO REAL;
 		position : REFERENCE TO REAL;
+		sxx : LREAL;
+		sxy : LREAL;
+		sxp : LREAL;
 	END_VAR
 END_FUNCTION
