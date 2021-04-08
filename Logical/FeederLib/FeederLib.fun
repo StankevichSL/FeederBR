@@ -1,6 +1,6 @@
 (*Insert your comment here.*)
 
-{REDUND_ERROR} FUNCTION FLinearRegrationKoef : REAL (*TODO: Add your comment here*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
+{REDUND_ERROR} FUNCTION FRatePerMinute : REAL (*TODO: Add your comment here*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 	VAR_INPUT
 		weightArrayAdr : UDINT;
 		positionArrayAdr : UDINT;

@@ -1,6 +1,6 @@
 
 (* TODO: Add your comment here *)
-FUNCTION FLinearRegrationKoef
+FUNCTION FRatePerMinute
 	sumx := 0;
 	sumy := 0;
 	sump := 0;
@@ -8,7 +8,7 @@ FUNCTION FLinearRegrationKoef
 	sumxy := 0;
 	sumxp := 0;							
 
-	FOR i := 0 TO n-1 DO
+	FOR i := 0 TO lengthOfArray-1 DO
 		weight ACCESS (weightArrayAdr + 32*i);
 		position ACCESS (positionArrayAdr + 32*i);		
 		sumy := sumy + weight;
@@ -19,9 +19,9 @@ FUNCTION FLinearRegrationKoef
 	sumx := (lengthOfArray*(lengthOfArray+1))/2;
 	sumx2 := (lengthOfArray*(lengthOfArray+1)*(2*lengthOfArray+1))/6;
 		
-	sxx := sumx2 - (sumx*sumx)/UINT_TO_REAL(n);
-	sxy := sumxy - (sumx*sumy)/UINT_TO_REAL(n);		
-	sxp := sumxp - (sumx*sump)/UINT_TO_REAL(n);	
+	sxx := sumx2 - (sumx*sumx)/UINT_TO_REAL(lengthOfArray);
+	sxy := sumxy - (sumx*sumy)/UINT_TO_REAL(lengthOfArray);		
+	sxp := sumxp - (sumx*sump)/UINT_TO_REAL(lengthOfArray);	
 	k := sxy/sxx;
 	kp := sxp/sxx;					
 	
