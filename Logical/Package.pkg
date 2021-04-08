@@ -8,5 +8,6 @@
     <Object Type="Library" Language="IEC">FeederLib</Object>
     <Object Type="Program" Language="IEC">Program</Object>
     <Object Type="Package">mappView</Object>
+    <Object Type="Program" Language="IEC">ReadData</Object>
   </Objects>
 </Package>

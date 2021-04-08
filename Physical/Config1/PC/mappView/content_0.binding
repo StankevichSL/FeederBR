@@ -17,5 +17,9 @@
 <Source xsi:type="opcUa" refId="::Program:Start" attribute="value" />
 <Target xsi:type="brease" contentRefId="content_0" widgetRefId="ToggleSwitch1" attribute="value" />
 </Binding>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::Program:tempStr" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_0" widgetRefId="TextOutput1" attribute="value" />
+</Binding>
 </Bindings>
 </BindingsSet>

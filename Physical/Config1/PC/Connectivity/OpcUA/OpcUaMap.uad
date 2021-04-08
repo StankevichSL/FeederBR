@@ -8,14 +8,6 @@
     <EngineeringUnitAliases />
   </Aliases>
   <DefaultView>
-    <Module Name="&lt;Default&gt;">
-      <Task Name="Program">
-        <Variable Name="Start" />
-        <Variable Name="V" />
-        <Variable Name="W" />
-        <Variable Name="Ktare" />
-        <Variable Name="Weight" />
-      </Task>
-    </Module>
+    <Module Name="&lt;Default&gt;" />
   </DefaultView>
 </OpcUaSource>

@@ -27,5 +27,6 @@
         </Widget>
       </Widgets>
     </Widget>
+    <Widget xsi:type="widgets.brease.TextOutput" id="TextOutput1" top="540" left="640" height="50" zIndex="4" />
   </Widgets>
 </Content>
