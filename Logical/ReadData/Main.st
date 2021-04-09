@@ -15,7 +15,7 @@ PROGRAM _CYCLIC
 		FBRead.BytesToRead := BytesToRead;
 		FBRead.Offset := Offset;
 			
-		flag:= TRUE;
+		flag:= FALSE;
 		//		WHILE flag DO
 		FBRead();
 		IF (FBRead.wStatus = 0) AND (FBRead.byStep = 3) THEN

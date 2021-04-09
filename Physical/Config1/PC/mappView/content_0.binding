@@ -1,34 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BindingsSet id="content_0_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Bindings>
-
-
-
-
-<Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::Program:tempStr" attribute="value" />
-<Target xsi:type="brease" contentRefId="content_0" widgetRefId="TextOutput1" attribute="value" />
-</Binding>
-<Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::ReadData:Wei" attribute="value" />
-<Target xsi:type="brease" contentRefId="content_0" widgetRefId="OnlineChartGraph1" attribute="value" />
-</Binding>
-<Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::ReadData:Vel" attribute="value" />
-<Target xsi:type="brease" contentRefId="content_0" widgetRefId="OnlineChartGraph2" attribute="value" />
-</Binding>
-
-<Binding mode="twoWay">
-<Source xsi:type="opcUa" refId="::ReadData:Read" attribute="value" />
-<Target xsi:type="brease" contentRefId="content_0" widgetRefId="ToggleSwitch1" attribute="value" />
-</Binding>
-<Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::ReadData:i" attribute="value" />
-<Target xsi:type="brease" contentRefId="content_0" widgetRefId="NumericOutput2" attribute="value" />
-</Binding>
-<Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::ReadData:Ktare" attribute="value" />
-<Target xsi:type="brease" contentRefId="content_0" widgetRefId="NumericOutput1" attribute="value" />
-</Binding>
-</Bindings>
+	<Bindings>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::Program:tempStr" attribute="value" />
+			<Target xsi:type="brease" contentRefId="content_0" widgetRefId="TextOutput1" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::ReadData:Read" attribute="value" />
+			<Target xsi:type="brease" contentRefId="content_0" widgetRefId="ToggleSwitch1" attribute="value" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::ReadData:i" attribute="value" />
+			<Target xsi:type="brease" contentRefId="content_0" widgetRefId="NumericOutput2" attribute="value" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::ReadData:Ktare" attribute="value" />
+			<Target xsi:type="brease" contentRefId="content_0" widgetRefId="NumericOutput1" attribute="value" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::AsGlobalPV:W" attribute="node" />
+			<Target xsi:type="brease" contentRefId="content_0" widgetRefId="LineChartGraph2" attribute="node" />
+		</Binding>
+		<Binding mode="oneWay">
+			<Source xsi:type="opcUa" refId="::AsGlobalPV:V" attribute="node" />
+			<Target xsi:type="brease" contentRefId="content_0" widgetRefId="LineChartGraph1" attribute="node" />
+		</Binding>
+	</Bindings>
 </BindingsSet>
