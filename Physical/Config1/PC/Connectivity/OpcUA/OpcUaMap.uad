@@ -8,6 +8,14 @@
     <EngineeringUnitAliases />
   </Aliases>
   <DefaultView>
-    <Module Name="&lt;Default&gt;" />
+    <Module Name="&lt;Default&gt;">
+      <Task Name="ReadData">
+        <Variable Name="i" />
+        <Variable Name="Vel" />
+        <Variable Name="Wei" />
+        <Variable Name="Read" />
+        <Variable Name="Ktare" />
+      </Task>
+    </Module>
   </DefaultView>
 </OpcUaSource>
