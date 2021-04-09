@@ -1,175 +1,66 @@
 
 PROGRAM _INIT
 	(* Initialize variables *)
-	bOK := FALSE;
-	byStep := 1;
-	byErrorLevel := 0;
-	strDevice       := 'HardDisk';
-	strFile         := 'TestFile1';
-	Enable := TRUE;
+	FBRead.Enable := TRUE;
+	FBRead.strDevice := 'HardDisk';
+	FBRead.strFile := 'TestFile1';
+	BytesToRead := 1;
+	Offset := 0;
 END_PROGRAM
 
 PROGRAM _CYCLIC
-	(* Insert code here *)
-	CASE byStep OF
-		0: (**** Error step ****)
-			bOK := FALSE;
-		1: (**** Try to open existing file ****)
-			(* Initialize file open structrue *)
-			FOpen.enable    := 1;
-			FOpen.pDevice   := ADR(strDevice);
-			FOpen.pFile     := ADR(strFile);
-			FOpen.mode      := fiREAD_ONLY;  (* Read and write access *)
-			(* Call FBK *)
-			FOpen();
-			(* Get FBK output information *)
-			dwIdent := FOpen.ident;
-			wStatus := FOpen.status;
-			(* Verify status (20708 -> File doesn't exist) *)
-			IF (wStatus = 20708) THEN
-				byStep := 0;
-//				מרטבךא םוע פאיכא
-			ELSE
-				byStep := 4;
-				//				IF (wStatus = 0) THEN
-				//					byStep := 3;
-				//				ELSE
-				//					IF (wStatus <> 65535) THEN
-				//						byErrorLevel := 1;
-				//						byStep := 0;
-				//						IF (wStatus = 20799) THEN
-				//							wError := FileIoGetSysError();
-				//						END_IF
-				//					END_IF
-				//				END_IF
-			END_IF
-			2: (**** Wait for restart ****)
-			IF Enable THEN
-				byStep := 1;
-			END_IF
-			//		2: (**** Create file ****)
-			//			(* Initialize file create structure *)
-			//			FCreate.enable  := 1;
-			//			FCreate.pDevice := ADR(strDevice);
-			//			FCreate.pFile   := ADR(strFile);
-			//			(* Call FBK *)
-			//			FCreate();
-			//			(* Get FBK output information *)
-			//			dwIdent := FCreate.ident;
-			//			wStatus := FCreate.status;
-			//			(* Verify status *)
-			//			IF (wStatus = 0) THEN
-			//				byStep := 3;
-			//			ELSE
-			//				IF (wStatus <> 65535) THEN
-			//					byErrorLevel := 2;
-			//					byStep := 0;
-			//					IF (wStatus = 20799) THEN
-			//						wError := FileIoGetSysError();
-			//					END_IF
-			//				END_IF
-			//			END_IF
-		3: (**** Wait for command ****)
-			IF Read THEN
-				byStep := 4;
-			END_IF
-			//		3: (**** Write data to file ****)
-			//			(* Initialize file write structure *)
-			//			FWrite.enable   := 1;
-			//			FWrite.ident    := dwIdent;
-			//			FWrite.offset   := 0;
-			//			FWrite.pSrc     := ADR(byWriteData[0]);
-			//			FWrite.len      := SIZEOF(byWriteData);
-			//			(* Call FBK *)
-			//			FWrite();
-			//			(* Get status *)
-			//			wStatus := FWrite.status;
-			//			(* Verify status *)
-			//			IF (wStatus = 0) THEN
-			//				byStep := 4;
-			//			ELSE
-			//				IF (wStatus <> 65535) THEN
-			//					byErrorLevel := 3;
-			//					byStep := 0;
-			//					IF (wStatus = 20799) THEN
-			//						wError := FileIoGetSysError();
-			//					END_IF
-			//				END_IF
-			//			END_IF
-		4: (**** Read data from file ****)
-			(* Initialize file read structure *)
-			FRead.enable    := 1;
-			FRead.ident     := dwIdent;
-			FRead.offset    := Offset;
-			FRead.pDest     := ADR(ReadedStr);
-			FRead.len       := BytesToRead;
-			(* Call FBK *)
-			IF Read THEN
-				FRead();
-				(* Get status *)
-				wStatus := FRead.status;
-				(* Verify status *)
-				IF (wStatus = 0) THEN
-					Read := FALSE;
-					byStep := 3;
-				ELSE
-					IF (wStatus <> 65535) THEN
-						byErrorLevel := 4;
-						byStep := 0;
-						IF (wStatus = 20799) THEN
-							wError := FileIoGetSysError();
+(* Insert code here *)
+	IF Read THEN
+		FBRead.Read := TRUE;
+		FBRead.BytesToRead := BytesToRead;
+		FBRead.Offset := Offset;
+			
+		flag:= TRUE;
+//		WHILE flag DO
+			FBRead();
+			IF (FBRead.wStatus = 0) AND (FBRead.byStep = 3) THEN
+				IF (FBRead.ReadedStr <> '') THEN
+					IF FBRead.ReadedStr = Separator THEN
+						ReadedValue := STRING_TO_REAL(TempString);
+						TempString := '';				
+						CASE var1 OF
+							1: W[i] := ReadedValue;	
+								var1 := var1 + 1;
+							3: V[i] := ReadedValue;
+								var1 := var1 + 1;
+							7: var1 := 0;	
+								IF i = 2399 THEN
+									i := 0;
+								ELSE
+									i := i + 1;
+								END_IF
+							ELSE
+								var1 := var1 + 1;
+						END_CASE
+						flag := FALSE;
+					ELSE
+						IF (FBRead.ReadedStr <> '$n') AND (FBRead.ReadedStr <> '$r') THEN 
+							TempString := CONCAT(TempString,FBRead.ReadedStr);
+						ELSE
+							FBRead();
 						END_IF
 					END_IF
+					Offset := Offset + 1;
+					//				Read := FALSE;
 				END_IF
-			END_IF
-		5: (**** Close file ****)
-			(* Initialize file close structure *)
-			FClose.enable   := 1;
-			FClose.ident    := dwIdent;
-			(* Call FBK *)
-			FClose();
-			(* Get status *)
-			wStatus := FClose.status;
-			(* Verify status *)
-			IF (wStatus = 0) THEN
-				Enable := FALSE;
-				byStep := 2;
 			ELSE
-				IF (wStatus <> 65535) THEN
-					byErrorLevel := 5;
-					byStep := 0;
-					IF (wStatus = 20799) THEN
-						wError := FileIoGetSysError();
-					END_IF
-				END_IF
+				FBRead();
 			END_IF
-//		6: (**** Delete file ****)
-//			(* Initialize file delete structure *)
-//			FDelete.enable  := 1;
-//			FDelete.pDevice := ADR(strDevice);
-//			FDelete.pName   := ADR(strFile);
-//			(* Call FBK *)
-//			FDelete();
-//			(* Get status *)
-//			wStatus := FDelete.status;
-//			(* Verify status *)
-//			IF (wStatus = 0) THEN
-//				bOK     := TRUE;
-//				byStep := 7;
-//			ELSE
-//				IF (wStatus <> 65535) THEN
-//					byErrorLevel := 6;
-//					byStep := 0;
-//					IF (wStatus = 20799) THEN
-//						wError := FileIoGetSysError();
-//					END_IF
-//				END_IF
-//			END_IF
-	END_CASE
+//		END_WHILE
+	ELSE
+		FBRead.Read := FALSE;
+	END_IF
+		
+	FBRead();
 END_PROGRAM
 
 PROGRAM _EXIT
-	(* Insert code here *)
+(* Insert code here *)
 	 
 END_PROGRAM
 

@@ -1,18 +1,13 @@
 VAR
-	strDevice : STRING[80];
-	strFile : STRING[80];
-	bOK : BOOL;
-	byStep : USINT;
-	byErrorLevel : USINT;
-	dwIdent : UDINT;
-	wStatus : UINT;
-	wError : UINT;
-	FOpen : FileOpen;
-	FRead : FileRead;
-	FClose : FileClose;
-	Offset : UDINT := 0;
 	ReadedStr : STRING[80];
 	BytesToRead : UDINT;
 	Read : BOOL;
-	Enable : BOOL;
+	FBRead : FBReadFromFile;
+	Offset : UDINT;
+	Separator : STRING[1] := ',';
+	TempString : STRING[80];
+	i : UDINT;
+	ReadedValue : REAL;
+	var1 : UDINT := 0;
+	flag : BOOL := TRUE;
 END_VAR
