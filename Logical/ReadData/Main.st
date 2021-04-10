@@ -13,7 +13,7 @@ PROGRAM _CYCLIC
 	IF Read THEN
 		FBRead.Read := TRUE;
 		FBRead.BytesToRead := BytesToRead;
-		FBRead.Offset := Offset;
+		FBRead.Offset := UDINT_TO_INT(Offset);
 			
 		flag:= FALSE;
 		//		WHILE flag DO
@@ -55,15 +55,28 @@ PROGRAM _CYCLIC
 						ELSE
 							var1 := var1 + 1;
 					END_CASE
+					Offset := Offset + 1;
 					flag := FALSE;
 				ELSE
-					IF (FBRead.ReadedStr <> '$n') AND (FBRead.ReadedStr <> '$r') THEN 
+					IF (FBRead.ReadedStr <> '$n') AND (FBRead.ReadedStr <> '$r') THEN
+						IF (FBRead.ReadedStr = '.') THEN
+							BytesToRead := 16;
+							Offset := Offset + 1;
+						ELSE
+							IF BytesToRead = 16 THEN
+								BytesToRead := 1;
+								Offset := Offset + 16;
+							ELSE
+								Offset := Offset + 1;
+							END_IF
+						END_IF						
 						TempString := CONCAT(TempString,FBRead.ReadedStr);
 					ELSE
+						Offset := Offset + 1;
+						FBRead.Offset := Offset;
 						FBRead();
 					END_IF
 				END_IF
-				Offset := Offset + 1;
 				//				Read := FALSE;
 			END_IF
 		ELSE

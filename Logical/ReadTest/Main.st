@@ -13,8 +13,8 @@ END_PROGRAM
 
 PROGRAM _CYCLIC
 	(* Insert code here *)	
-	WHILE Read DO
-//			IF Read THEN
+//	WHILE Read DO
+			IF Read THEN
 		FBRead1.Read := TRUE;
 		FBRead1.Offset := Offset;
 		i:= i+1;
@@ -45,8 +45,8 @@ PROGRAM _CYCLIC
 				TempString := ''; 
 			END_IF		
 		END_IF
-	END_WHILE	
-//		END_IF
+//	END_WHILE	
+		END_IF
 END_PROGRAM
 
 PROGRAM _EXIT

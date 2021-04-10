@@ -88,7 +88,7 @@ FUNCTION_BLOCK FBReadFromFile
 			//				END_IF
 			//			END_IF
 		4: (**** Read data from file ****)
-			(* Initialize file read structure *)
+			(* Initialize file read structure *)			
 			FRead.enable    := 1;
 			FRead.ident     := dwIdent;
 			FRead.offset    := Offset;
@@ -103,6 +103,7 @@ FUNCTION_BLOCK FBReadFromFile
 				IF (wStatus = 0) THEN
 					Read := FALSE;
 					byStep := 3;
+					ReadedStr := DELETE(ReadedStr,80,UDINT_TO_INT(BytesToRead+1));
 				ELSE
 					IF (wStatus <> 65535) THEN
 						byErrorLevel := 4;

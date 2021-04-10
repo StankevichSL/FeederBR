@@ -3,11 +3,11 @@
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Exception" />
   <TaskClass Name="Cyclic#1">
-    <Task Name="ReadTest" Source="ReadTest.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="ReadData" Source="ReadData.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2" />
   <TaskClass Name="Cyclic#3">
-    <Task Name="ReadData" Source="ReadData.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="ReadTest" Source="ReadTest.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#4" />
   <TaskClass Name="Cyclic#5" />
