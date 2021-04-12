@@ -46,20 +46,20 @@ PROGRAM _CYCLIC
 								END_IF
 								val := val + 1;
 							7: val := 0;	
+								IF flag THEN
+									Ktare[i] := FFeederRatio(ADR(W), ADR(V), 2400);
+									Rate := Velocity*Ktare[i];
+								ELSE
+									IF i > 200 THEN
+										Ktare[i] := FFeederRatio(ADR(W), ADR(V), i);	
+										Rate := Velocity*Ktare[i];
+									END_IF
+								END_IF
 								IF i = 2399 THEN
 									i := 0;
 									flag := TRUE;
 								ELSE
 									i := i + 1;
-								END_IF
-								IF flag THEN
-									Ktare := FFeederRatio(ADR(W), ADR(V), 2400);
-									Rate := Velocity*Ktare;
-								ELSE
-									IF i > 200 THEN
-										Ktare := FFeederRatio(ADR(W), ADR(V), i);	
-										Rate := Velocity*Ktare;
-									END_IF
 								END_IF
 							ELSE
 								val := val + 1;

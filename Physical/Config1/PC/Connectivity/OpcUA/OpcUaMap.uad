@@ -12,10 +12,10 @@
       <GlobalVariables Name="Global Variables">
         <Variable Name="V" />
         <Variable Name="W" />
+        <Variable Name="Ktare" />
       </GlobalVariables>
       <Task Name="ReadData">
         <Variable Name="i" />
-        <Variable Name="Ktare" />
         <Variable Name="Start" />
         <Variable Name="Rate" />
       </Task>

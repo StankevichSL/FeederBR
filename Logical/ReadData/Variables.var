@@ -13,6 +13,5 @@ VAR
 	val : USINT;
 	flag : BOOL;
 	FBRead : FBReadFromFile;
-	Ktare : REAL;
 	Rate : REAL;
 END_VAR
