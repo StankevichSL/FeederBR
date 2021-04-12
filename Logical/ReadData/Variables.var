@@ -1,4 +1,5 @@
 VAR
+	Velocity : REAL;
 	SeparatorPosition : INT;
 	NewLinePosition : INT;
 	buffer_str : STRING[255];
@@ -13,4 +14,5 @@ VAR
 	flag : BOOL;
 	FBRead : FBReadFromFile;
 	Ktare : REAL;
+	Rate : REAL;
 END_VAR

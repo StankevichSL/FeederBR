@@ -35,13 +35,14 @@ PROGRAM _CYCLIC
 							1: W[i] := ReadedValue;	
 								val := val + 1;
 							3: IF i=0 THEN
+									Velocity := ReadedValue;
 									IF flag THEN
-										V[0] := V[2399] + ReadedValue/600;
+										V[0] := V[2399] + Velocity;
 									ELSE
 										V[0] := 0;
 									END_IF
 								ELSE
-									V[i] := V[i-1] + ReadedValue/60000;
+									V[i] := V[i-1] + Velocity;
 								END_IF
 								val := val + 1;
 							7: val := 0;	
@@ -52,10 +53,12 @@ PROGRAM _CYCLIC
 									i := i + 1;
 								END_IF
 								IF flag THEN
-									Ktare := FRatePerMinute(ADR(W), ADR(V), 2400);
+									Ktare := FFeederRatio(ADR(W), ADR(V), 2400);
+									Rate := Velocity*Ktare;
 								ELSE
 									IF i > 200 THEN
-										Ktare := FRatePerMinute(ADR(W), ADR(V), i + 1);
+										Ktare := FFeederRatio(ADR(W), ADR(V), i);	
+										Rate := Velocity*Ktare;
 									END_IF
 								END_IF
 							ELSE
