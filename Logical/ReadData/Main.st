@@ -1,97 +1,97 @@
 
 PROGRAM _INIT
-	(* Initialize variables *)
-	FBRead.Enable := TRUE;
-	FBRead.strDevice := 'HardDisk';
-	FBRead.strFile := 'TestFile1';
-	BytesToRead := 1;
-	Offset := 0;
+	(* Insert code here *)
+	Step := 1;
 END_PROGRAM
 
 PROGRAM _CYCLIC
-(* Insert code here *)
-	IF Read THEN
-		FBRead.Read := TRUE;
-		FBRead.BytesToRead := BytesToRead;
-		FBRead.Offset := UDINT_TO_INT(Offset);
-			
-		flag:= FALSE;
-		//		WHILE flag DO
-		FBRead();
-		IF (FBRead.wStatus = 0) AND (FBRead.byStep = 3) THEN
-			IF (FBRead.ReadedStr <> '') THEN
-				IF FBRead.ReadedStr = Separator THEN
-					ReadedValue := STRING_TO_REAL(TempString);
-					TempString := '';				
-					CASE var1 OF
-						1: Wei := ReadedValue;
-							W[i] := Wei;	
-							var1 := var1 + 1;
-						3: Vel := ReadedValue;
-							IF i=0 THEN
-								IF flag THEN
-									V[0] := V[2399] + Vel/60;
+	(* Insert code here *)
+	IF Start THEN
+		CASE Step OF
+			0 : (*error*)
+			1 : (*init*) 
+				i := 0;
+				Step := 4;
+				offset := 0;
+				val := 0;
+				flag := FALSE;
+				FBRead.Enable := TRUE;
+				FBRead.strDevice := 'HardDisk';
+				FBRead.strFile := 'TestFile1';
+			2 : (*parsing*)
+				SeparatorPosition := FIND(buffer_str,',');
+				WHILE SeparatorPosition > 0 DO
+					//				IF SeparatorPosition > 0 THEN
+					IF SeparatorPosition > 1 THEN
+						temp_str := MID(buffer_str,SeparatorPosition - 1,1);
+						NewLinePosition := FIND(temp_str,'$n');
+						IF NewLinePosition > 0 THEN
+							temp_str := DELETE(temp_str,NewLinePosition,1);
+						END_IF
+						buffer_str := DELETE(buffer_str,SeparatorPosition,1);
+						ReadedValue := STRING_TO_REAL(temp_str);
+						temp_str := '';
+						CASE val OF
+							1: W[i] := ReadedValue;	
+								val := val + 1;
+							3: IF i=0 THEN
+									IF flag THEN
+										V[0] := V[2399] + ReadedValue/600;
+									ELSE
+										V[0] := 0;
+									END_IF
 								ELSE
-									V[0] := 0;
+									V[i] := V[i-1] + ReadedValue/60000;
+								END_IF
+								val := val + 1;
+							7: val := 0;	
+								IF i = 2399 THEN
+									i := 0;
+									flag := TRUE;
+								ELSE
+									i := i + 1;
+								END_IF
+								IF flag THEN
+									Ktare := FRatePerMinute(ADR(W), ADR(V), 2400);
+								ELSE
+									IF i > 200 THEN
+										Ktare := FRatePerMinute(ADR(W), ADR(V), i + 1);
+									END_IF
 								END_IF
 							ELSE
-								V[i] := V[i-1] + Vel/60;
-							END_IF
-							var1 := var1 + 1;
-						7: var1 := 0;	
-							IF i = 2399 THEN
-								i := 0;
-								flag := TRUE;
-							ELSE
-								i := i + 1;
-							END_IF
-							IF flag THEN
-								Ktare := FRatePerMinute(ADR(W), ADR(V), 2400);
-							ELSE
-								IF i > 200 THEN
-									Ktare := FRatePerMinute(ADR(W), ADR(V), i + 1);
-								END_IF
-							END_IF
-						ELSE
-							var1 := var1 + 1;
-					END_CASE
-					Offset := Offset + 1;
-					flag := FALSE;
-				ELSE
-					IF (FBRead.ReadedStr <> '$n') AND (FBRead.ReadedStr <> '$r') THEN
-						IF (FBRead.ReadedStr = '.') THEN
-							BytesToRead := 16;
-							Offset := Offset + 1;
-						ELSE
-							IF BytesToRead = 16 THEN
-								BytesToRead := 1;
-								Offset := Offset + 16;
-							ELSE
-								Offset := Offset + 1;
-							END_IF
-						END_IF						
-						TempString := CONCAT(TempString,FBRead.ReadedStr);
+								val := val + 1;
+						END_CASE					
 					ELSE
-						Offset := Offset + 1;
-						FBRead.Offset := Offset;
-						FBRead();
+						buffer_str := DELETE(buffer_str,1,1);
 					END_IF
+					//				ELSE
+					SeparatorPosition := FIND(buffer_str,',');
+				END_WHILE
+				Step := 3;				
+				//				END_IF
+			3 : (*end of buffer*)
+				Step := 4;
+				offset := offset + BytesToRead - LEN(buffer_str);
+			4 : (*read file*)
+				FBRead.Read := TRUE;
+				FBRead.BytesToRead := BytesToRead;
+				FBRead.Offset := offset;
+				FBRead();
+				IF (FBRead.wStatus = 0) AND (FBRead.byStep = 3) THEN
+					Step := 5;
+					buffer_str := FBRead.ReadedStr;
 				END_IF
-				//				Read := FALSE;
-			END_IF
-		ELSE
-			FBRead();
-		END_IF
-		//		END_WHILE
-	ELSE
-		FBRead.Read := FALSE;
+			5 : (*check end of line*)
+				//				NewLinePosition := FIND(buffer_str,'$n');
+				Step := 2;
+			ELSE
+				Step := 0;
+		END_CASE
 	END_IF
-		
-	FBRead();
 END_PROGRAM
 
 PROGRAM _EXIT
-(* Insert code here *)
+				(* Insert code here *)
 	 
-END_PROGRAM
+				END_PROGRAM
 

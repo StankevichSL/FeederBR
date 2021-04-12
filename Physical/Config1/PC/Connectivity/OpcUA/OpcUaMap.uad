@@ -15,10 +15,8 @@
       </GlobalVariables>
       <Task Name="ReadData">
         <Variable Name="i" />
-        <Variable Name="Vel" />
-        <Variable Name="Wei" />
-        <Variable Name="Read" />
         <Variable Name="Ktare" />
+        <Variable Name="Start" />
       </Task>
     </Module>
   </DefaultView>

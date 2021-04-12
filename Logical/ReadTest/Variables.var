@@ -1,9 +1,0 @@
-VAR
-	FBRead1 : FBReadFromFile;
-	ReadedStr : STRING[80];
-	ReadedValue : REAL;
-	Offset : UDINT;
-	Read : BOOL;
-	TempString : STRING[80];
-	i : UDINT;
-END_VAR

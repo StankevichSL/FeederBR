@@ -103,7 +103,7 @@ FUNCTION_BLOCK FBReadFromFile
 				IF (wStatus = 0) THEN
 					Read := FALSE;
 					byStep := 3;
-					ReadedStr := DELETE(ReadedStr,80,UDINT_TO_INT(BytesToRead+1));
+//					ReadedStr := DELETE(ReadedStr,10000,UDINT_TO_INT(BytesToRead+1));
 				ELSE
 					IF (wStatus <> 65535) THEN
 						byErrorLevel := 4;

@@ -1,16 +1,16 @@
 VAR
-	ReadedStr : STRING[80];
-	BytesToRead : UDINT;
-	Read : BOOL;
-	FBRead : FBReadFromFile;
-	Offset : UDINT;
-	Separator : STRING[1] := ',';
-	TempString : STRING[80];
-	i : UDINT;
+	SeparatorPosition : INT;
+	NewLinePosition : INT;
+	buffer_str : STRING[255];
+	BytesToRead : UDINT := 255; (*equal to length of buffer_str*)
+	temp_str : STRING[80]; (*for value*)
+	Step : USINT; (*step of program*)
+	offset : UDINT;
+	Start : BOOL; (*trigger*)
 	ReadedValue : REAL;
-	var1 : UDINT := 0;
-	flag : BOOL := TRUE;
-	Vel : REAL;
-	Wei : REAL;
+	i : UDINT; (*index*)
+	val : USINT;
+	flag : BOOL;
+	FBRead : FBReadFromFile;
 	Ktare : REAL;
 END_VAR

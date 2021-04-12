@@ -9,6 +9,5 @@
     <Object Type="Program" Language="IEC">Program</Object>
     <Object Type="Package">mappView</Object>
     <Object Type="Program" Language="IEC">ReadData</Object>
-    <Object Type="Program" Language="IEC">ReadTest</Object>
   </Objects>
 </Package>
