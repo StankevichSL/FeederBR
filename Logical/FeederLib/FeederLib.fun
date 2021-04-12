@@ -2,8 +2,8 @@
 
 {REDUND_ERROR} FUNCTION FRatePerMinute : REAL (*TODO: Add your comment here*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 	VAR_INPUT
-		weightArrayAdr : UDINT;
-		positionArrayAdr : UDINT;
+		W : REFERENCE TO ARRAY[0..2399] OF REAL;
+		V : REFERENCE TO ARRAY[0..2399] OF REAL;
 		lengthOfArray : UDINT;
 	END_VAR
 	VAR
