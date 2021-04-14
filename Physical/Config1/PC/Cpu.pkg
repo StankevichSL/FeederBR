@@ -17,6 +17,7 @@
     <Object Type="Package">mappView</Object>
     <Object Type="Package">mappVision</Object>
     <Object Type="Package">mappCockpit</Object>
+    <Object Type="Package">Motion</Object>
   </Objects>
   <Configuration ModuleId="PC_any">
     <AutomationRuntime Version="C4.90" />

@@ -32,3 +32,30 @@ END_FUNCTION
 		i : UDINT;
 	END_VAR
 END_FUNCTION
+
+{REDUND_ERROR} FUNCTION_BLOCK FBFeederControl (*TODO: Add your comment here*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
+	VAR_INPUT
+		Start : {REDUND_UNREPLICABLE} BOOL;
+		PrepurgeTime : TIME;
+		PostpurgeTime : TIME;
+		GasSetpoint : INT;
+		PowderSetpoint : REAL;
+		AxisConfigLink : UDINT;
+		ACPConfigLink : UDINT;
+		AxisBasicPar : MpAxisBasicParType;
+		AxisCyclicSetPar : MpAxisCyclicSetParType;
+	END_VAR
+	VAR
+		AxisBasic : MpAxisBasic;
+		AxisCyclicSet : MpAxisCyclicSet;
+		TON_Prepurge : TON;
+		TON_Postpurge : TON;
+	END_VAR
+	VAR_OUTPUT
+		Shutoff : BOOL;
+		Mixer : BOOL;
+		FlowReg : INT;
+		Status : FeederControlStatusEnum;
+		ActualSpeed : REAL;
+	END_VAR
+END_FUNCTION_BLOCK
