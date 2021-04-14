@@ -10,8 +10,10 @@ VAR
 	Start : BOOL; (*trigger*)
 	ReadedValue : REAL;
 	i : UDINT; (*index*)
+	j : UDINT;
 	val : USINT;
 	flag : BOOL;
 	FBRead : FBReadFromFile;
 	Rate : REAL;
+	StdDeviation : REAL;
 END_VAR

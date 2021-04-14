@@ -2,6 +2,8 @@
 PROGRAM _INIT
 	(* Insert code here *)
 	Step := 1;
+	i := 0;
+	j := 0;
 END_PROGRAM
 
 PROGRAM _CYCLIC
@@ -48,16 +50,31 @@ PROGRAM _CYCLIC
 									T[i] := T[i-1] + 0.001;
 								END_IF
 								val := val + 1;
-							7: val := 0;
+							7: val := 0;								
 								IF flag THEN
-									Ktare[i] := FFeederRatio(ADR(W), ADR(V), ADR(T), 2400);
-									Rate := Velocity*Ktare[i];
+									Ktare[j] := FFeederRatio(ADR(W), ADR(V), ADR(T), 2400);
+									StdDeviation := FStdDeviation(ADR(Ktare),2400);
+									Rate := Velocity*Ktare[j];
+									IF j = 2399 THEN
+										j := 0;									
+									ELSE
+										j := j + 1;
+									END_IF
 								ELSE
 									IF i > 200 THEN
-										Ktare[i] := FFeederRatio(ADR(W), ADR(V), ADR(T), i+1);
-										Rate := Velocity*Ktare[i];
+										Ktare[j] := FFeederRatio(ADR(W), ADR(V), ADR(T), i+1);
+										Rate := Velocity*Ktare[j];
+										IF (j>10) THEN
+											StdDeviation := FStdDeviation(ADR(Ktare),j);
+										END_IF
+										IF j = 2399 THEN
+											j := 0;									
+										ELSE
+											j := j + 1;
+										END_IF
 									END_IF
 								END_IF
+								
 								IF i = 2399 THEN
 									i := 0;
 									flag := TRUE;

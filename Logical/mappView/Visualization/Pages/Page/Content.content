@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Content id="content_0" height="600" width="800" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
+<Content id="content_0" height="600" width="1800" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
   <Widgets>
-    <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitch1" top="520" left="260" width="120" height="60" zIndex="0" text="Start" />
-    <Widget xsi:type="widgets.brease.TextOutput" id="TextOutput1" top="540" left="640" height="50" zIndex="1" />
-    <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput2" top="400" left="20" width="140" height="60" zIndex="2" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" />
-    <Widget xsi:type="widgets.brease.LineChart" id="LineChart1" top="0" left="0" width="400" height="380" zIndex="3">
+    <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitch1" top="500" left="40" width="120" height="60" zIndex="0" text="Start" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput2" top="420" left="140" width="140" height="60" zIndex="1" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" />
+    <Widget xsi:type="widgets.brease.LineChart" id="LineChart1" top="40" left="0" width="400" height="380" zIndex="2">
       <Widgets>
         <Widget xsi:type="widgets.brease.LineChartIndexAxis" id="LineChartIndexAxis1" zIndex="0">
           <Widgets />
@@ -16,7 +15,7 @@
         </Widget>
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.LineChart" id="LineChart2" top="0" left="400" width="400" height="380" zIndex="4">
+    <Widget xsi:type="widgets.brease.LineChart" id="LineChart2" top="40" left="400" width="400" height="380" zIndex="3">
       <Widgets>
         <Widget xsi:type="widgets.brease.LineChartIndexAxis" id="LineChartIndexAxis2" zIndex="0">
           <Widgets />
@@ -28,7 +27,25 @@
         </Widget>
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput3" top="480" left="400" width="160" height="60" zIndex="5" format="{'metric':{'decimalPlaces':2,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" />
-    <Widget xsi:type="widgets.brease.Label" id="Label2" top="500" left="580" zIndex="6" text="Rate" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput3" top="500" left="340" width="160" height="60" zIndex="4" format="{'metric':{'decimalPlaces':2,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" />
+    <Widget xsi:type="widgets.brease.Label" id="Label2" top="520" left="260" zIndex="5" text="Rate" />
+    <Widget xsi:type="widgets.brease.Label" id="Label1" top="440" left="80" width="60" zIndex="6" text="i" />
+    <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput4" top="420" left="580" width="140" height="60" zIndex="7" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" />
+    <Widget xsi:type="widgets.brease.Label" id="Label3" top="440" left="520" width="60" zIndex="8" text="j" />
+    <Widget xsi:type="widgets.brease.OnlineChart" id="OnlineChart1" top="40" left="800" width="400" height="380" zIndex="9">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.OnlineChartTimeAxis" id="OnlineChartTimeAxis1" zIndex="0">
+          <Widgets />
+        </Widget>
+        <Widget xsi:type="widgets.brease.OnlineChartYAxis" id="OnlineChartYAxis1" zIndex="1">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.OnlineChartGraph" id="OnlineChartGraph1" zIndex="0" maxValue="0.4" xAxisRefId="OnlineChartTimeAxis1" />
+          </Widgets>
+        </Widget>
+      </Widgets>
+    </Widget>
+    <Widget xsi:type="widgets.brease.Label" id="Label4" top="0" left="160" zIndex="10" text="Вес" />
+    <Widget xsi:type="widgets.brease.Label" id="Label5" top="0" left="500" width="240" zIndex="11" text="Тарировочный коэф" />
+    <Widget xsi:type="widgets.brease.Label" id="Label6" top="0" left="860" width="300" zIndex="12" text="Стандартное отклонение тарир. коэф" />
   </Widgets>
 </Content>

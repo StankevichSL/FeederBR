@@ -18,6 +18,8 @@
         <Variable Name="i" />
         <Variable Name="Start" />
         <Variable Name="Rate" />
+        <Variable Name="j" />
+        <Variable Name="StdDeviation" />
       </Task>
     </Module>
   </DefaultView>
