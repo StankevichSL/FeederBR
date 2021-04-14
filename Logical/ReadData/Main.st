@@ -32,26 +32,29 @@ PROGRAM _CYCLIC
 						ReadedValue := STRING_TO_REAL(temp_str);
 						temp_str := '';
 						CASE val OF
-							1: W[i] := ReadedValue;	
+							1: W[i] := ReadedValue;
 								val := val + 1;
 							3: IF i=0 THEN
 									Velocity := ReadedValue;
 									IF flag THEN
-										V[0] := V[2399] + Velocity;
+										V[0] := V[2399] + Velocity/100000;
+										T[0] := T[2399] + 0.001;
 									ELSE
 										V[0] := 0;
+										T[0] := 0;
 									END_IF
 								ELSE
-									V[i] := V[i-1] + Velocity;
+									V[i] := V[i-1] + Velocity/100000;
+									T[i] := T[i-1] + 0.001;
 								END_IF
 								val := val + 1;
-							7: val := 0;	
+							7: val := 0;
 								IF flag THEN
-									Ktare[i] := FFeederRatio(ADR(W), ADR(V), 2400);
+									Ktare[i] := FFeederRatio(ADR(W), ADR(V), ADR(T), 2400);
 									Rate := Velocity*Ktare[i];
 								ELSE
 									IF i > 200 THEN
-										Ktare[i] := FFeederRatio(ADR(W), ADR(V), i);	
+										Ktare[i] := FFeederRatio(ADR(W), ADR(V), ADR(T), i+1);
 										Rate := Velocity*Ktare[i];
 									END_IF
 								END_IF

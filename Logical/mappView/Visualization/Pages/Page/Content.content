@@ -11,7 +11,7 @@
         </Widget>
         <Widget xsi:type="widgets.brease.LineChartYAxis" id="LineChartYAxis2" zIndex="1">
           <Widgets>
-            <Widget xsi:type="widgets.brease.LineChartGraph" id="LineChartGraph2" zIndex="0" maxValue="19" minValue="15" xAxisRefId="LineChartIndexAxis1" />
+            <Widget xsi:type="widgets.brease.LineChartGraph" id="LineChartGraph2" zIndex="0" maxValue="17.5" minValue="16.5" xAxisRefId="LineChartIndexAxis1" />
           </Widgets>
         </Widget>
       </Widgets>

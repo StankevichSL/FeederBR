@@ -6,5 +6,6 @@
     <File Description="Exported constants">Constants.var</File>
     <File Description="Exported functions and function blocks">FeederLib.fun</File>
     <File>FFeederRatio.st</File>
+    <File>FStdDeviation.st</File>
   </Files>
 </Library>
