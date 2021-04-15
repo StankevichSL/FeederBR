@@ -42,20 +42,20 @@ END_FUNCTION
 		PowderSetpoint : REAL;
 		AxisConfigLink : UDINT;
 		ACPConfigLink : UDINT;
-		AxisBasicPar : MpAxisBasicParType;
-		AxisCyclicSetPar : MpAxisCyclicSetParType;
+		AxisBasicParLink : UDINT;
+		AxisCyclicSetParLink : UDINT;
+	END_VAR
+	VAR_OUTPUT
+		Shutoff : BOOL;
+		Mixer : BOOL;
+		FlowReg : INT;
+		Status : FeederControlStatusEnum := FEEDCTRL_INIT;
+		ActualSpeed : REAL;
 	END_VAR
 	VAR
 		AxisBasic : MpAxisBasic;
 		AxisCyclicSet : MpAxisCyclicSet;
 		TON_Prepurge : TON;
 		TON_Postpurge : TON;
-	END_VAR
-	VAR_OUTPUT
-		Shutoff : BOOL;
-		Mixer : BOOL;
-		FlowReg : INT;
-		Status : FeederControlStatusEnum;
-		ActualSpeed : REAL;
 	END_VAR
 END_FUNCTION_BLOCK

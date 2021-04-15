@@ -12,6 +12,7 @@ VAR
 	i : UDINT; (*index*)
 	j : UDINT;
 	val : USINT;
+	flag1 : BOOL := FALSE;
 	flag : BOOL;
 	FBRead : FBReadFromFile;
 	Rate : REAL;

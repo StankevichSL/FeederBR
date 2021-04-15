@@ -5,6 +5,16 @@ FUNCTION_BLOCK FBFeederControl
 		FEEDCTRL_ERROR:
 			// error case
 		FEEDCTRL_INIT:
+			// добавить проверку чтобы AxisConfigLink != 0
+			AxisBasic.MpLink := AxisConfigLink;
+			AxisBasic.Enable := TRUE;
+			AxisBasic.Parameters := AxisBasicParLink;
+			AxisBasic.Axis := ACPConfigLink;
+			
+			AxisCyclicSet.MpLink := AxisConfigLink;
+			AxisCyclicSet.Enable := TRUE;
+			AxisCyclicSet.Parameters := AxisCyclicSetParLink;
+			
 			IF (AxisBasic.Active) THEN 
 				AxisBasic.Power := 1;
 				IF (AxisBasic.PowerOn) THEN 
@@ -70,8 +80,8 @@ FUNCTION_BLOCK FBFeederControl
 			FlowReg := GasSetpoint;
 	END_CASE
 	
-	AxisBasic(MpLink := AxisConfigLink, Enable := 1, Parameters := ADR(AxisBasicPar), Axis := ACPConfigLink);
-	AxisCyclicSet(MpLink := AxisConfigLink, Enable := 1, Parameters := ADR(AxisCyclicSetPar));	
+	AxisBasic();
+	AxisCyclicSet();	
 	ActualSpeed := AxisBasic.Velocity;
 
 END_FUNCTION_BLOCK

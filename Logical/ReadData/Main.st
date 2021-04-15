@@ -53,10 +53,15 @@ PROGRAM _CYCLIC
 							7: val := 0;								
 								IF flag THEN
 									Ktare[j] := FFeederRatio(ADR(W), ADR(V), ADR(T), 2400);
-									StdDeviation := FStdDeviation(ADR(Ktare),2400);
+									IF flag1 THEN
+										StdDeviation := FStdDeviation(ADR(Ktare),2400);
+									ELSE
+										StdDeviation := FStdDeviation(ADR(Ktare),j);
+									END_IF
 									Rate := Velocity*Ktare[j];
 									IF j = 2399 THEN
-										j := 0;									
+										j := 0;	
+										flag1 := TRUE;
 									ELSE
 										j := j + 1;
 									END_IF
