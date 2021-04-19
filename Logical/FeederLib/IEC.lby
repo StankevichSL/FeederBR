@@ -8,6 +8,7 @@
     <File>FFeederRatio.st</File>
     <File>FStdDeviation.st</File>
     <File>FBFeederControl.st</File>
+    <File>FBFeederBlock.st</File>
   </Files>
   <Dependencies>
     <Dependency ObjectName="MpAxis" />

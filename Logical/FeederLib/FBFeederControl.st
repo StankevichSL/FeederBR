@@ -1,87 +1,88 @@
 
 (* TODO: Add your comment here *)
 FUNCTION_BLOCK FBFeederControl
-	CASE Status OF
-		FEEDCTRL_ERROR:
-			// error case
-		FEEDCTRL_INIT:
-			// добавить проверку чтобы AxisConfigLink != 0
-			AxisBasic.MpLink := AxisConfigLink;
-			AxisBasic.Enable := TRUE;
-			AxisBasic.Parameters := AxisBasicParLink;
-			AxisBasic.Axis := ACPConfigLink;
+	IF Enable THEN
+		CASE Status OF
+			FEEDCTRL_ERROR:
+				// error case
+			FEEDCTRL_INIT:
+				// добавить проверку чтобы AxisConfigLink != 0
+				AxisBasic.MpLink := Config.AxisConfigLink;
+				AxisBasic.Enable := TRUE;
+				AxisBasic.Parameters := Config.AxisBasicParLink;
+				AxisBasic.Axis := Config.ACPConfigLink;
 			
-			AxisCyclicSet.MpLink := AxisConfigLink;
-			AxisCyclicSet.Enable := TRUE;
-			AxisCyclicSet.Parameters := AxisCyclicSetParLink;
+				AxisCyclicSet.MpLink := Config.AxisConfigLink;
+				AxisCyclicSet.Enable := TRUE;
+				AxisCyclicSet.Parameters := Config.AxisCyclicSetParLink;
 			
-			IF (AxisBasic.Active) THEN 
-				AxisBasic.Power := 1;
-				IF (AxisBasic.PowerOn) THEN 
-					IF (AxisBasic.IsHomed = 0) THEN 
-						AxisBasic.Home := 1;
-					ELSE
-						AxisBasic.Home := 0;
-						IF (AxisCyclicSet.Active) THEN
-							AxisCyclicSet.CyclicVelocity := 1;
-							Status := FEEDCTRL_READY_TO_FEED;
+				IF (AxisBasic.Active) THEN 
+					AxisBasic.Power := 1;
+					IF (AxisBasic.PowerOn) THEN 
+						IF (AxisBasic.IsHomed = 0) THEN 
+							AxisBasic.Home := 1;
+						ELSE
+							AxisBasic.Home := 0;
+							IF (AxisCyclicSet.Active) THEN
+								AxisCyclicSet.CyclicVelocity := 1;
+								Status := FEEDCTRL_READY_TO_FEED;
+							END_IF;
 						END_IF;
 					END_IF;
-				END_IF;
-			END_IF;			
-		FEEDCTRL_READY_TO_FEED:
-			IF (Start) THEN	
-				Status := FEEDCTRL_PREPURGE;
-			END_IF
-			
-			FlowReg := 0;
-			Shutoff := TRUE;
-			Mixer := FALSE;
-		FEEDCTRL_PREPURGE:
-			IF (Start) THEN
-				IF (TON_Prepurge.Q) THEN 
-					TON_Prepurge.IN := 0;		
-					Status := FEEDCTRL_FEEDING;
-				ELSE 
-					TON_Prepurge.IN := 1;
+				END_IF;			
+			FEEDCTRL_READY_TO_FEED:
+				IF (Start) THEN	
+					Status := FEEDCTRL_PREPURGE;
 				END_IF
-			ELSE
-				TON_Prepurge.IN := 0;
-				Status := FEEDCTRL_READY_TO_FEED;
-			END_IF
-			TON_Prepurge(PT := PrepurgeTime);
 			
-			FlowReg := GasSetpoint;
-			Shutoff := FALSE;
-			Mixer := TRUE;			
-		FEEDCTRL_FEEDING:
-			IF (Start) THEN				
-				AxisCyclicSet.Velocity := PowderSetpoint;
-			ELSE
-				AxisCyclicSet.Velocity := 0;
-				Status := FEEDCTRL_POSTPURGE;	
-			END_IF
-			
-			FlowReg := GasSetpoint;			
-		FEEDCTRL_POSTPURGE:
-			IF (Start) THEN
-				TON_Postpurge.IN := 0;
-				Status := FEEDCTRL_FEEDING;
-			ELSE
-				IF (TON_Postpurge.Q) THEN
-					TON_Postpurge.IN := 0;
-					Status := FEEDCTRL_READY_TO_FEED;
+				Out.FlowReg := 0;
+				Out.Shutoff := TRUE;
+				Out.Mixer := FALSE;
+			FEEDCTRL_PREPURGE:
+				IF (Start) THEN
+					IF (TON_Prepurge.Q) THEN 
+						TON_Prepurge.IN := 0;		
+						Status := FEEDCTRL_FEEDING;
+					ELSE 
+						TON_Prepurge.IN := 1;
+					END_IF
 				ELSE
-					TON_Postpurge.IN := 1;
+					TON_Prepurge.IN := 0;
+					Status := FEEDCTRL_READY_TO_FEED;
 				END_IF
-			END_IF			
-			TON_Postpurge(PT := PostpurgeTime);
+				TON_Prepurge(PT := Config.PrepurgeTime);
 			
-			FlowReg := GasSetpoint;
-	END_CASE
-	
-	AxisBasic();
-	AxisCyclicSet();	
-	ActualSpeed := AxisBasic.Velocity;
+				Out.FlowReg := Control.GasSetpoint;
+				Out.Shutoff := FALSE;
+				Out.Mixer := TRUE;			
+			FEEDCTRL_FEEDING:
+				IF (Start) THEN				
+					AxisCyclicSet.Velocity := Control.PowderSetpoint;
+				ELSE
+					AxisCyclicSet.Velocity := 0;
+					Status := FEEDCTRL_POSTPURGE;	
+				END_IF
+			
+				Out.FlowReg := Control.GasSetpoint;			
+			FEEDCTRL_POSTPURGE:
+				IF (Start) THEN
+					TON_Postpurge.IN := 0;
+					Status := FEEDCTRL_FEEDING;
+				ELSE
+					IF (TON_Postpurge.Q) THEN
+						TON_Postpurge.IN := 0;
+						Status := FEEDCTRL_READY_TO_FEED;
+					ELSE
+						TON_Postpurge.IN := 1;
+					END_IF
+				END_IF			
+				TON_Postpurge(PT := Config.PostpurgeTime);
+			
+				Out.FlowReg := Control.GasSetpoint;
+		END_CASE	
+		AxisBasic();
+		AxisCyclicSet();	
+		Out.ActualSpeed := AxisBasic.Velocity;
+	END_IF
 
 END_FUNCTION_BLOCK
