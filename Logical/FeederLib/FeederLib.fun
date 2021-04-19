@@ -54,6 +54,35 @@ END_FUNCTION_BLOCK
 
 {REDUND_ERROR} FUNCTION_BLOCK FBFeederBlock (*TODO: Add your comment here*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 	VAR_INPUT
-		newParam : {REDUND_UNREPLICABLE} BOOL;
+		Enable : {REDUND_UNREPLICABLE} BOOL;
+	END_VAR
+	VAR_OUTPUT
+		Status : FeederBlockStatusEnum;
+	END_VAR
+END_FUNCTION_BLOCK
+
+{REDUND_ERROR} FUNCTION_BLOCK FBFeeder (*TODO: Add your comment here*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
+	VAR_INPUT
+		Enable : {REDUND_UNREPLICABLE} BOOL;
+		Start : BOOL;
+		Config : FeederConfigType;
+		Control : FeederControlType;
+	END_VAR
+	VAR
+		FBControl : FBFeederControl;
+		TON_BufferDelay : TON;
+		W : ARRAY[0..2399] OF REAL;
+		T : ARRAY[0..2399] OF REAL;
+		P : ARRAY[0..2399] OF REAL;
+		i : UINT;
+		WriteInBuffer : BOOL := FALSE;
+	END_VAR
+	VAR_OUTPUT
+		Status : FeederStatusEnum;
+	END_VAR
+	VAR_INPUT
+		Weigth : REAL;
+		Velocity : REAL;
+		Clock : REAL;
 	END_VAR
 END_FUNCTION_BLOCK
