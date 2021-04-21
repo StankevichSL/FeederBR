@@ -18,5 +18,6 @@
     <Object Type="Library" Language="binary" Description="The BRSystem library provides the user with a number of system functions for e.g. handling permanent memory, accessing exception information, etc.">brsystem</Object>
     <Object Type="Library" Language="Binary" Description="Motion Control Manager">Acp10man</Object>
     <Object Type="Library" Language="Binary" Description="ACOPOS Parameters">Acp10par</Object>
+    <Object Type="Library" Language="IEC">UserLib</Object>
   </Objects>
 </Package>

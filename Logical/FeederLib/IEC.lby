@@ -20,5 +20,6 @@
     <Dependency ObjectName="brsystem" />
     <Dependency ObjectName="Acp10man" />
     <Dependency ObjectName="Acp10par" />
+    <Dependency ObjectName="UserLib" />
   </Dependencies>
 </Library>

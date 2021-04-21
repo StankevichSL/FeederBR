@@ -17,6 +17,7 @@ FUNCTION_BLOCK FBFeederControl
 				AxisCyclicSet.Parameters := Config.AxisCyclicSetParLink;
 			
 				IF (AxisBasic.Active) THEN 
+					UserInfo.Active := TRUE;
 					AxisBasic.Power := 1;
 					IF (AxisBasic.PowerOn) THEN 
 						IF (AxisBasic.IsHomed = 0) THEN 
@@ -35,9 +36,9 @@ FUNCTION_BLOCK FBFeederControl
 					Status := FEEDCTRL_PREPURGE;
 				END_IF
 			
-				Out.FlowReg := 0;
-				Out.Shutoff := TRUE;
-				Out.Mixer := FALSE;
+				IO.Out.aoGasRate := 0;
+				IO.Out.doShutOff := TRUE;
+				IO.Out.doMixer := FALSE;
 			FEEDCTRL_PREPURGE:
 				IF (Start) THEN
 					IF (TON_Prepurge.Q) THEN 
@@ -52,18 +53,18 @@ FUNCTION_BLOCK FBFeederControl
 				END_IF
 				TON_Prepurge(PT := Config.PrepurgeTime);
 			
-				Out.FlowReg := Control.GasSetpoint;
-				Out.Shutoff := FALSE;
-				Out.Mixer := TRUE;			
+				IO.Out.aoGasRate := Calibrate(Control.GasRate,Config.GasCalibrateOut);
+				IO.Out.doShutOff := FALSE;
+				IO.Out.doMixer := TRUE;			
 			FEEDCTRL_FEEDING:
 				IF (Start) THEN				
-					AxisCyclicSet.Velocity := Control.PowderSetpoint;
+					AxisCyclicSet.Velocity := ((Control.PowderRate*(100+Control.KZU))/Control.KZP)*TareK;
 				ELSE
 					AxisCyclicSet.Velocity := 0;
 					Status := FEEDCTRL_POSTPURGE;	
 				END_IF
 			
-				Out.FlowReg := Control.GasSetpoint;			
+				IO.Out.aoGasRate := Calibrate(Control.GasRate,Config.GasCalibrateOut);			
 			FEEDCTRL_POSTPURGE:
 				IF (Start) THEN
 					TON_Postpurge.IN := 0;
@@ -78,11 +79,11 @@ FUNCTION_BLOCK FBFeederControl
 				END_IF			
 				TON_Postpurge(PT := Config.PostpurgeTime);
 			
-				Out.FlowReg := Control.GasSetpoint;
+				IO.Out.aoGasRate := Calibrate(Control.GasRate,Config.GasCalibrateOut);
 		END_CASE	
 		AxisBasic();
 		AxisCyclicSet();	
-		Out.ActualSpeed := AxisBasic.Velocity;
+		UserInfo.ActualSpeed := AxisBasic.Velocity;
 	END_IF
 
 END_FUNCTION_BLOCK

@@ -1,5 +1,16 @@
 
 TYPE
+	FeederBlockStatusEnum : 
+		(
+		FEEDBLOCK_ERROR := 0,
+		FEEDBLOCK_INIT := 1,
+		FEEDBLOCK_WORK := 2
+		);
+END_TYPE
+
+(*FBFeederControl*)
+
+TYPE
 	FeederControlStatusEnum : 
 		(
 		FEEDCTRL_ERROR := 0,
@@ -9,12 +20,42 @@ TYPE
 		FEEDCTRL_FEEDING := 4,
 		FEEDCTRL_POSTPURGE := 5
 		);
-	FeederBlockStatusEnum : 
-		(
-		FEEDBLOCK_ERROR := 0,
-		FEEDBLOCK_INIT := 1,
-		FEEDBLOCK_WORK := 2
-		);
+	FeederControlControlType : 	STRUCT 
+		GasRate : INT;
+		PowderRate : INT;
+		KZP : REAL;
+		KZU : REAL;
+	END_STRUCT;
+	FeederControlConfigType : 	STRUCT 
+		PrepurgeTime : TIME;
+		PostpurgeTime : TIME;
+		AxisConfigLink : UDINT;
+		ACPConfigLink : UDINT;
+		AxisBasicParLink : UDINT;
+		AxisCyclicSetParLink : UDINT;
+		GasCalibrateOut : CalibrationType;
+	END_STRUCT;
+	FeederControlIOoutType : 	STRUCT 
+		aoGasRate : INT;
+		doShutOff : BOOL;
+		doMixer : BOOL;
+	END_STRUCT;
+	FeederControlIOinType : 	STRUCT 
+		aiGasRate : INT;
+	END_STRUCT;
+	FeederControlUserInfoType : 	STRUCT 
+		Active : BOOL;
+		ActualSpeed : REAL;
+	END_STRUCT;
+	FeederControlIOType : 	STRUCT 
+		In : FeederControlIOinType;
+		Out : FeederControlIOoutType;
+	END_STRUCT;
+END_TYPE
+
+(*FBFeeder*)
+
+TYPE
 	FeederStatusEnum : 
 		(
 		FEED_ERROR := 0,
@@ -24,33 +65,34 @@ TYPE
 		FEED_READY := 4,
 		FEED_FEEDING := 5
 		);
-	FeederControlConfigType : 	STRUCT 
-		PrepurgeTime : TIME;
-		PostpurgeTime : TIME;
-		AxisConfigLink : UDINT;
-		ACPConfigLink : UDINT;
-		AxisBasicParLink : UDINT;
-		AxisCyclicSetParLink : UDINT;
-	END_STRUCT;
-	FeederControlControlType : 	STRUCT 
-		GasSetpoint : INT;
-		PowderSetpoint : LREAL;
-	END_STRUCT;
-	FeederControlOutType : 	STRUCT 
-		Shutoff : BOOL;
-		Mixer : BOOL;
-		FlowReg : INT;
-		ActualSpeed : REAL;
+	FeederControlType : 	STRUCT 
+		FeederControl : FeederControlControlType;
+		ManualTareControl : BOOL;
+		TareK : REAL;
 	END_STRUCT;
 	FeederConfigType : 	STRUCT 
-		AutoMode : BOOL;
+		GasCalibrateIn : CalibrationType;
+		WeightCalibrate : CalibrationType;
 		DefaultTareK : REAL;
-		Deviation : REAL; (*Value of standart deviation TareK to go to auto feed mode*)
-		SwitchWeight : REAL; (*Value of weigth to switch feeder*)
-		BufferDelay : TIME; (*Delay to charge buffers *)
+		WarningWeight : REAL;
+		AlarmWeight : REAL;
+		AlarmPrefix : STRING[80];
+		EnableAutoRateControl : BOOL;
+		ControlConfig : FeederControlConfigType;
+		BufferDelay : TIME;
+		TareCalcDelay : TIME;
+		DeviationCalcDelay : TIME;
+		ToGoToAutoDelay : TIME;
+		DeviationLimit : REAL;
 	END_STRUCT;
-	FeederControlType : 	STRUCT 
-		DiskVelocityKoef : REAL := 1;
-		SeparateMode : BOOL;
+	FeederIOinType : 	STRUCT 
+		aiWeight : INT;
+	END_STRUCT;
+	FeederUserInfoType : 	STRUCT 
+		Weight : REAL;
+		Rate : REAL;
+		TareK : REAL;
+		Deviation : REAL;
+		IsAUTO : BOOL;
 	END_STRUCT;
 END_TYPE
