@@ -40,11 +40,12 @@ END_FUNCTION
 		Config : FeederHandlerConfigType;
 		Control : FeederHandlerControlType;
 		TareK : REAL;
+		IOin : FeederHandlerIOinType;
 	END_VAR
 	VAR_OUTPUT
 		UserInfo : FeederHandlerUserInfoType;
 		Status : FeederHandlerStatusEnum := FEEDCTRL_INIT;
-		IO : FeederHandlerIOType;
+		IOout : FeederHandlerIOoutType;
 	END_VAR
 	VAR
 		AxisBasic : MpAxisBasic;
@@ -64,6 +65,7 @@ END_FUNCTION_BLOCK
 		IOin : FeederIOinType;
 	END_VAR
 	VAR_OUTPUT
+		IOout : FeederHandlerIOoutType;
 		UserInfo : FeederUserInfoType;
 		Status : FeederStatusEnum;
 	END_VAR

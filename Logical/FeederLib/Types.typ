@@ -66,11 +66,12 @@ TYPE
 		FEED_FEEDING := 5
 		);
 	FeederControlType : 	STRUCT 
-		HandlerControl : FeederHandlerControlType;
+		Handler : FeederHandlerControlType;
 		ManualTareControl : BOOL;
 		TareK : REAL;
 	END_STRUCT;
 	FeederConfigType : 	STRUCT 
+		Handler : FeederHandlerConfigType;
 		GasCalibrateIn : CalibrationType;
 		WeightCalibrate : CalibrationType;
 		DefaultTareK : REAL;
@@ -78,7 +79,6 @@ TYPE
 		AlarmWeight : REAL;
 		AlarmPrefix : STRING[80];
 		EnableAutoRateControl : BOOL;
-		HandlerConfig : FeederHandlerConfigType;
 		BufferDelay : TIME;
 		TareCalcDelay : TIME;
 		DeviationCalcDelay : TIME;
@@ -87,9 +87,11 @@ TYPE
 		ResetWeightLimit : REAL;
 	END_STRUCT;
 	FeederIOinType : 	STRUCT 
+		Handler : FeederHandlerIOinType;
 		aiWeight : INT;
 	END_STRUCT;
 	FeederUserInfoType : 	STRUCT 
+		Handler : FeederHandlerUserInfoType;
 		Weight : REAL;
 		Rate : REAL;
 		TareK : REAL;

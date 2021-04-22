@@ -1,15 +1,12 @@
 
 (* TODO: Add your comment here *)
 FUNCTION_BLOCK FBFeeder
-	IF Enable THEN
-		UserInfo.Weight := CalibrateREAL(IOin.aiWeight, Config.WeightCalibrate);						
+	IF Enable THEN								
 		CASE Status OF
 			FEED_ERROR:
 			FEED_INIT:				
 				FBControl.Enable := TRUE;
-				FBControl.Config := Config.HandlerConfig;
-				FBControl.Control := Control.HandlerControl;
-				FBControl.TareK := Config.DefaultTareK;  
+				FBControl.TareK := Config.DefaultTareK;				
 				
 				TON_BufferDelay.PT := Config.BufferDelay;
 				TON_TareCalcDelay.PT := Config.TareCalcDelay;
@@ -130,7 +127,6 @@ FUNCTION_BLOCK FBFeeder
 							END_IF				
 						END_IF			
 					END_IF
-					UserInfo.Rate := FBControl.TareK;
 				ELSE
 					FBControl.Start := FALSE;
 					Status := FEED_PAUSE;
@@ -178,7 +174,14 @@ FUNCTION_BLOCK FBFeeder
 					END_IF	
 				END_IF
 		END_CASE
+		FBControl.Config := Config.Handler;
+		FBControl.Control := Control.Handler;
+		FBControl.IOin := IOin.Handler;
 		FBControl();
+		UserInfo.Handler := FBControl.UserInfo;
+		UserInfo.Weight := CalibrateREAL(IOin.aiWeight, Config.WeightCalibrate);
+		UserInfo.Rate := FBControl.TareK;
+		IOout := FBControl.IOout;
 	ELSE
 		Status := FEED_INIT;
 	END_IF

@@ -36,9 +36,9 @@ FUNCTION_BLOCK FBFeederHandler
 					Status := FEEDCTRL_PREPURGE;
 				END_IF
 			
-				IO.Out.aoGasRate := 0;
-				IO.Out.doShutOff := TRUE;
-				IO.Out.doMixer := FALSE;
+				IOout.aoGasRate := 0;
+				IOout.doShutOff := TRUE;
+				IOout.doMixer := FALSE;
 			FEEDCTRL_PREPURGE:
 				IF (Start) THEN
 					IF (TON_Prepurge.Q) THEN 
@@ -53,9 +53,9 @@ FUNCTION_BLOCK FBFeederHandler
 				END_IF
 				TON_Prepurge(PT := Config.PrepurgeTime);
 			
-				IO.Out.aoGasRate := Calibrate(Control.GasRate,Config.GasCalibrateOut);
-				IO.Out.doShutOff := FALSE;
-				IO.Out.doMixer := TRUE;			
+				IOout.aoGasRate := Calibrate(Control.GasRate,Config.GasCalibrateOut);
+				IOout.doShutOff := FALSE;
+				IOout.doMixer := TRUE;			
 			FEEDCTRL_FEEDING:
 				IF (Start) THEN				
 					AxisCyclicSet.Velocity := ((Control.PowderRate*(100+Control.KZU))/Control.KZP)*TareK;
@@ -64,7 +64,7 @@ FUNCTION_BLOCK FBFeederHandler
 					Status := FEEDCTRL_POSTPURGE;	
 				END_IF
 			
-				IO.Out.aoGasRate := Calibrate(Control.GasRate,Config.GasCalibrateOut);			
+				IOout.aoGasRate := Calibrate(Control.GasRate,Config.GasCalibrateOut);			
 			FEEDCTRL_POSTPURGE:
 				IF (Start) THEN
 					TON_Postpurge.IN := 0;
@@ -79,7 +79,7 @@ FUNCTION_BLOCK FBFeederHandler
 				END_IF			
 				TON_Postpurge(PT := Config.PostpurgeTime);
 			
-				IO.Out.aoGasRate := Calibrate(Control.GasRate,Config.GasCalibrateOut);
+				IOout.aoGasRate := Calibrate(Control.GasRate,Config.GasCalibrateOut);
 		END_CASE	
 		AxisBasic();
 		AxisCyclicSet();	
