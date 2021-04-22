@@ -33,18 +33,18 @@ END_FUNCTION
 	END_VAR
 END_FUNCTION
 
-{REDUND_ERROR} FUNCTION_BLOCK FBFeederControl (*TODO: Add your comment here*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
+{REDUND_ERROR} FUNCTION_BLOCK FBFeederHandler (*TODO: Add your comment here*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 	VAR_INPUT
 		Enable : BOOL;
 		Start : {REDUND_UNREPLICABLE} BOOL;
-		Config : FeederControlConfigType;
-		Control : FeederControlControlType;
+		Config : FeederHandlerConfigType;
+		Control : FeederHandlerControlType;
 		TareK : REAL;
 	END_VAR
 	VAR_OUTPUT
-		UserInfo : FeederControlUserInfoType;
-		Status : FeederControlStatusEnum := FEEDCTRL_INIT;
-		IO : FeederControlIOType;
+		UserInfo : FeederHandlerUserInfoType;
+		Status : FeederHandlerStatusEnum := FEEDCTRL_INIT;
+		IO : FeederHandlerIOType;
 	END_VAR
 	VAR
 		AxisBasic : MpAxisBasic;
@@ -68,7 +68,7 @@ END_FUNCTION_BLOCK
 		Status : FeederStatusEnum;
 	END_VAR
 	VAR
-		FBControl : FBFeederControl;
+		FBControl : FBFeederHandler;
 		TON_TareCalcDelay : TON;
 		TON_DeviationCalcDelay : TON;
 		TON_ToGoToAutoDelay : TON;

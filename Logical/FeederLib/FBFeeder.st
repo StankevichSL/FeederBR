@@ -7,8 +7,8 @@ FUNCTION_BLOCK FBFeeder
 			FEED_ERROR:
 			FEED_INIT:				
 				FBControl.Enable := TRUE;
-				FBControl.Config := Config.ControlConfig;
-				FBControl.Control := Control.FeederControl;
+				FBControl.Config := Config.HandlerConfig;
+				FBControl.Control := Control.HandlerControl;
 				FBControl.TareK := Config.DefaultTareK;  
 				
 				TON_BufferDelay.PT := Config.BufferDelay;

@@ -8,10 +8,10 @@ TYPE
 		);
 END_TYPE
 
-(*FBFeederControl*)
+(*FBFeederHandler*)
 
 TYPE
-	FeederControlStatusEnum : 
+	FeederHandlerStatusEnum : 
 		(
 		FEEDCTRL_ERROR := 0,
 		FEEDCTRL_INIT := 1,
@@ -20,13 +20,13 @@ TYPE
 		FEEDCTRL_FEEDING := 4,
 		FEEDCTRL_POSTPURGE := 5
 		);
-	FeederControlControlType : 	STRUCT 
+	FeederHandlerControlType : 	STRUCT 
 		GasRate : INT;
 		PowderRate : INT;
 		KZP : REAL;
 		KZU : REAL;
 	END_STRUCT;
-	FeederControlConfigType : 	STRUCT 
+	FeederHandlerConfigType : 	STRUCT 
 		PrepurgeTime : TIME;
 		PostpurgeTime : TIME;
 		AxisConfigLink : UDINT;
@@ -35,21 +35,21 @@ TYPE
 		AxisCyclicSetParLink : UDINT;
 		GasCalibrateOut : CalibrationType;
 	END_STRUCT;
-	FeederControlIOoutType : 	STRUCT 
+	FeederHandlerIOoutType : 	STRUCT 
 		aoGasRate : INT;
 		doShutOff : BOOL;
 		doMixer : BOOL;
 	END_STRUCT;
-	FeederControlIOinType : 	STRUCT 
+	FeederHandlerIOinType : 	STRUCT 
 		aiGasRate : INT;
 	END_STRUCT;
-	FeederControlUserInfoType : 	STRUCT 
+	FeederHandlerUserInfoType : 	STRUCT 
 		Active : BOOL;
 		ActualSpeed : REAL;
 	END_STRUCT;
-	FeederControlIOType : 	STRUCT 
-		In : FeederControlIOinType;
-		Out : FeederControlIOoutType;
+	FeederHandlerIOType : 	STRUCT 
+		In : FeederHandlerIOinType;
+		Out : FeederHandlerIOoutType;
 	END_STRUCT;
 END_TYPE
 
@@ -66,7 +66,7 @@ TYPE
 		FEED_FEEDING := 5
 		);
 	FeederControlType : 	STRUCT 
-		FeederControl : FeederControlControlType;
+		HandlerControl : FeederHandlerControlType;
 		ManualTareControl : BOOL;
 		TareK : REAL;
 	END_STRUCT;
@@ -78,7 +78,7 @@ TYPE
 		AlarmWeight : REAL;
 		AlarmPrefix : STRING[80];
 		EnableAutoRateControl : BOOL;
-		ControlConfig : FeederControlConfigType;
+		HandlerConfig : FeederHandlerConfigType;
 		BufferDelay : TIME;
 		TareCalcDelay : TIME;
 		DeviationCalcDelay : TIME;

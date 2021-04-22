@@ -1,6 +1,6 @@
 
 (* TODO: Add your comment here *)
-FUNCTION_BLOCK FBFeederControl
+FUNCTION_BLOCK FBFeederHandler
 	IF Enable THEN
 		CASE Status OF
 			FEEDCTRL_ERROR:
