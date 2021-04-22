@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gSafeDomain_1" Type="sfdomain">
+    <Group ID="DefaultSettings">
+      <Property ID="SafeDomain" Value="1" />
+      <Property ID="Password" Value="d8578edf8458ce06fbc5bb76a58c5ca4" />
+      <Property ID="SafeProject" Value="SafeLOGIC-1" />
+    </Group>
+  </Element>
+</Configuration>

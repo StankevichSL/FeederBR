@@ -78,7 +78,7 @@ TYPE
 	END_STRUCT;
 	FeederIOinType : 	STRUCT 
 		Handler : FeederHandlerIOinType;
-		aiWeight : INT;
+		aiWeight : DINT;
 	END_STRUCT;
 	FeederUserInfoType : 	STRUCT 
 		Handler : FeederHandlerUserInfoType;
@@ -102,7 +102,7 @@ TYPE
 		);
 	FeederBlockControlType : 	STRUCT 
 		PrimaryFeeder : FeederControlType;
-		SecondaryMode : FeederControlType;
+		SecondaryFeeder : FeederControlType;
 		PrimaryStart : BOOL;
 		SecondaryStart : BOOL;
 		SeparateMode : BOOL;

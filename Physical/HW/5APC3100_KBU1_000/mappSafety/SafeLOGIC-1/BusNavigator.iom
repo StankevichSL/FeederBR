@@ -1,0 +1,20 @@
+<!--xml version= "1.0" encoding="utf-8"-->
+<!--IOMapping Version="4.0"-->
+<IOOffsets SIBytes="128" SOBytes="64" NSIBytes="64" NSOBytes="64" ConnectionsValidOffset="4" >
+		<Module Name="SL1.SM1" Hardware="X20SLX842" SafeLogicID="1" SafeModuleID="1" SISize="8" SOSize="2" NSISize="20" NSOSize="20" SIOffset="8" SOOffset="0" NSIOffset="0" NSOOffset="0" ExtendedSourceSL="1" HWTypeCode="63" >
+			<Channel Name="SafeTwoChannelInput0102" Mapping="SIX9.0" Variable="SafeTwoChannelInput0102" SODIndex="0x9999" SODSubIndex="0x2" />
+			<Channel Name="SafeDigitalInput05" Mapping="SIX8.4" Variable="SafeDigitalInput05" SODIndex="0x9999" SODSubIndex="0x1" />
+			<Channel Name="SafeDigitalInput06" Mapping="SIX8.5" Variable="SafeDigitalInput06" SODIndex="0x9999" SODSubIndex="0x1" />
+			<Channel Name="SafeDigitalInput07" Mapping="SIX8.6" Variable="SafeDigitalInput07" SODIndex="0x9999" SODSubIndex="0x1" />
+			<Channel Name="SafeDigitalOutput01" Mapping="SQX0.0" Variable="SafeDigitalOutput01" SODIndex="0x9999" SODSubIndex="0x4" />
+			<Channel Name="SafeDigitalOutput02" Mapping="SQX0.1" Variable="SafeDigitalOutput02" SODIndex="0x9999" SODSubIndex="0x4" />
+			<Channel Name="SafeDigitalOutput03" Mapping="SQX0.2" Variable="SafeDigitalOutput03" SODIndex="0x9999" SODSubIndex="0x4" />
+			<Channel Name="SafeDigitalOutput04" Mapping="SQX0.3" Variable="SafeDigitalOutput04" SODIndex="0x9999" SODSubIndex="0x4" />
+			<Channel Name="SafeDigitalOutput05" Mapping="SQX0.4" Variable="SafeDigitalOutput05" SODIndex="0x9999" SODSubIndex="0x4" />
+			<Channel Name="ReleaseOutput" Mapping="NSQX1.0" Variable="ReleaseOutput" SODIndex="0x9999" SODSubIndex="0x7" />
+			<Channel Name="BOOL00001" Mapping="NSQX0.0" Variable="gLaserIO_Out_doPowerSupply" Address="Cyclic#1.gLaserControl.PowerSupplyOn" SODIndex="0x2580" SODSubIndex="0x1" />
+			<Channel Name="BOOL10001" Mapping="NSIX0.0" Variable="gSealedChamberIO_doBlockDoor" Address="Cyclic#1.gSealedChamberIO.Out.BasicChamberIOOut.doBlockDoor[0]" SODIndex="0x2500" SODSubIndex="0x2" />
+			<Channel Name="BOOL10002" Mapping="NSIX0.1" Variable="gSealedChamberIO_DoorIsClosed" Address="Cyclic#1.gSealedChamberIO.In.BasicChamberIOIn.diDoorState[0].DoorIsClosed" SODIndex="0x2500" SODSubIndex="0x2" />
+			<Channel Name="BOOL10003" Mapping="NSIX0.2" Variable="gServiceMode" Address="Cyclic#1.gSealedChamberIO.Out.BasicChamberIOOut.doServiceMode" SODIndex="0x2500" SODSubIndex="0x2" />
+		</Module>
+</IOOffsets>

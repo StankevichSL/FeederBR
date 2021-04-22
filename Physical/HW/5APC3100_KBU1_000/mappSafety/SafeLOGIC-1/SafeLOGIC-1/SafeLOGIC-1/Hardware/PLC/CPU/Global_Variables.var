@@ -1,0 +1,32 @@
+﻿{GroupDefinition(0,'NewGroup')}
+
+VAR_GLOBAL {Group(0)}
+    {LINE(1)}
+    SafeDigitalOutput01 AT %QX0.0 : SAFEBOOL {SafeAdr(true),Custom('SL1.SM1.SafeDigitalOutput01')};
+    {LINE(2)}
+    SafeDigitalOutput02 AT %QX0.1 : SAFEBOOL {SafeAdr(true),Custom('SL1.SM1.SafeDigitalOutput02')};
+    {LINE(3)}
+    SafeDigitalInput06 AT %IX8.5 : SAFEBOOL {SafeAdr(true),Custom('SL1.SM1.SafeDigitalInput06')};
+    {LINE(4)}
+    SafeDigitalInput07 AT %IX8.6 : SAFEBOOL {SafeAdr(true),Custom('SL1.SM1.SafeDigitalInput07')};
+    {LINE(5)}
+    SafeTwoChannelInput0102 AT %IX9.0 : SAFEBOOL {SafeAdr(true),Custom('SL1.SM1.SafeTwoChannelInput0102')};
+    {LINE(6)}
+    SafeDigitalOutput04 AT %QX0.3 : SAFEBOOL {SafeAdr(true),Custom('SL1.SM1.SafeDigitalOutput04')};
+    {LINE(7)}
+    SafeDigitalOutput03 AT %QX0.2 : SAFEBOOL {SafeAdr(true),Custom('SL1.SM1.SafeDigitalOutput03')};
+    {LINE(8)}
+    SafeDigitalOutput05 AT %QX0.4 : SAFEBOOL {SafeAdr(true),Custom('SL1.SM1.SafeDigitalOutput05')};
+    {LINE(9)}
+    SafeDigitalInput05 AT %IX8.4 : SAFEBOOL {SafeAdr(true),Custom('SL1.SM1.SafeDigitalInput05')};
+    {LINE(10)}
+    ReleaseOutput AT %QX1.0 : BOOL {Custom('SL1.SM1.ReleaseOutput')};
+    {LINE(11)}
+    gLaserIO_Out_doPowerSupply AT %QX0.0 : BOOL {Custom('SL1.SM1.BOOL00001')};
+    {LINE(12)}
+    gSealedChamberIO_doBlockDoor AT %IX0.0 : BOOL {Custom('SL1.SM1.BOOL10001')};
+    {LINE(13)}
+    gSealedChamberIO_DoorIsClosed AT %IX0.1 : BOOL {Custom('SL1.SM1.BOOL10002')};
+    {LINE(14)}
+    gServiceMode AT %IX0.2 : BOOL {Custom('SL1.SM1.BOOL10003')};
+END_VAR

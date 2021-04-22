@@ -1,0 +1,148 @@
+LOGStart created on Wednesday 2021/04/07  UTC 07:42:36:777
+
+Reading "OSDD Data"...
+Reading Content "Start"
+Reading properties for module "X20SLX842_110.MainSN".
+  ParameterGroup "Basic_PLC" has 15 parameters.
+  ParameterGroup "Safety_Response_Time_Defaults" has 11 parameters.
+  ParameterGroup "Options" has 4 parameters.
+  ParameterGroup "SafeDigitalInput01" has 5 parameters.
+  ParameterGroup "SafeDigitalInput02" has 5 parameters.
+  ParameterGroup "SafeDigitalInput03" has 5 parameters.
+  ParameterGroup "SafeDigitalInput04" has 5 parameters.
+  ParameterGroup "SafeDigitalInput05" has 5 parameters.
+  ParameterGroup "SafeDigitalInput06" has 5 parameters.
+  ParameterGroup "SafeDigitalInput07" has 5 parameters.
+  ParameterGroup "SafeDigitalInput08" has 5 parameters.
+  ParameterGroup "PulseOutput" has 4 parameters.
+  ParameterGroup "http://www.br-automation.com" has 97 parameters.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 1 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 2 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 3 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 4 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 5 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 6 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 7 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 8 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 9 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 10 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 11 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 12 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 13 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 14 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 15 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 16 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 17 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 18 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 19 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 20 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 21 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 22 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 23 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 24 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 25 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 26 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 27 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 28 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 29 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 30 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 31 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 32 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 33 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 34 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 35 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 36 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 37 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 38 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 39 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 40 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 41 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 42 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 43 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 44 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 45 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 46 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 47 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 48 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 49 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 50 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 51 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 52 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 53 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 54 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 55 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 56 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 57 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 58 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 59 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 60 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 61 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 62 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 63 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 64 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 65 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 66 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 67 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 68 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 69 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 70 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 71 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 72 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 73 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 74 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 75 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 76 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 77 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 78 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 79 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 80 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 81 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 82 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 83 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 84 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 85 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 86 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 87 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 88 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 89 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 90 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 91 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 92 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 93 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 94 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 95 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 96 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 97 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 98 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 99 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 100 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 101 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 102 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 103 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 104 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 105 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 106 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 107 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 108 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 109 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 110 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 111 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 112 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 113 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 114 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 115 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 116 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 117 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 118 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 119 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 120 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 121 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 122 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 123 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 124 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 125 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 126 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 127 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20 SafeLOGIC Compact, 8xI 24V, 4xO 24V 3.0A, 2xO 24V 0.05A" and has 128 external machine option objects.
+Module "X20SLX842_110.MainSN.SL1.SM1" is of type "X20SLX842" and has 60 channels and 13 parameter groups.
+Content "name1" successfully read from "name2"

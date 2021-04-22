@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SafeCommissioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="5.12.2" xmlns="http://www.br-automation.com/mappSAFETY/safecommissioning">
+  <OptionsDefinition id="SafeLOGIC-1">
+    <Name>SafeLOGIC-1</Name>
+    <Description />
+    <ChangedBy>user</ChangedBy>
+    <LastChanged iso="2021-04-05T10:33:07+03:00" unix="1617607987" />
+    <TypeReference />
+  </OptionsDefinition>
+  <Defaults>
+    <DefaultParameters type="SafeOptionBool">
+      <Parameter value="0">Off</Parameter>
+      <Parameter value="1">On</Parameter>
+    </DefaultParameters>
+    <DefaultParameters type="SafeNodeAvailability">
+      <Parameter value="0">Present</Parameter>
+      <Parameter value="1">Startup</Parameter>
+      <Parameter value="2">Optional</Parameter>
+      <Parameter value="3">NotPresent</Parameter>
+    </DefaultParameters>
+  </Defaults>
+  <Groups />
+</SafeCommissioning>

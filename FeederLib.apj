@@ -9,6 +9,8 @@
   <Variables DefaultInitValue="0" DefaultRetain="false" DefaultVolatile="true" />
   <TechnologyPackages>
     <Acp10Arnc0 Version="5.12.2" />
+    <mapp Version="5.12.1" />
+    <mappSafety Version="5.12.2" />
     <mappView Version="5.12.1" />
   </TechnologyPackages>
 </Project>

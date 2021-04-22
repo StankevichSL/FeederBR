@@ -1,0 +1,730 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio Version=4.9.2.46 FileVersion="4.9"?>
+<Hardware xmlns="http://br-automation.co.at/AS/Hardware">
+  <Module Name="5AC901.IUPS-01" Type="5AC901.IUPS-01" Version="1.3.1.0">
+    <Connection Connector="SL" TargetModule="5APC3100_KBU1_000" TargetConnector="SL1" />
+  </Module>
+  <Module Name="5ACCIF02.FPLK-000" Type="5ACCIF02.FPLK-000" Version="1.5.2.0">
+    <Connection Connector="SL" TargetModule="5APC3100_KBU1_000" TargetConnector="SL2" />
+    <Connector Name="IF1">
+      <Group ID="Channel1" />
+      <Parameter ID="ChannelID1" Value="ACP10_MC_BROADCAST" />
+      <Parameter ID="ChannelType1" Value="OCTET[24]" />
+    </Connector>
+  </Module>
+  <Module Name="5APC3100_KBU1_000" Type="5APC3100.KBU1-000" Version="2.2.1.0">
+    <Connector Name="IF3">
+      <Parameter ID="AssignedOperatingSystem" Value="GPOS" />
+    </Connector>
+    <Connector Name="IF4">
+      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+      <Parameter ID="ActivateDevice" Value="1" />
+      <Parameter ID="Mode" Value="Manual" />
+      <Parameter ID="InternetAddress" Value="192.168.1.3" />
+      <Parameter ID="SubnetMask" Value="255.255.255.0" />
+    </Connector>
+    <Connector Name="IF9">
+      <Parameter ID="OperatingSystem" Value="ARemb" />
+      <Parameter ID="ActivateDevice" Value="1" />
+    </Connector>
+    <Connector Name="IF5">
+      <Parameter ID="AssignedOperatingSystem" Value="GPOS" />
+    </Connector>
+    <Connector Name="IF6">
+      <Parameter ID="AssignedOperatingSystem" Value="GPOS" />
+    </Connector>
+    <Connector Name="IF7">
+      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+    </Connector>
+    <Connector Name="IF8">
+      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+    </Connector>
+    <Parameter ID="ConfigurationID" Value="5in1" />
+    <Parameter ID="ConfigVersion" Value="2.0.0" />
+    <Parameter ID="UserPartitionSize" Value="100" />
+    <Parameter ID="UserRamDevice" Value="PCI.2.FPLK.SRAM" />
+    <Parameter ID="UserRamSize" Value="520000" />
+    <Parameter ID="RemMemDevice" Value="PCI.2.FPLK.SRAM" />
+    <Parameter ID="RemMemSize" Value="100000" />
+    <Parameter ID="PermanentPvSize" Value="50" />
+    <Parameter ID="RemanentGlobalPvSize" Value="1200" />
+    <Parameter ID="EnableUsbRemoteInstall" Value="1" />
+    <Parameter ID="EnableCfRemoteInstall" Value="1" />
+    <Parameter ID="RebootReset" Value="1" />
+    <Parameter ID="TimerDeviceType" Value="EPLX2X" />
+    <Parameter ID="TimerDevice" Value="5ACCIF02.FPLK-000.IF1" />
+    <Parameter ID="TaskClassIdleTime" Value="2000" />
+    <Parameter ID="Cyclic1Duration" Value="2000" />
+    <Parameter ID="Cyclic1Tolerance" Value="0" />
+    <Group ID="FileDevice1" />
+    <Parameter ID="FileDeviceName1" Value="UserDev" />
+    <Parameter ID="FileDevicePath1" Value="F:\" />
+    <Group ID="FileDevice2" />
+    <Parameter ID="FileDeviceName2" Value="Settings" />
+    <Parameter ID="FileDevicePath2" Value="F:\Settings" />
+    <Group ID="FtpUser1" />
+    <Parameter ID="FtpUsername1" Value="service" />
+    <Parameter ID="FtpUserPassword1" Value="FnTu9SDAOUjHE2rhZgIyHa2NFgHYN5XeFFIYZLvRcYw=" />
+    <Parameter ID="FtpUserSalt1" Value="Afegl0l4" />
+    <Parameter ID="FTPAccessRight1" Value="0" />
+    <Parameter ID="WebServerPort" Value="81" />
+    <Parameter ID="ActivateOpcUa" Value="1" />
+    <Parameter ID="OpcUaInformationModels_PV_Version" Value="1" />
+    <Parameter ID="ActivateHypervisor" Value="1" />
+  </Module>
+  <Module Name="80VD100PD.C022-01" Type="80VD100PD.C022-01" Version="2.5.0.0">
+    <Connection Connector="PLK1" TargetModule="5ACCIF02.FPLK-000" TargetConnector="IF1" NodeNumber="2">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="X20BC1083" TargetConnector="PLK1" NodeNumber="2">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="EC1" TargetModule="8LVB13.R0030F100-0" TargetConnector="EC" />
+    <Connection Connector="EC2" TargetModule="8LVB13.R0030F100-0a" TargetConnector="EC" />
+    <Connection Connector="MT2" TargetModule="8LVB13.R0030F100-0a" TargetConnector="MT" />
+    <Parameter ID="MotionTP" Value="Acp10Arnc0" />
+    <Parameter ID="AxisIsPeriodic_r1" Value="on" />
+    <Parameter ID="QuickStopIsNormallyOpen_r1" Value="on" />
+    <Parameter ID="AxisIsPeriodic_r2" Value="on" />
+    <Parameter ID="QuickStopIsNormallyOpen_r2" Value="on" />
+  </Module>
+  <Module Name="8LVB13.R0030F100-0" Type="8LVB13.R0030F100-0" Version="2.2.0.3">
+    <Connection Connector="EC" TargetModule="80VD100PD.C022-01" TargetConnector="EC1" />
+    <Connection Connector="MT" TargetModule="80VD100PD.C022-01" TargetConnector="MT1" />
+  </Module>
+  <Module Name="8LVB13.R0030F100-0a" Type="8LVB13.R0030F100-0" Version="2.2.0.3">
+    <Connection Connector="EC" TargetModule="80VD100PD.C022-01" TargetConnector="EC2" />
+    <Connection Connector="MT" TargetModule="80VD100PD.C022-01" TargetConnector="MT2" />
+  </Module>
+  <Module Name="AISensors" Type="X20AI4622" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12f" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11f" TargetConnector="SL1" />
+    <Parameter ID="InputFilter" Value="level 128" />
+    <Parameter ID="ChannelType01" Value="4 to 20mA" />
+    <Parameter ID="ChannelType02" Value="4 to 20mA" />
+    <Parameter ID="ChannelType03" Value="4 to 20mA" />
+  </Module>
+  <Module Name="AiFlowReg" Type="X20AI4222" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12h" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11h" TargetConnector="SL1" />
+  </Module>
+  <Module Name="AirValve" Type="X20DO4322" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12b" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11b" TargetConnector="SL1" />
+  </Module>
+  <Module Name="AoFlowReg" Type="X20AO4622" Version="1.2.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12j" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11j" TargetConnector="SL1" />
+  </Module>
+  <Module Name="DIFlowReg" Type="X20DI4371" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12k" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11k" TargetConnector="SL1" />
+  </Module>
+  <Module Name="Door" Type="X20DM9324" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11" TargetConnector="SL1" />
+  </Module>
+  <Module Name="Laser_EIP" Type="FBD.Hilscher.EIGAdapterDTM.ENIP Generic Adapter" Version="1.1100.6.6839" OrderNumber="ENIP Generic Adapter" VendorAddress="192.168.10.1">
+    <Connection Connector="EIP1" TargetModule="Robot_EIP" TargetConnector="EIP2" />
+    <Parameter ID="DtmId" Value="5db86292-2f64-4b3a-8f97-36f326a2392b" />
+    <Group ID="ChannelBlocks_1ab36399-b97a-45c0-9e04-50eb06144ae9" Description="Module 0" />
+    <Group ID="IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Description="2 Byte(s)" />
+    <Group ID="Channel_1_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_1_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Laser_is_assigned" />
+    <Group ID="Channel_2_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_2_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Laser_is_ON" />
+    <Group ID="Channel_3_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_3_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="System_error" />
+    <Group ID="Channel_4_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_4_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Guide_laser_is_ON" />
+    <Group ID="Channel_5_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_5_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Program_active" />
+    <Group ID="Channel_6_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_6_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="End_of_program" />
+    <Group ID="Channel_7_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_7_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Program_is_interrupted" />
+    <Group ID="Channel_8_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_8_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Analog_control_is_ON" />
+    <Group ID="Channel_9_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_9_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="System_warning" />
+    <Group ID="Channel_10_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_10_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Laser_is_ready" />
+    <Group ID="Channel_11_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_11_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Emission_is_ON" />
+    <Group ID="Channel_12_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_12_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Synchronization_output" />
+    <Group ID="Channel_13_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_13_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Robot_mode" />
+    <Group ID="Channel_14_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_14_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Interlock" />
+    <Group ID="Channel_15_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_15_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Laser_alive" />
+    <Group ID="Channel_16_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_16_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Ext_software_control_is_active" />
+    <Group ID="Channel_17_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_17_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Output_power" />
+    <Parameter ID="Type_Channel_17_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="UINT" />
+    <Group ID="Channel_18_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_18_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Optical_channel" />
+    <Parameter ID="Type_Channel_18_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="USINT" />
+    <Group ID="Channel_19_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_19_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Program_number" />
+    <Parameter ID="Type_Channel_19_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="USINT" />
+    <Group ID="Channel_20_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_20_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Laser_error" />
+    <Group ID="Channel_21_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_21_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Laser_warning" />
+    <Group ID="Channel_22_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_22_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Chiller_error" />
+    <Group ID="Channel_23_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_23_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Chiller_warning" />
+    <Group ID="Channel_24_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_24_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Safety_open" />
+    <Group ID="Channel_25_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_25_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Channel_error" />
+    <Group ID="Channel_26_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_26_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Laser_is_busy" />
+    <Group ID="Channel_27_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_27_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Slot_error" />
+    <Group ID="Channel_28_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_28_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Cabinet_door_open" />
+    <Group ID="Channel_29_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_29_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Reserved_module_is_active" />
+    <Group ID="Channel_30_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_30_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Reduced_active_modules" />
+    <Group ID="Channel_31_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_31_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Reserved1" />
+    <Group ID="Channel_32_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_32_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Module_power_supply_warning" />
+    <Group ID="Channel_33_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_33_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Reserved2" />
+    <Group ID="Channel_34_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_34_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Reserved3" />
+    <Group ID="Channel_35_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_35_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Reserved4" />
+    <Group ID="Channel_36_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_36_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Laser_number" />
+    <Parameter ID="Type_Channel_36_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="USINT" />
+    <Group ID="Channel_37_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_37_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Reserver5" />
+    <Parameter ID="Type_Channel_37_IO_InputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="USINT" />
+    <Group ID="IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Description="2 Byte(s)" />
+    <Group ID="Channel_1_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_1_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Laser_request" />
+    <Group ID="Channel_2_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_2_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Laser_ON" />
+    <Group ID="Channel_3_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_3_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Reset_errors" />
+    <Group ID="Channel_4_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_4_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Guide_laser_ON" />
+    <Group ID="Channel_5_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_5_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Program_start" />
+    <Group ID="Channel_6_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_6_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Program_stop" />
+    <Group ID="Channel_7_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_7_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Reserved7" />
+    <Group ID="Channel_8_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_8_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Analog_control_ON" />
+    <Group ID="Channel_9_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_9_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Enable_ext_software_control" />
+    <Group ID="Channel_10_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_10_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Set_ramp_up" />
+    <Group ID="Channel_11_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_11_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Set_ramp_down" />
+    <Group ID="Channel_12_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_12_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Synchronization_input" />
+    <Group ID="Channel_13_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_13_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Reserved8" />
+    <Group ID="Channel_14_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_14_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Reserved9" />
+    <Group ID="Channel_15_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_15_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Reserved10" />
+    <Group ID="Channel_16_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_16_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="External_error" />
+    <Group ID="Channel_17_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_17_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Power" />
+    <Parameter ID="Type_Channel_17_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="UINT" />
+    <Group ID="Channel_18_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_18_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Optical_channel_" />
+    <Parameter ID="Type_Channel_18_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="USINT" />
+    <Group ID="Channel_19_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_19_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Program_number_" />
+    <Parameter ID="Type_Channel_19_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="USINT" />
+    <Group ID="Channel_20_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_20_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Ramping_time" />
+    <Parameter ID="Type_Channel_20_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="UINT" />
+    <Group ID="Channel_21_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_21_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Laser_number_" />
+    <Parameter ID="Type_Channel_21_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="USINT" />
+    <Group ID="Channel_22_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" />
+    <Parameter ID="Name_Channel_22_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="Reserved6" />
+    <Parameter ID="Type_Channel_22_IO_OutputImage_1ab36399-b97a-45c0-9e04-50eb06144ae9" Value="USINT" />
+  </Module>
+  <Module Name="Light" Type="X20DO4649" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12a" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11a" TargetConnector="SL1" />
+  </Module>
+  <Module Name="LightColumn" Type="X20DO6322" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12d" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11d" TargetConnector="SL1" />
+  </Module>
+  <Module Name="Mixer" Type="X20MM3332" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12p" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11o" TargetConnector="SL1" />
+  </Module>
+  <Module Name="PWR" Type="X20PD2113" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12m" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11m" TargetConnector="SL1" />
+  </Module>
+  <Module Name="Pressure" Type="X20AO2622" Version="1.2.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12l" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11l" TargetConnector="SL1" />
+  </Module>
+  <Module Name="Receiver" Type="X20BR9300" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12o" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM01a" TargetConnector="SL1" />
+    <Connection Connector="X2X1" TargetModule="Transmitter" TargetConnector="X2X1">
+      <Cable Type="X2XCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="Robot_EIP" Type="FBD.Hilscher.EIGAdapterDTM.ENIP Generic Adapter" Version="1.1100.6.6839" OrderNumber="ENIP Generic Adapter" VendorAddress="192.168.10.2">
+    <Connection Connector="EIP1" TargetModule="X20IF10D1_1" TargetConnector="IF1" />
+    <Parameter ID="DtmId" Value="aba9a34a-c52a-40cf-8487-2c047c18b069" />
+    <Group ID="ChannelBlocks_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Description="Module 0" />
+    <Group ID="IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Description="2 Byte(s)" />
+    <Group ID="Channel_1_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_1_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_1" />
+    <Group ID="Channel_2_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_2_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_2" />
+    <Group ID="Channel_3_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_3_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_3" />
+    <Group ID="Channel_4_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_4_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_4" />
+    <Group ID="Channel_5_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_5_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_5" />
+    <Group ID="Channel_6_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_6_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_6" />
+    <Group ID="Channel_7_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_7_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_7" />
+    <Group ID="Channel_8_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_8_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_8" />
+    <Group ID="Channel_9_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_9_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_9" />
+    <Group ID="Channel_10_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_10_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_10" />
+    <Group ID="Channel_11_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_11_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_11" />
+    <Group ID="Channel_12_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_12_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_12" />
+    <Group ID="Channel_13_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_13_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_13" />
+    <Group ID="Channel_14_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_14_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_14" />
+    <Group ID="Channel_15_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_15_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_15" />
+    <Group ID="Channel_16_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_16_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_16" />
+    <Group ID="Channel_17_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_17_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_17" />
+    <Group ID="Channel_18_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_18_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_18" />
+    <Group ID="Channel_19_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_19_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_19" />
+    <Group ID="Channel_20_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_20_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_20" />
+    <Group ID="Channel_21_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_21_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_21" />
+    <Group ID="Channel_22_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_22_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_22" />
+    <Group ID="Channel_23_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_23_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_23" />
+    <Group ID="Channel_24_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_24_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_24" />
+    <Group ID="Channel_25_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_25_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_25" />
+    <Group ID="Channel_26_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_26_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_26" />
+    <Group ID="Channel_27_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_27_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_27" />
+    <Group ID="Channel_28_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_28_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_28" />
+    <Group ID="Channel_29_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_29_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_29" />
+    <Group ID="Channel_30_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_30_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_30" />
+    <Group ID="Channel_31_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_31_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_31" />
+    <Group ID="Channel_32_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_32_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_32" />
+    <Group ID="Channel_33_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_33_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_33" />
+    <Group ID="Channel_34_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_34_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_34" />
+    <Group ID="Channel_35_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_35_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_35" />
+    <Group ID="Channel_36_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_36_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_36" />
+    <Group ID="Channel_37_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_37_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_37" />
+    <Group ID="Channel_38_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_38_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_38" />
+    <Group ID="Channel_39_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_39_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_39" />
+    <Group ID="Channel_40_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_40_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_40" />
+    <Group ID="Channel_41_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_41_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_41" />
+    <Group ID="Channel_42_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_42_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_42" />
+    <Group ID="Channel_43_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_43_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_43" />
+    <Group ID="Channel_44_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_44_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_44" />
+    <Group ID="Channel_45_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_45_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_45" />
+    <Group ID="Channel_46_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_46_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_46" />
+    <Group ID="Channel_47_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_47_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_47" />
+    <Group ID="Channel_48_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_48_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_48" />
+    <Group ID="Channel_49_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_49_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_49" />
+    <Group ID="Channel_50_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_50_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_50" />
+    <Group ID="Channel_51_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_51_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_51" />
+    <Group ID="Channel_52_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_52_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_52" />
+    <Group ID="Channel_53_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_53_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_53" />
+    <Group ID="Channel_54_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_54_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_54" />
+    <Group ID="Channel_55_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_55_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_55" />
+    <Group ID="Channel_56_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_56_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_56" />
+    <Group ID="Channel_57_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_57_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_57" />
+    <Group ID="Channel_58_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_58_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_58" />
+    <Group ID="Channel_59_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_59_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_59" />
+    <Group ID="Channel_60_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_60_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_60" />
+    <Group ID="Channel_61_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_61_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_61" />
+    <Group ID="Channel_62_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_62_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_62" />
+    <Group ID="Channel_63_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_63_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_63" />
+    <Group ID="Channel_64_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_64_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DO_64" />
+    <Group ID="Channel_65_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_65_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_GO_1" />
+    <Parameter ID="Type_Channel_65_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="UINT" />
+    <Group ID="Channel_66_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_66_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_GO_2" />
+    <Parameter ID="Type_Channel_66_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="UINT" />
+    <Group ID="Channel_67_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_67_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_GO_3" />
+    <Parameter ID="Type_Channel_67_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="UINT" />
+    <Group ID="Channel_68_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_68_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_GO_4" />
+    <Parameter ID="Type_Channel_68_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="UINT" />
+    <Group ID="Channel_69_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_69_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_GO_5" />
+    <Parameter ID="Type_Channel_69_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="UINT" />
+    <Group ID="Channel_70_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_70_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_GO_6" />
+    <Parameter ID="Type_Channel_70_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="UINT" />
+    <Group ID="Channel_71_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_71_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_GO_7" />
+    <Parameter ID="Type_Channel_71_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="UINT" />
+    <Group ID="Channel_72_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_72_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_GO_8" />
+    <Parameter ID="Type_Channel_72_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="UINT" />
+    <Group ID="Channel_73_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_73_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_GO_9" />
+    <Parameter ID="Type_Channel_73_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="UINT" />
+    <Group ID="Channel_74_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_74_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_GO_10" />
+    <Parameter ID="Type_Channel_74_IO_InputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="UINT" />
+    <Group ID="IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Description="2 Byte(s)" />
+    <Group ID="Channel_1_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_1_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_1" />
+    <Group ID="Channel_2_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_2_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_2" />
+    <Group ID="Channel_3_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_3_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_3" />
+    <Group ID="Channel_4_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_4_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_4" />
+    <Group ID="Channel_5_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_5_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_5" />
+    <Group ID="Channel_6_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_6_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_6" />
+    <Group ID="Channel_7_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_7_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_7" />
+    <Group ID="Channel_8_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_8_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_8" />
+    <Group ID="Channel_9_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_9_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_9" />
+    <Group ID="Channel_10_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_10_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_10" />
+    <Group ID="Channel_11_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_11_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_11" />
+    <Group ID="Channel_12_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_12_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_12" />
+    <Group ID="Channel_13_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_13_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_13" />
+    <Group ID="Channel_14_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_14_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_14" />
+    <Group ID="Channel_15_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_15_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_15" />
+    <Group ID="Channel_16_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_16_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_16" />
+    <Group ID="Channel_17_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_17_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_17" />
+    <Group ID="Channel_18_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_18_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_18" />
+    <Group ID="Channel_19_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_19_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_19" />
+    <Group ID="Channel_20_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_20_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_20" />
+    <Group ID="Channel_21_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_21_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_21" />
+    <Group ID="Channel_22_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_22_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_22" />
+    <Group ID="Channel_23_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_23_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_23" />
+    <Group ID="Channel_24_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_24_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_24" />
+    <Group ID="Channel_25_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_25_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_25" />
+    <Group ID="Channel_26_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_26_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_26" />
+    <Group ID="Channel_27_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_27_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_27" />
+    <Group ID="Channel_28_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_28_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_28" />
+    <Group ID="Channel_29_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_29_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_29" />
+    <Group ID="Channel_30_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_30_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_30" />
+    <Group ID="Channel_31_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_31_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_31" />
+    <Group ID="Channel_32_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_32_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_32" />
+    <Group ID="Channel_33_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_33_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_33" />
+    <Group ID="Channel_34_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_34_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_34" />
+    <Group ID="Channel_35_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_35_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_35" />
+    <Group ID="Channel_36_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_36_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_36" />
+    <Group ID="Channel_37_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_37_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_37" />
+    <Group ID="Channel_38_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_38_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_38" />
+    <Group ID="Channel_39_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_39_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_39" />
+    <Group ID="Channel_40_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_40_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_40" />
+    <Group ID="Channel_41_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_41_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_41" />
+    <Group ID="Channel_42_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_42_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_42" />
+    <Group ID="Channel_43_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_43_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_43" />
+    <Group ID="Channel_44_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_44_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_44" />
+    <Group ID="Channel_45_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_45_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_45" />
+    <Group ID="Channel_46_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_46_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_46" />
+    <Group ID="Channel_47_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_47_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_47" />
+    <Group ID="Channel_48_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_48_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_48" />
+    <Group ID="Channel_49_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_49_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_49" />
+    <Group ID="Channel_50_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_50_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_50" />
+    <Group ID="Channel_51_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_51_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_51" />
+    <Group ID="Channel_52_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_52_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_52" />
+    <Group ID="Channel_53_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_53_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_53" />
+    <Group ID="Channel_54_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_54_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_54" />
+    <Group ID="Channel_55_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_55_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_55" />
+    <Group ID="Channel_56_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_56_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_56" />
+    <Group ID="Channel_57_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_57_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_57" />
+    <Group ID="Channel_58_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_58_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_58" />
+    <Group ID="Channel_59_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_59_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_59" />
+    <Group ID="Channel_60_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_60_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_60" />
+    <Group ID="Channel_61_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_61_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_61" />
+    <Group ID="Channel_62_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_62_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_62" />
+    <Group ID="Channel_63_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_63_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_63" />
+    <Group ID="Channel_64_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_64_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_DI_64" />
+    <Group ID="Channel_65_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_65_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_GI_1" />
+    <Parameter ID="Type_Channel_65_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="UINT" />
+    <Group ID="Channel_66_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_66_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_GI_2" />
+    <Parameter ID="Type_Channel_66_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="UINT" />
+    <Group ID="Channel_67_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_67_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_GI_3" />
+    <Parameter ID="Type_Channel_67_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="UINT" />
+    <Group ID="Channel_68_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" />
+    <Parameter ID="Name_Channel_68_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="Robot_GI_4" />
+    <Parameter ID="Type_Channel_68_IO_OutputImage_9f1ee490-7d39-4fa2-ab93-255e4565e3a3" Value="UINT" />
+  </Module>
+  <Module Name="Sensors" Type="X20DI4371" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12e" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11e" TargetConnector="SL1" />
+  </Module>
+  <Module Name="Tensosensors" Type="X20AIA744" Version="1.3.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB1F1" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11p" TargetConnector="SL1" />
+  </Module>
+  <Module Name="Transmitter" Type="X20BT9100" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12n" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11n" TargetConnector="SL1" />
+  </Module>
+  <Module Name="UOP" Type="X20DM9324" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12c" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11c" TargetConnector="SL1" />
+  </Module>
+  <Module Name="Valves" Type="X20DO6322" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12g" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11g" TargetConnector="SL1" />
+  </Module>
+  <Module Name="X20BB81" Type="X20BB81" Version="1.0.2.0" />
+  <Module Name="X20BC1083" Type="X20BC1083" Version="2.12.0.0">
+    <Connection Connector="PLK1" TargetModule="80VD100PD.C022-01" TargetConnector="PLK2" NodeNumber="3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="SL" TargetModule="X20BB81" TargetConnector="SL1" />
+  </Module>
+  <Module Name="X20BM01a" Type="X20BM01" Version="2.1.0.0" />
+  <Module Name="X20BM11" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11m" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11a" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BB81" TargetConnector="IF1" />
+  </Module>
+  <Module Name="X20BM11b" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11a" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11c" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11b" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11d" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11c" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11e" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11d" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11f" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11e" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11g" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11f" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11h" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11g" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11i" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11j" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11h" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11k" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11j" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11l" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11k" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11m" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11l" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11n" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM33" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11o" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM01a" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM11p" Type="X20BM11" Version="1.0.0.1">
+    <Connection Connector="X2X1" TargetModule="X20BM11o" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20BM33" Type="X20BM33" Version="1.0.0.6">
+    <Connection Connector="X2X1" TargetModule="X20BM11i" TargetConnector="X2X2" />
+  </Module>
+  <Module Name="X20IF10D1_1" Type="X20IF10D1-1" Version="1.6.0.0">
+    <Connection Connector="SS" TargetModule="X20BB81" TargetConnector="SS1" />
+    <Connector Name="IF1">
+      <Parameter ID="DtmId" Value="89c72c1d-13b9-4e5d-9bc0-35ee8e3ffdec" />
+    </Connector>
+    <Parameter ID="ConfigFile" Value="X20IF10D1_1.dtm" />
+    <Parameter ID="ConfigModule" Value="asnxdb1" />
+    <Parameter ID="CycleTime" Value="2000" />
+  </Module>
+  <Module Name="X20PS9400" Type="X20PS9400" Version="1.4.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12q" TargetConnector="SS" />
+    <Connection Connector="PS" TargetModule="X20BB81" TargetConnector="PS1" />
+    <Parameter ID="PowerInfo" Value="on" />
+  </Module>
+  <Module Name="X20SLX842" Type="X20SLX842" Version="2.2.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB52" TargetConnector="SS" />
+    <Connection Connector="SS2" TargetModule="X20TB52a" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM33" TargetConnector="SL1" />
+    <Parameter ID="Supervision" Value="off" />
+    <Parameter ID="SafeProject" Value="SafeLOGIC-1" />
+    <Parameter ID="SafeDesigner" Value="4.4.0.0" />
+    <Parameter ID="DigitalOutput01" Value="viaSafeLOGIC" />
+    <Parameter ID="DigitalOutput02" Value="viaSafeLOGIC" />
+    <Parameter ID="DigitalOutput03" Value="viaSafeLOGIC" />
+    <Parameter ID="DigitalOutput04" Value="viaSafeLOGIC" />
+    <Parameter ID="DigitalOutput05" Value="viaSafeLOGIC" />
+    <Parameter ID="DigitalOutput06" Value="viaSafeLOGIC" />
+  </Module>
+  <Module Name="X20TB12" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12a" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12b" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12c" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12d" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12e" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12f" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12g" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12h" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12i" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12j" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12k" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12l" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12m" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12n" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12o" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12p" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB12q" Type="X20TB12" Version="1.0.0.0" />
+  <Module Name="X20TB1F1" Type="X20TB1F" Version="1.0.0.0" />
+  <Module Name="X20TB52" Type="X20TB52" Version="1.0.0.2" />
+  <Module Name="X20TB52a" Type="X20TB52" Version="1.0.0.2" />
+  <Module Name="ai4322" Type="X20AI4322" Version="1.1.0.0">
+    <Connection Connector="SS1" TargetModule="X20TB12i" TargetConnector="SS" />
+    <Connection Connector="SL" TargetModule="X20BM11i" TargetConnector="SL1" />
+  </Module>
+</Hardware>

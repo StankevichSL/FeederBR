@@ -1,0 +1,4 @@
+VAR
+	FeederBlock : FBFeederBlock;
+	Config : FeederConfigType;
+END_VAR

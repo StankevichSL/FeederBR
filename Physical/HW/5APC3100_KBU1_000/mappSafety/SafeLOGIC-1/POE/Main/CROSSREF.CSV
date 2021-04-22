@@ -1,0 +1,5 @@
+AutoModeRelay,POE\Main\Code.GB,3,,17,37,,,,,,VAR,FB,,
+BlockDoor1,POE\Main\Code.GB,0,,56,96,,,,,,VAR,FB,,
+EStopRelay,POE\Main\Code.GB,3,,38,32,,,,,,VAR,FB,,
+FenceSafety,POE\Main\Code.GB,0,,48,16,,,,,,VAR,FB,,
+T2ModeRelay,POE\Main\Code.GB,3,,28,36,,,,,,VAR,FB,,
