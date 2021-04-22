@@ -17,6 +17,11 @@ FUNCTION_BLOCK FBFeeder
 				TON_ToGoToAutoDelay.PT := Config.ToGoToAutoDelay;
 				
 				i := 0;
+				j := 0;
+				
+				UserInfo.Rate := 0;
+				UserInfo.TareK := 0;
+				UserInfo.Deviation := 0;
 				IF FBControl.Status = FEEDCTRL_READY_TO_FEED THEN
 					Status := FEED_READY;
 				END_IF
@@ -125,9 +130,10 @@ FUNCTION_BLOCK FBFeeder
 							END_IF				
 						END_IF			
 					END_IF
+					UserInfo.Rate := FBControl.TareK;
 				ELSE
 					FBControl.Start := FALSE;
-					Status := FEED_READY;
+					Status := FEED_PAUSE;
 				END_IF				
 			FEED_RESET:
 				FOR i := 0 TO 2399 DO
@@ -137,6 +143,7 @@ FUNCTION_BLOCK FBFeeder
 					TareKBuffer[i] := 0;
 				END_FOR
 				i := 0;
+				j := 0;
 				
 				RewriteWTP := FALSE;
 				RewriteTareK := FALSE;
@@ -147,7 +154,29 @@ FUNCTION_BLOCK FBFeeder
 				
 				Reset := FALSE;
 				Status := FEED_READY;
+				
+				UserInfo.Rate := 0;
+				UserInfo.TareK := 0;
+				UserInfo.Deviation := 0;
 			FEED_PAUSE:		
+				IF Start THEN
+					Status := FEED_READY;
+					IF RewriteWTP THEN
+						IF i = 0 THEN
+							IF ABS(WBuffer[2399]-UserInfo.Weight) > Config.ResetWeightLimit THEN
+								Status := FEED_RESET;	
+							END_IF							
+						ELSE
+							IF ABS(WBuffer[i-1]-UserInfo.Weight) > Config.ResetWeightLimit THEN
+								Status := FEED_RESET;	
+							END_IF
+						END_IF
+					ELSE
+						IF (i <> 0) AND (ABS(WBuffer[i-1]-UserInfo.Weight) > Config.ResetWeightLimit) THEN
+							Status := FEED_RESET;	
+						END_IF
+					END_IF	
+				END_IF
 		END_CASE
 		FBControl();
 	ELSE

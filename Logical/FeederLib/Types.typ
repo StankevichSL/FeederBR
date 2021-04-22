@@ -84,6 +84,7 @@ TYPE
 		DeviationCalcDelay : TIME;
 		ToGoToAutoDelay : TIME;
 		DeviationLimit : REAL;
+		ResetWeightLimit : REAL;
 	END_STRUCT;
 	FeederIOinType : 	STRUCT 
 		aiWeight : INT;
