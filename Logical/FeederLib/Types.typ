@@ -1,13 +1,3 @@
-
-TYPE
-	FeederBlockStatusEnum : 
-		(
-		FEEDBLOCK_ERROR := 0,
-		FEEDBLOCK_INIT := 1,
-		FEEDBLOCK_WORK := 2
-		);
-END_TYPE
-
 (*FBFeederHandler*)
 
 TYPE
@@ -97,5 +87,42 @@ TYPE
 		TareK : REAL;
 		Deviation : REAL;
 		IsAUTO : BOOL;
+	END_STRUCT;
+END_TYPE
+
+(*FBFeederBlock*)
+
+TYPE
+	FeederBlockStatusEnum : 
+		(
+		FEEDBLOCK_ERROR := 0,
+		FEEDBLOCK_INIT := 1,
+		FEEDBLOCK_SINGLE := 2,
+		FEEDBLOCK_DUAL := 3
+		);
+	FeederBlockControlType : 	STRUCT 
+		PrimaryFeeder : FeederControlType;
+		SecondaryMode : FeederControlType;
+		PrimaryStart : BOOL;
+		SecondaryStart : BOOL;
+		SeparateMode : BOOL;
+		FeederSwitch : BOOL;
+	END_STRUCT;
+	FeederBlockConfigType : 	STRUCT 
+		PrimaryFeeder : FeederConfigType;
+		SecondaryFeeder : FeederConfigType;
+		DualFeederMode : BOOL;
+	END_STRUCT;
+	FeederBlockIOinType : 	STRUCT 
+		PrimaryFeeder : FeederIOinType;
+		SecondaryFeeder : FeederIOinType;
+	END_STRUCT;
+	FeederBlockIOoutType : 	STRUCT 
+		PrimaryFeeder : FeederHandlerIOoutType;
+		SecondaryFeeder : FeederHandlerIOoutType;
+	END_STRUCT;
+	FeederBlockUserInfoType : 	STRUCT 
+		PrimaryFeeder : FeederUserInfoType;
+		SecondaryFeeder : FeederUserInfoType;
 	END_STRUCT;
 END_TYPE

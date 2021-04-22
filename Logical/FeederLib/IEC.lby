@@ -7,9 +7,9 @@
     <File Description="Exported functions and function blocks">FeederLib.fun</File>
     <File>FFeederRatio.st</File>
     <File>FStdDeviation.st</File>
-    <File>FBFeederHandler.st</File>
     <File>FBFeederBlock.st</File>
     <File>FBFeeder.st</File>
+    <File>FBFeederHandler.st</File>
   </Files>
   <Dependencies>
     <Dependency ObjectName="MpAxis" />

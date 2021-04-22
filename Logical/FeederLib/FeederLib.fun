@@ -36,7 +36,7 @@ END_FUNCTION
 {REDUND_ERROR} FUNCTION_BLOCK FBFeederHandler (*TODO: Add your comment here*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 	VAR_INPUT
 		Enable : BOOL;
-		Start : {REDUND_UNREPLICABLE} BOOL;
+		Start : BOOL;
 		Config : FeederHandlerConfigType;
 		Control : FeederHandlerControlType;
 		TareK : REAL;
@@ -58,8 +58,8 @@ END_FUNCTION_BLOCK
 {REDUND_ERROR} FUNCTION_BLOCK FBFeeder (*TODO: Add your comment here*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 	VAR_INPUT
 		Enable : {REDUND_UNREPLICABLE} BOOL;
-		Start : BOOL;
 		Reset : BOOL;
+		Start : BOOL;
 		Config : FeederConfigType;
 		Control : FeederControlType;
 		IOin : FeederIOinType;
@@ -92,8 +92,17 @@ END_FUNCTION_BLOCK
 {REDUND_ERROR} FUNCTION_BLOCK FBFeederBlock (*TODO: Add your comment here*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 	VAR_INPUT
 		Enable : {REDUND_UNREPLICABLE} BOOL;
+		Control : FeederBlockControlType;
+		Config : FeederBlockConfigType;
+		IOin : FeederBlockIOinType;
 	END_VAR
 	VAR_OUTPUT
 		Status : FeederBlockStatusEnum;
+		IOout : FeederBlockIOoutType;
+		UserInfo : FeederBlockUserInfoType;
+	END_VAR
+	VAR
+		PrimaryFeeder : FBFeeder;
+		SecondaryFeeder : FBFeeder;
 	END_VAR
 END_FUNCTION_BLOCK

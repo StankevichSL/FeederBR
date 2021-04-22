@@ -128,7 +128,7 @@ FUNCTION_BLOCK FBFeeder
 						END_IF			
 					END_IF
 				ELSE
-					FBControl.Start := FALSE;
+//					FBControl.Start := FALSE;
 					Status := FEED_PAUSE;
 				END_IF				
 			FEED_RESET:
