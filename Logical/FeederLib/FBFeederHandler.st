@@ -5,17 +5,17 @@ FUNCTION_BLOCK FBFeederHandler
 		CASE Status OF
 			FEEDCTRL_ERROR:
 				// error case
-			FEEDCTRL_INIT:
-				// добавить проверку чтобы AxisConfigLink != 0
+			FEEDCTRL_INIT:		
 				AxisBasic.MpLink := Config.AxisConfigLink;
 				AxisBasic.Enable := TRUE;
 				AxisBasic.Parameters := Config.AxisBasicParLink;
 				AxisBasic.Axis := Config.ACPConfigLink;
-			
+		
+		
 				AxisCyclicSet.MpLink := Config.AxisConfigLink;
 				AxisCyclicSet.Enable := TRUE;
 				AxisCyclicSet.Parameters := Config.AxisCyclicSetParLink;
-			
+				
 				IF (AxisBasic.Active) THEN 
 					UserInfo.Active := TRUE;
 					AxisBasic.Power := 1;
@@ -27,10 +27,11 @@ FUNCTION_BLOCK FBFeederHandler
 							IF (AxisCyclicSet.Active) THEN
 								AxisCyclicSet.CyclicVelocity := 1;
 								Status := FEEDCTRL_READY_TO_FEED;
-							END_IF;
-						END_IF;
-					END_IF;
-				END_IF;			
+							END_IF
+						END_IF
+					END_IF
+				END_IF
+				
 			FEEDCTRL_READY_TO_FEED:
 				IF (Start) THEN	
 					Status := FEEDCTRL_PREPURGE;
@@ -58,7 +59,7 @@ FUNCTION_BLOCK FBFeederHandler
 				IOout.doMixer := TRUE;			
 			FEEDCTRL_FEEDING:
 				IF (Start) THEN				
-					AxisCyclicSet.Velocity := ((Control.PowderRate*(100+Control.KZU))/Control.KZP)*TareK;
+					AxisCyclicSet.Velocity := (((Control.PowderRate/10)*(100+Control.KZU))/Control.KZP)*TareK*Config.Ratio;
 				ELSE
 					AxisCyclicSet.Velocity := 0;
 					Status := FEEDCTRL_POSTPURGE;	
@@ -81,8 +82,10 @@ FUNCTION_BLOCK FBFeederHandler
 			
 				IOout.aoGasRate := Calibrate(Control.GasRate,Config.GasCalibrateOut);
 		END_CASE	
+		// добавить проверку чтобы AxisConfigLink != 0
 		AxisBasic();
-		AxisCyclicSet();	
+		AxisCyclicSet();
+		
 		UserInfo.ActualSpeed := AxisBasic.Velocity;
 	END_IF
 

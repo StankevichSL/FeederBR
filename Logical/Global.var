@@ -4,4 +4,6 @@ VAR
 	Ktare : ARRAY[0..2399] OF REAL;
 	V : ARRAY[0..2399] OF REAL;
 	W : ARRAY[0..2399] OF REAL;
+	gAxis02 : ACP10AXIS_typ;
+	gAxis01 : ACP10AXIS_typ;
 END_VAR

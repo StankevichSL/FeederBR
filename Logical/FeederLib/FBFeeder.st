@@ -34,79 +34,85 @@ FUNCTION_BLOCK FBFeeder
 				END_IF
 			FEED_FEEDING:	
 				IF Start THEN
-					IF NOT WriteInWTP THEN
-						// задержка заполнения буфферов W T P
-						TON_BufferDelay.IN := TRUE;
-						TON_BufferDelay();
-						IF TON_BufferDelay.Q THEN
-							WriteInWTP := TRUE;
-							TON_BufferDelay.IN := FALSE;
-						END_IF
-					ELSE
-						// заполнение буфера W T P
-						WBuffer[i] := UserInfo.Weight;
-						IF i = 0 THEN
-							PBuffer[0] := PBuffer[2399] + FBControl.UserInfo.ActualSpeed;
-							TBuffer[0] := TBuffer[2399] + 0.0001;
+					TON_WriteInBufferPeriod.IN := TRUE;
+					IF TON_WriteInBufferPeriod.Q THEN	
+						TON_WriteInBufferPeriod.IN := FALSE;
+						IF NOT WriteInWTP THEN
+							// задержка заполнения буфферов W T P
+							TON_BufferDelay.IN := TRUE;
+							TON_BufferDelay();
+							IF TON_BufferDelay.Q THEN
+								WriteInWTP := TRUE;
+								TON_BufferDelay.IN := FALSE;
+							END_IF
 						ELSE
-							PBuffer[i] := PBuffer[i-1] + FBControl.UserInfo.ActualSpeed;
-							TBuffer[i] := TBuffer[i-1] + 0.0001;
-						END_IF
+							// заполнение буфера W T P
+							WBuffer[i] := UserInfo.Weight;
+							IF i = 0 THEN
+								PBuffer[0] := PBuffer[2399] + FBControl.UserInfo.ActualSpeed;
+								TBuffer[0] := TBuffer[2399] + 0.0001;
+							ELSE
+								PBuffer[i] := PBuffer[i-1] + FBControl.UserInfo.ActualSpeed;
+								TBuffer[i] := TBuffer[i-1] + 0.0001;
+							END_IF
 
-						IF i = 2399 THEN
-							i := 0;
-							RewriteWTP := TRUE;
-						ELSE
-							i := i + 1;
-						END_IF
+							IF i = 2399 THEN
+								i := 0;
+								RewriteWTP := TRUE;
+							ELSE
+								i := i + 1;
+							END_IF
 					
-						IF NOT WriteInTareK THEN		
-							// задержка заполнения буффера тарировочного коэффициента
-							TON_TareCalcDelay.IN := TRUE;
-							TON_TareCalcDelay();
-							IF TON_TareCalcDelay.Q THEN
-								WriteInTareK := TRUE;
-								TON_TareCalcDelay.IN := FALSE;
-							END_IF
-						ELSE
-							// заполнение буффера тарировочного коэффициента
-							IF RewriteWTP THEN
-								TareKBuffer[j] := FFeederRatio(ADR(WBuffer),ADR(PBuffer),ADR(TBuffer),2399);
-							ELSE
-								TareKBuffer[j] := FFeederRatio(ADR(WBuffer),ADR(PBuffer),ADR(TBuffer),i);	
-							END_IF	
-							IF j = 2399 THEN
-								j := 0;
-								RewriteTareK := TRUE;
-							ELSE
-								j := j + 1;
-							END_IF
-						
-							IF NOT CalcDeviation THEN
-								// задержка расчета стандартной погрешности татировочного коэффициента
-								TON_DeviationCalcDelay.IN := TRUE;
-								TON_DeviationCalcDelay();
-								IF TON_DeviationCalcDelay.Q THEN
-									CalcDeviation := TRUE;
-									TON_DeviationCalcDelay.IN := FALSE;
+							IF NOT WriteInTareK THEN		
+								// задержка заполнения буффера тарировочного коэффициента
+								TON_TareCalcDelay.IN := TRUE;
+								TON_TareCalcDelay();
+								IF TON_TareCalcDelay.Q THEN
+									WriteInTareK := TRUE;
+									TON_TareCalcDelay.IN := FALSE;
 								END_IF
 							ELSE
-								// расчет стандартного откланения погрешности тарировочного коэффициента
-								IF RewriteTareK THEN
-									UserInfo.Deviation := FStdDeviation(ADR(TareKBuffer),2399);
+								// заполнение буффера тарировочного коэффициента
+								IF RewriteWTP THEN
+									TareKBuffer[j] := FFeederRatio(ADR(WBuffer),ADR(PBuffer),ADR(TBuffer),2399);
 								ELSE
-									UserInfo.Deviation := FStdDeviation(ADR(TareKBuffer),j);
-								END_IF							
-							END_IF						
-						END_IF					
+									TareKBuffer[j] := FFeederRatio(ADR(WBuffer),ADR(PBuffer),ADR(TBuffer),i);	
+								END_IF	
+								IF j = 2399 THEN
+									j := 0;
+									RewriteTareK := TRUE;
+								ELSE
+									j := j + 1;
+								END_IF
+						
+								IF NOT CalcDeviation THEN
+									// задержка расчета стандартной погрешности татировочного коэффициента
+									TON_DeviationCalcDelay.IN := TRUE;
+									TON_DeviationCalcDelay();
+									IF TON_DeviationCalcDelay.Q THEN
+										CalcDeviation := TRUE;
+										TON_DeviationCalcDelay.IN := FALSE;
+									END_IF
+								ELSE
+									// расчет стандартного откланения погрешности тарировочного коэффициента
+									IF RewriteTareK THEN
+										UserInfo.Deviation := FStdDeviation(ADR(TareKBuffer),2399);
+									ELSE
+										UserInfo.Deviation := FStdDeviation(ADR(TareKBuffer),j);
+									END_IF							
+								END_IF						
+							END_IF					
+						END_IF
 					END_IF
+					TON_WriteInBufferPeriod();
 					// Выбор тарировочного коэффициента в зависимости от конфигурации
 					IF Control.ManualTareControl THEN
 						FBControl.TareK := Control.TareK;
 					ELSE
 						IF NOT UserInfo.IsAUTO THEN
+							FBControl.TareK := Config.DefaultTareK;
 							IF CalcDeviation THEN
-								IF UserInfo.Deviation < Config.DeviationLimit THEN
+								IF (UserInfo.Deviation <> 0) AND (UserInfo.Deviation < Config.DeviationLimit) THEN
 									TON_ToGoToAutoDelay.IN := TRUE;
 									IF TON_ToGoToAutoDelay.Q THEN
 										UserInfo.IsAUTO := TRUE;
@@ -114,6 +120,7 @@ FUNCTION_BLOCK FBFeeder
 									END_IF;
 								ELSE
 									TON_ToGoToAutoDelay.IN := FALSE;
+									FBControl.TareK := Config.DefaultTareK;
 								END_IF				
 								TON_ToGoToAutoDelay();
 							ELSE
@@ -128,7 +135,7 @@ FUNCTION_BLOCK FBFeeder
 						END_IF			
 					END_IF
 				ELSE
-//					FBControl.Start := FALSE;
+					FBControl.Start := FALSE;
 					Status := FEED_PAUSE;
 				END_IF				
 			FEED_RESET:
@@ -179,7 +186,7 @@ FUNCTION_BLOCK FBFeeder
 		FBControl.IOin := IOin.Handler;
 		FBControl();
 		UserInfo.Handler := FBControl.UserInfo;
-		UserInfo.Weight := CalibrateREAL(IOin.aiWeight, Config.WeightCalibrate);
+		UserInfo.Weight := CalibrateREAL(DINT_TO_REAL(IOin.aiWeight), Config.WeightCalibrate);
 		UserInfo.Rate := FBControl.TareK;
 		IOout := FBControl.IOout;
 	ELSE

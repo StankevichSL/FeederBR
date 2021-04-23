@@ -20,7 +20,7 @@ FUNCTION_BLOCK FBFeederBlock
 				ELSE
 					PrimaryFeeder();
 					IF (PrimaryFeeder.Status = FEED_READY) THEN
-						Status := FEEDBLOCK_DUAL;
+						Status := FEEDBLOCK_SINGLE;
 					END_IF
 				END_IF				
 			FEEDBLOCK_SINGLE:

@@ -1,4 +1,9 @@
 VAR
 	FeederBlock : FBFeederBlock;
 	Config : FeederConfigType;
+	Par1 : MpAxisBasicParType := (Acceleration:=50000,Deceleration:=50000,Velocity:=10000);
+	CyclicSet1 : MpAxisCyclicSetParType := (Acceleration:=50000,Deceleration:=50000,PositionModeMaxVelocity:=10000);
+	Par2 : MpAxisBasicParType := (Acceleration:=50000,Deceleration:=50000,Velocity:=10000);
+	CyclicSet2 : MpAxisCyclicSetParType := (Acceleration:=50000,Deceleration:=50000,PositionModeMaxVelocity:=10000);
+	Handler : FBFeederHandler;
 END_VAR

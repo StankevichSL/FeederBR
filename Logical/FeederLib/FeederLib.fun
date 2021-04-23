@@ -67,7 +67,7 @@ END_FUNCTION_BLOCK
 	VAR_OUTPUT
 		IOout : FeederHandlerIOoutType;
 		UserInfo : FeederUserInfoType;
-		Status : FeederStatusEnum;
+		Status : FeederStatusEnum := FEED_INIT;
 	END_VAR
 	VAR
 		FBControl : FBFeederHandler;
@@ -75,6 +75,7 @@ END_FUNCTION_BLOCK
 		TON_DeviationCalcDelay : TON;
 		TON_ToGoToAutoDelay : TON;
 		TON_BufferDelay : TON;
+		TON_WriteInBufferPeriod : TON;
 		WBuffer : ARRAY[0..2399] OF REAL;
 		TBuffer : ARRAY[0..2399] OF REAL;
 		PBuffer : ARRAY[0..2399] OF REAL;
@@ -97,7 +98,7 @@ END_FUNCTION_BLOCK
 		IOin : FeederBlockIOinType;
 	END_VAR
 	VAR_OUTPUT
-		Status : FeederBlockStatusEnum;
+		Status : FeederBlockStatusEnum := FEEDBLOCK_INIT;
 		IOout : FeederBlockIOoutType;
 		UserInfo : FeederBlockUserInfoType;
 	END_VAR

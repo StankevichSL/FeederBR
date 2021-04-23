@@ -11,10 +11,10 @@ TYPE
 		FEEDCTRL_POSTPURGE := 5
 		);
 	FeederHandlerControlType : 	STRUCT 
-		GasRate : INT;
-		PowderRate : INT;
+		PowderRate : UINT; (*Базовое управляющее значение расхода порошка*)
 		KZP : REAL;
 		KZU : REAL;
+		GasRate : UINT; (*Управляющее значение расходом газа*)
 	END_STRUCT;
 	FeederHandlerConfigType : 	STRUCT 
 		PrepurgeTime : TIME;
@@ -24,14 +24,15 @@ TYPE
 		AxisBasicParLink : UDINT;
 		AxisCyclicSetParLink : UDINT;
 		GasCalibrateOut : CalibrationType;
+		Ratio : USINT := 25;
 	END_STRUCT;
 	FeederHandlerIOoutType : 	STRUCT 
-		aoGasRate : INT;
+		aoGasRate : INT; (*Управление регулятором расхода*)
 		doShutOff : BOOL;
 		doMixer : BOOL;
 	END_STRUCT;
 	FeederHandlerIOinType : 	STRUCT 
-		aiGasRate : INT;
+		aiGasRate : UINT; (*Показание регулятора расхода*)
 	END_STRUCT;
 	FeederHandlerUserInfoType : 	STRUCT 
 		Active : BOOL;
@@ -73,6 +74,7 @@ TYPE
 		TareCalcDelay : TIME;
 		DeviationCalcDelay : TIME;
 		ToGoToAutoDelay : TIME;
+		RecordInBufferPerion : TIME := T#100ms; (*Запись значений в буфер через указанное время*)
 		DeviationLimit : REAL;
 		ResetWeightLimit : REAL;
 	END_STRUCT;
