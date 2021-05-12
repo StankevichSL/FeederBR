@@ -105,5 +105,7 @@ END_FUNCTION_BLOCK
 	VAR
 		PrimaryFeeder : FBFeeder;
 		SecondaryFeeder : FBFeeder;
+		TON_UpdateDefaultTareK1 : TON := (PT:=T#100ms);
+		TON_UpdateDefaultTareK2 : TON := (PT:=T#100ms);
 	END_VAR
 END_FUNCTION_BLOCK

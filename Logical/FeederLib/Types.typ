@@ -70,10 +70,11 @@ TYPE
 		AlarmWeight : REAL;
 		AlarmPrefix : STRING[80];
 		EnableAutoRateControl : BOOL;
-		BufferDelay : TIME;
-		TareCalcDelay : TIME;
-		DeviationCalcDelay : TIME;
-		ToGoToAutoDelay : TIME;
+		BufferDelay : TIME := T#10s;
+		TareCalcDelay : TIME := T#10s;
+		DefaultTareKUpdateDelay : TIME := T#10s;
+		DeviationCalcDelay : TIME := T#10s;
+		ToGoToAutoDelay : TIME := T#10s;
 		RecordInBufferPerion : TIME := T#100ms; (*Запись значений в буфер через указанное время*)
 		DeviationLimit : REAL;
 		ResetWeightLimit : REAL;

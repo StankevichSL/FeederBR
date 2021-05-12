@@ -8,10 +8,12 @@ FUNCTION_BLOCK FBFeederBlock
 				PrimaryFeeder.Config := Config.PrimaryFeeder;
 				PrimaryFeeder.IOin := IOin.PrimaryFeeder;
 				PrimaryFeeder.Enable := TRUE;
+				TON_UpdateDefaultTareK1.PT := Config.PrimaryFeeder.DefaultTareKUpdateDelay;
 				IF Config.DualFeederMode THEN
 					SecondaryFeeder.Config := Config.SecondaryFeeder;
 					SecondaryFeeder.IOin := IOin.SecondaryFeeder;
 					SecondaryFeeder.Enable := TRUE;
+					TON_UpdateDefaultTareK2.PT := Config.SecondaryFeeder.DefaultTareKUpdateDelay;
 					PrimaryFeeder();
 					SecondaryFeeder();
 					IF (PrimaryFeeder.Status = FEED_READY) AND (SecondaryFeeder.Status = FEED_READY) THEN
@@ -30,6 +32,18 @@ FUNCTION_BLOCK FBFeederBlock
 				PrimaryFeeder();
 				IOout.PrimaryFeeder := PrimaryFeeder.IOout;
 				UserInfo.PrimaryFeeder := PrimaryFeeder.UserInfo;
+				
+				// обновление тарировочного коэффициента по умолчанию	
+				IF PrimaryFeeder.UserInfo.IsAUTO THEN
+					TON_UpdateDefaultTareK1.IN := TRUE;
+					TON_UpdateDefaultTareK1();
+					IF TON_UpdateDefaultTareK1.Q THEN
+						Config.PrimaryFeeder.DefaultTareK := PrimaryFeeder.UserInfo.TareK;
+						PrimaryFeeder.Config.DefaultTareK := Config.PrimaryFeeder.DefaultTareK;
+						TON_UpdateDefaultTareK1.IN := FALSE;
+						TON_UpdateDefaultTareK1();
+					END_IF	
+				END_IF
 			FEEDBLOCK_DUAL:
 				PrimaryFeeder.IOin := IOin.PrimaryFeeder;
 				SecondaryFeeder.IOin := IOin.SecondaryFeeder;
@@ -49,7 +63,29 @@ FUNCTION_BLOCK FBFeederBlock
 					END_IF
 				END_IF
 				PrimaryFeeder();
+				// обновление тарировочного коэффициента по умолчанию	
+				IF PrimaryFeeder.UserInfo.IsAUTO THEN
+					TON_UpdateDefaultTareK1.IN := TRUE;
+					TON_UpdateDefaultTareK1();
+					IF TON_UpdateDefaultTareK1.Q THEN
+						Config.PrimaryFeeder.DefaultTareK := PrimaryFeeder.UserInfo.TareK;
+						PrimaryFeeder.Config.DefaultTareK := Config.PrimaryFeeder.DefaultTareK;
+						TON_UpdateDefaultTareK1.IN := FALSE;
+						TON_UpdateDefaultTareK1();
+					END_IF	
+				END_IF
 				SecondaryFeeder();
+				// обновление тарировочного коэффициента по умолчанию	
+				IF SecondaryFeeder.UserInfo.IsAUTO THEN
+					TON_UpdateDefaultTareK2.IN := TRUE;
+					TON_UpdateDefaultTareK2();
+					IF TON_UpdateDefaultTareK2.Q THEN
+						Config.SecondaryFeeder.DefaultTareK := SecondaryFeeder.UserInfo.TareK;
+						SecondaryFeeder.Config.DefaultTareK := Config.SecondaryFeeder.DefaultTareK;
+						TON_UpdateDefaultTareK2.IN := FALSE;
+						TON_UpdateDefaultTareK2();
+					END_IF	
+				END_IF
 				
 				IOout.PrimaryFeeder := PrimaryFeeder.IOout;
 				UserInfo.PrimaryFeeder := PrimaryFeeder.UserInfo;

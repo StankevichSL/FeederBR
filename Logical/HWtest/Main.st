@@ -9,7 +9,7 @@ PROGRAM _INIT
 	Config.ResetWeightLimit := 0.1;
 	
 	Config.DefaultTareK := 0.85;	
-	Config.DeviationLimit := 0.1;
+	Config.DeviationLimit := 0.2;
 	Config.EnableAutoRateControl := FALSE;
 	
 	Config.TareCalcDelay := T#10s;

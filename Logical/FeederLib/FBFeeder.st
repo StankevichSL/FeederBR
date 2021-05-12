@@ -11,7 +11,7 @@ FUNCTION_BLOCK FBFeeder
 				TON_BufferDelay.PT := Config.BufferDelay;
 				TON_TareCalcDelay.PT := Config.TareCalcDelay;
 				TON_DeviationCalcDelay.PT := Config.DeviationCalcDelay;
-				TON_ToGoToAutoDelay.PT := Config.ToGoToAutoDelay;
+				TON_ToGoToAutoDelay.PT := Config.ToGoToAutoDelay;				
 				
 				i := 0;
 				j := 0;
@@ -134,7 +134,7 @@ FUNCTION_BLOCK FBFeeder
 							IF UserInfo.Deviation > Config.DeviationLimit THEN
 								UserInfo.IsAUTO := FALSE;
 							ELSE					
-								FBControl.TareK := UserInfo.TareK;
+								FBControl.TareK := UserInfo.TareK;							
 							END_IF				
 						END_IF			
 					END_IF
@@ -159,9 +159,13 @@ FUNCTION_BLOCK FBFeeder
 				CalcDeviation := FALSE;
 				UserInfo.IsAUTO := FALSE;
 				
+				TON_BufferDelay.IN := FALSE;
 				TON_BufferDelay();
+				TON_TareCalcDelay.IN := FALSE;
 				TON_TareCalcDelay();
+				TON_DeviationCalcDelay.IN := FALSE;
 				TON_DeviationCalcDelay();
+				
 				
 				Reset := FALSE;
 				Status := FEED_READY;
