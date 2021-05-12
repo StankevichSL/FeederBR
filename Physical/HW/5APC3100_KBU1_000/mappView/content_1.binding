@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet id="content_1_binding" xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Bindings>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.PrimaryFeeder.Weight" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericOutput1" attribute="value" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.PrimaryFeeder.Rate" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericOutput2" attribute="value" />
+</Binding>
+
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.PrimaryFeeder.Deviation" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericOutput4" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.PrimaryFeeder.IsAUTO" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="Rectangle2" attribute="visible" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.PrimaryFeeder.Handler.Active" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="Rectangle3" attribute="visible" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.PrimaryFeeder.Handler.ActualSpeed" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericOutput5" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.Control.PrimaryFeeder.Handler.GasRate" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericInput4" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.Control.PrimaryFeeder.Handler.KZU" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericInput3" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.Control.PrimaryFeeder.Handler.KZP" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericInput2" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.Control.PrimaryFeeder.Handler.PowderRate" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericInput1" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.Control.PrimaryFeeder.TareK" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericInput5" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.Control.PrimaryFeeder.ManualTareControl" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="ToggleSwitch1" attribute="value" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="brease" contentRefId="content_1" widgetRefId="ToggleSwitch1" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericInput5" attribute="enable" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.PrimaryFeeder.Deviation" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="OnlineChartGraph4" attribute="value" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.SecondaryFeeder.Deviation" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="OnlineChartGraph3" attribute="value" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.SecondaryFeeder.Rate" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericOutput7" attribute="value" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.SecondaryFeeder.Weight" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericOutput6" attribute="value" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.PrimaryFeeder.Rate" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="OnlineChartGraph1" attribute="value" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.SecondaryFeeder.Rate" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="OnlineChartGraph2" attribute="value" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.SecondaryFeeder.TareK" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericOutput8" attribute="value" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.SecondaryFeeder.IsAUTO" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="Rectangle5" attribute="visible" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.SecondaryFeeder.Handler.Active" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="Rectangle6" attribute="visible" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.SecondaryFeeder.Handler.ActualSpeed" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericOutput10" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.Control.SecondaryFeeder.Handler.PowderRate" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericInput6" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.Control.SecondaryFeeder.Handler.KZP" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericInput7" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.Control.SecondaryFeeder.Handler.KZU" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericInput8" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.Control.SecondaryFeeder.Handler.GasRate" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericInput9" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.Control.SecondaryFeeder.ManualTareControl" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="ToggleSwitch2" attribute="value" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="brease" contentRefId="content_1" widgetRefId="ToggleSwitch2" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericInput10" attribute="enable" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.Control.SecondaryFeeder.TareK" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericInput10" attribute="value" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.PrimaryFeeder.TareK" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericOutput3" attribute="value" />
+</Binding>
+</Bindings>
+</BindingsSet>

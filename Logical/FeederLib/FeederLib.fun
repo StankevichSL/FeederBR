@@ -75,7 +75,7 @@ END_FUNCTION_BLOCK
 		TON_DeviationCalcDelay : TON;
 		TON_ToGoToAutoDelay : TON;
 		TON_BufferDelay : TON;
-		TON_WriteInBufferPeriod : TON;
+		TON_WriteInBufferPeriod : TON := (PT:=T#100ms);
 		WBuffer : ARRAY[0..2399] OF REAL;
 		TBuffer : ARRAY[0..2399] OF REAL;
 		PBuffer : ARRAY[0..2399] OF REAL;

@@ -59,7 +59,7 @@ FUNCTION_BLOCK FBFeederHandler
 				IOout.doMixer := TRUE;			
 			FEEDCTRL_FEEDING:
 				IF (Start) THEN				
-					AxisCyclicSet.Velocity := (((Control.PowderRate/10)*(100+Control.KZU))/Control.KZP)*TareK*Config.Ratio;
+					AxisCyclicSet.Velocity := ((LIMIT(0,(Control.PowderRate/(TareK*10)),100)*(100+Control.KZU))/Control.KZP)*Config.Ratio/0.6;
 				ELSE
 					AxisCyclicSet.Velocity := 0;
 					Status := FEEDCTRL_POSTPURGE;	

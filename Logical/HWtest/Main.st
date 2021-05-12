@@ -8,7 +8,7 @@ PROGRAM _INIT
 	Config.AlarmWeight := 0.1;	
 	Config.ResetWeightLimit := 0.1;
 	
-	Config.DefaultTareK := 1;	
+	Config.DefaultTareK := 0.85;	
 	Config.DeviationLimit := 0.1;
 	Config.EnableAutoRateControl := FALSE;
 	
@@ -51,8 +51,10 @@ PROGRAM _INIT
 	FeederBlock.Config.SecondaryFeeder := Config;
 	
 	FeederBlock.Control.PrimaryFeeder.Handler.KZP := 100;
-	FeederBlock.Control.PrimaryFeeder.Handler.KZU := 10;
+	FeederBlock.Control.PrimaryFeeder.Handler.KZU := 0;
 	//	Handler.Config := Config.Handler;
+	FeederBlock.Config.DualFeederMode := TRUE;
+	FeederBlock.Enable := TRUE;
 END_PROGRAM
 
 PROGRAM _CYCLIC

@@ -77,6 +77,7 @@ TYPE
 		RecordInBufferPerion : TIME := T#100ms; (*Запись значений в буфер через указанное время*)
 		DeviationLimit : REAL;
 		ResetWeightLimit : REAL;
+		ControlWord : UINT := 29828;
 	END_STRUCT;
 	FeederIOinType : 	STRUCT 
 		Handler : FeederHandlerIOinType;

@@ -12,6 +12,9 @@
       <Parameter ID="ChannelType1" Value="OCTET[24]" />
     </Connector>
   </Module>
+  <Module Name="5ACCLI02.SD40-000" Type="5ACCLI02.SD40-000" Version="2.0.0.0">
+    <Connection Connector="SL" TargetModule="5APC3100_KBU1_000" TargetConnector="SL3" />
+  </Module>
   <Module Name="5APC3100_KBU1_000" Type="5APC3100.KBU1-000" Version="2.2.1.0">
     <Connector Name="IF3">
       <Parameter ID="AssignedOperatingSystem" Value="GPOS" />
@@ -649,9 +652,6 @@
   <Module Name="X20BM11h" Type="X20BM11" Version="1.0.0.1">
     <Connection Connector="X2X1" TargetModule="X20BM11g" TargetConnector="X2X2" />
   </Module>
-  <Module Name="X20BM11i" Type="X20BM11" Version="1.0.0.1">
-    <Connection Connector="X2X1" TargetModule="X20BM11" TargetConnector="X2X2" />
-  </Module>
   <Module Name="X20BM11j" Type="X20BM11" Version="1.0.0.1">
     <Connection Connector="X2X1" TargetModule="X20BM11h" TargetConnector="X2X2" />
   </Module>
@@ -674,7 +674,7 @@
     <Connection Connector="X2X1" TargetModule="X20BM11o" TargetConnector="X2X2" />
   </Module>
   <Module Name="X20BM33" Type="X20BM33" Version="1.0.0.6">
-    <Connection Connector="X2X1" TargetModule="X20BM11i" TargetConnector="X2X2" />
+    <Connection Connector="X2X1" TargetModule="X20BM11" TargetConnector="X2X2" />
   </Module>
   <Module Name="X20IF10D1_1" Type="X20IF10D1-1" Version="1.6.0.0">
     <Connection Connector="SS" TargetModule="X20BB81" TargetConnector="SS1" />
@@ -713,7 +713,6 @@
   <Module Name="X20TB12f" Type="X20TB12" Version="1.0.0.0" />
   <Module Name="X20TB12g" Type="X20TB12" Version="1.0.0.0" />
   <Module Name="X20TB12h" Type="X20TB12" Version="1.0.0.0" />
-  <Module Name="X20TB12i" Type="X20TB12" Version="1.0.0.0" />
   <Module Name="X20TB12j" Type="X20TB12" Version="1.0.0.0" />
   <Module Name="X20TB12k" Type="X20TB12" Version="1.0.0.0" />
   <Module Name="X20TB12l" Type="X20TB12" Version="1.0.0.0" />
@@ -725,8 +724,4 @@
   <Module Name="X20TB1F1" Type="X20TB1F" Version="1.0.0.0" />
   <Module Name="X20TB52" Type="X20TB52" Version="1.0.0.2" />
   <Module Name="X20TB52a" Type="X20TB52" Version="1.0.0.2" />
-  <Module Name="ai4322" Type="X20AI4322" Version="1.1.0.0">
-    <Connection Connector="SS1" TargetModule="X20TB12i" TargetConnector="SS" />
-    <Connection Connector="SL" TargetModule="X20BM11i" TargetConnector="SL1" />
-  </Module>
 </Hardware>

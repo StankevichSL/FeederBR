@@ -3,8 +3,8 @@ VAR_CONFIG
 	Cyclic#1.::HWtest:FeederBlock.IOout.SecondaryFeeder.doMixer AT %QX."Mixer".StartChannel02;
 	Cyclic#1.::HWtest:FeederBlock.IOin.PrimaryFeeder.aiWeight AT %ID."Tensosensors".AnalogInput01;
 	Cyclic#1.::HWtest:FeederBlock.IOin.SecondaryFeeder.aiWeight AT %ID."Tensosensors".AnalogInput02;
-	Cyclic#1.::ControlWord AT %QW."Tensosensors".ControlPacked01;
-	Cyclic#1.::ControlWord AT %QW."Tensosensors".ControlPacked02;
+	Cyclic#1.::HWtest:FeederBlock.Config.PrimaryFeeder.ControlWord AT %QW."Tensosensors".ControlPacked01;
+	Cyclic#1.::HWtest:FeederBlock.Config.SecondaryFeeder.ControlWord AT %QW."Tensosensors".ControlPacked02;
 	Cyclic#1.::gLaserIO.Out.doPowerSupply AT %IX."X20SLX842".BOOL001;
 	Cyclic#1.gSealedChamberIO.Out.BasicChamberIOOut.doBlockDoor[0] AT %QX."X20SLX842".BOOL101;
 	Cyclic#1.gSealedChamberIO.In.BasicChamberIOIn.diDoorState[0].DoorIsClosed AT %QX."X20SLX842".BOOL102;
@@ -16,8 +16,6 @@ VAR_CONFIG
 	Cyclic#1.::HWtest:FeederBlock.Control.PrimaryFeeder.Handler.GasRate AT %IW."Robot_EIP".Robot_GO_4;
 	Cyclic#1.::HWtest:FeederBlock.Control.SecondaryFeeder.Handler.PowderRate AT %IW."Robot_EIP".Robot_GO_5;
 	Cyclic#1.::HWtest:FeederBlock.IOin.SecondaryFeeder.Handler.aiGasRate AT %IW."Robot_EIP".Robot_GO_6;
-	Cyclic#1.gTemp.aiHeadTemperature AT %IW."ai4322".InputData01_1;
-	Cyclic#1.gSealedChamberIO.In.BasicChamberIOIn.aiChamberTemperature AT %IW."ai4322".InputData02_1;
 	Cyclic#1.::HWtest:FeederBlock.IOout.PrimaryFeeder.aoGasRate AT %QW."AoFlowReg".AnalogOutput02;
 	Cyclic#1.::HWtest:FeederBlock.IOout.SecondaryFeeder.aoGasRate AT %QW."AoFlowReg".AnalogOutput03;
 END_VAR

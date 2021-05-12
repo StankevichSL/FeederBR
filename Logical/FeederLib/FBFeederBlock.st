@@ -35,23 +35,22 @@ FUNCTION_BLOCK FBFeederBlock
 				SecondaryFeeder.IOin := IOin.SecondaryFeeder;
 				IF Control.SeparateMode THEN
 					PrimaryFeeder.Control := Control.PrimaryFeeder;					
-					PrimaryFeeder.Start := Control.PrimaryStart;
-					PrimaryFeeder();
+					PrimaryFeeder.Start := Control.PrimaryStart;					
 			
 					SecondaryFeeder.Control := Control.SecondaryFeeder;					
 					SecondaryFeeder.Start := Control.SecondaryStart;
-					SecondaryFeeder();
 				ELSE
 					IF Control.FeederSwitch THEN				
 						SecondaryFeeder.Control := Control.PrimaryFeeder;
-						SecondaryFeeder.Start := Control.PrimaryStart;
-						SecondaryFeeder();
+						SecondaryFeeder.Start := Control.PrimaryStart;						
 					ELSE
 						PrimaryFeeder.Control := Control.PrimaryFeeder;
 						PrimaryFeeder.Start := Control.PrimaryStart;
-						PrimaryFeeder();
 					END_IF
 				END_IF
+				PrimaryFeeder();
+				SecondaryFeeder();
+				
 				IOout.PrimaryFeeder := PrimaryFeeder.IOout;
 				UserInfo.PrimaryFeeder := PrimaryFeeder.UserInfo;
 				

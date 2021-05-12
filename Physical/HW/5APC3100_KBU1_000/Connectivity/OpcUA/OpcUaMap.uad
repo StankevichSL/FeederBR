@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="7" ArVersion="C4.90">
+  <Aliases>
+    <ACLAliases />
+    <EURangeViolationAliases />
+    <EURangesAliases />
+    <EngineeringUnitAliases />
+  </Aliases>
+  <DefaultView>
+    <Module Name="&lt;Default&gt;">
+      <Task Name="HWtest">
+        <Variable Name="FeederBlock">
+          <Variable Name="UserInfo">
+            <Variable Name="PrimaryFeeder">
+              <Variable Name="Weight" />
+              <Variable Name="Rate" />
+              <Variable Name="TareK" />
+              <Variable Name="Deviation" />
+              <Variable Name="IsAUTO" />
+              <Variable Name="Handler">
+                <Variable Name="Active" />
+                <Variable Name="ActualSpeed" />
+              </Variable>
+            </Variable>
+            <Variable Name="SecondaryFeeder">
+              <Variable Name="Weight" />
+              <Variable Name="Rate" />
+              <Variable Name="TareK" />
+              <Variable Name="Deviation" />
+              <Variable Name="IsAUTO" />
+              <Variable Name="Handler">
+                <Variable Name="Active" />
+                <Variable Name="ActualSpeed" />
+              </Variable>
+            </Variable>
+          </Variable>
+          <Variable Name="Control">
+            <Variable Name="PrimaryFeeder">
+              <Variable Name="ManualTareControl" />
+              <Variable Name="TareK" />
+              <Variable Name="Handler">
+                <Variable Name="PowderRate" />
+                <Variable Name="KZP" />
+                <Variable Name="KZU" />
+                <Variable Name="GasRate" />
+              </Variable>
+            </Variable>
+            <Variable Name="SecondaryFeeder">
+              <Variable Name="ManualTareControl" />
+              <Variable Name="TareK" />
+              <Variable Name="Handler">
+                <Variable Name="PowderRate" />
+                <Variable Name="KZP" />
+                <Variable Name="KZU" />
+                <Variable Name="GasRate" />
+              </Variable>
+            </Variable>
+          </Variable>
+        </Variable>
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>

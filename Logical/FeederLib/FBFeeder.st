@@ -35,6 +35,7 @@ FUNCTION_BLOCK FBFeeder
 			FEED_FEEDING:	
 				IF Start THEN
 					TON_WriteInBufferPeriod.IN := TRUE;
+					TON_WriteInBufferPeriod();
 					IF TON_WriteInBufferPeriod.Q THEN	
 						TON_WriteInBufferPeriod.IN := FALSE;
 						IF NOT WriteInWTP THEN
@@ -49,11 +50,11 @@ FUNCTION_BLOCK FBFeeder
 							// заполнение буфера W T P
 							WBuffer[i] := UserInfo.Weight;
 							IF i = 0 THEN
-								PBuffer[0] := PBuffer[2399] + FBControl.UserInfo.ActualSpeed;
-								TBuffer[0] := TBuffer[2399] + 0.0001;
+								PBuffer[0] := PBuffer[2399] + FBControl.UserInfo.ActualSpeed/100000;
+								TBuffer[0] := TBuffer[2399] + 0.1;
 							ELSE
-								PBuffer[i] := PBuffer[i-1] + FBControl.UserInfo.ActualSpeed;
-								TBuffer[i] := TBuffer[i-1] + 0.0001;
+								PBuffer[i] := PBuffer[i-1] + FBControl.UserInfo.ActualSpeed/100000;
+								TBuffer[i] := TBuffer[i-1] + 0.1;
 							END_IF
 
 							IF i = 2399 THEN
@@ -63,7 +64,7 @@ FUNCTION_BLOCK FBFeeder
 								i := i + 1;
 							END_IF
 					
-							IF NOT WriteInTareK THEN		
+							IF NOT WriteInTareK THEN
 								// задержка заполнения буффера тарировочного коэффициента
 								TON_TareCalcDelay.IN := TRUE;
 								TON_TareCalcDelay();
@@ -74,10 +75,12 @@ FUNCTION_BLOCK FBFeeder
 							ELSE
 								// заполнение буффера тарировочного коэффициента
 								IF RewriteWTP THEN
-									TareKBuffer[j] := FFeederRatio(ADR(WBuffer),ADR(PBuffer),ADR(TBuffer),2399);
+									UserInfo.TareK := USINT_TO_REAL(Config.Handler.Ratio)*FFeederRatio(ADR(WBuffer),ADR(PBuffer),ADR(TBuffer),2399)/0.6;
 								ELSE
-									TareKBuffer[j] := FFeederRatio(ADR(WBuffer),ADR(PBuffer),ADR(TBuffer),i);	
-								END_IF	
+									UserInfo.TareK := USINT_TO_REAL(Config.Handler.Ratio)*FFeederRatio(ADR(WBuffer),ADR(PBuffer),ADR(TBuffer),i)/0.6;	
+								END_IF
+								TareKBuffer[j] := UserInfo.TareK;
+								
 								IF j = 2399 THEN
 									j := 0;
 									RewriteTareK := TRUE;
@@ -104,7 +107,6 @@ FUNCTION_BLOCK FBFeeder
 							END_IF					
 						END_IF
 					END_IF
-					TON_WriteInBufferPeriod();
 					// Выбор тарировочного коэффициента в зависимости от конфигурации
 					IF Control.ManualTareControl THEN
 						FBControl.TareK := Control.TareK;
@@ -167,18 +169,18 @@ FUNCTION_BLOCK FBFeeder
 					IF RewriteWTP THEN
 						IF i = 0 THEN
 							IF ABS(WBuffer[2399]-UserInfo.Weight) > Config.ResetWeightLimit THEN
-								Status := FEED_RESET;	
-							END_IF							
+								Status := FEED_RESET;
+							END_IF
 						ELSE
 							IF ABS(WBuffer[i-1]-UserInfo.Weight) > Config.ResetWeightLimit THEN
-								Status := FEED_RESET;	
+								Status := FEED_RESET;
 							END_IF
 						END_IF
 					ELSE
 						IF (i <> 0) AND (ABS(WBuffer[i-1]-UserInfo.Weight) > Config.ResetWeightLimit) THEN
-							Status := FEED_RESET;	
+							Status := FEED_RESET;
 						END_IF
-					END_IF	
+					END_IF
 				END_IF
 		END_CASE
 		FBControl.Config := Config.Handler;
@@ -187,7 +189,7 @@ FUNCTION_BLOCK FBFeeder
 		FBControl();
 		UserInfo.Handler := FBControl.UserInfo;
 		UserInfo.Weight := CalibrateREAL(DINT_TO_REAL(IOin.aiWeight), Config.WeightCalibrate);
-		UserInfo.Rate := FBControl.TareK;
+		UserInfo.Rate := FBControl.UserInfo.ActualSpeed*UserInfo.TareK*0.6/USINT_TO_REAL(Config.Handler.Ratio);
 		IOout := FBControl.IOout;
 	ELSE
 		Status := FEED_INIT;
