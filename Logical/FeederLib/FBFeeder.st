@@ -38,13 +38,15 @@ FUNCTION_BLOCK FBFeeder
 					TON_WriteInBufferPeriod();
 					IF TON_WriteInBufferPeriod.Q THEN	
 						TON_WriteInBufferPeriod.IN := FALSE;
+						TON_WriteInBufferPeriod();
+						
 						IF NOT WriteInWTP THEN
 							// задержка заполнения буфферов W T P
 							TON_BufferDelay.IN := TRUE;
 							TON_BufferDelay();
 							IF TON_BufferDelay.Q THEN
 								WriteInWTP := TRUE;
-								TON_BufferDelay.IN := FALSE;
+								TON_BufferDelay.IN := FALSE;								
 							END_IF
 						ELSE
 							// заполнение буфера W T P
@@ -70,7 +72,7 @@ FUNCTION_BLOCK FBFeeder
 								TON_TareCalcDelay();
 								IF TON_TareCalcDelay.Q THEN
 									WriteInTareK := TRUE;
-									TON_TareCalcDelay.IN := FALSE;
+									TON_TareCalcDelay.IN := FALSE;									
 								END_IF
 							ELSE
 								// заполнение буффера тарировочного коэффициента
@@ -105,7 +107,8 @@ FUNCTION_BLOCK FBFeeder
 									END_IF							
 								END_IF						
 							END_IF					
-						END_IF
+						END_IF						
+						
 					END_IF
 					// Выбор тарировочного коэффициента в зависимости от конфигурации
 					IF Control.ManualTareControl THEN
@@ -121,15 +124,14 @@ FUNCTION_BLOCK FBFeeder
 										TON_ToGoToAutoDelay.IN := FALSE;
 									END_IF;
 								ELSE
-									TON_ToGoToAutoDelay.IN := FALSE;
-									FBControl.TareK := Config.DefaultTareK;
+									TON_ToGoToAutoDelay.IN := FALSE;									
 								END_IF				
 								TON_ToGoToAutoDelay();
 							ELSE
 								FBControl.TareK := Config.DefaultTareK;
 							END_IF
 						ELSE
-							IF UserInfo.Deviation < Config.DeviationLimit THEN
+							IF UserInfo.Deviation > Config.DeviationLimit THEN
 								UserInfo.IsAUTO := FALSE;
 							ELSE					
 								FBControl.TareK := UserInfo.TareK;
@@ -156,6 +158,10 @@ FUNCTION_BLOCK FBFeeder
 				WriteInTareK := FALSE;
 				CalcDeviation := FALSE;
 				UserInfo.IsAUTO := FALSE;
+				
+				TON_BufferDelay();
+				TON_TareCalcDelay();
+				TON_DeviationCalcDelay();
 				
 				Reset := FALSE;
 				Status := FEED_READY;
