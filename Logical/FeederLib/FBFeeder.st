@@ -165,8 +165,7 @@ FUNCTION_BLOCK FBFeeder
 				TON_TareCalcDelay.IN := FALSE;
 				TON_TareCalcDelay();
 				TON_DeviationCalcDelay.IN := FALSE;
-				TON_DeviationCalcDelay();
-				
+				TON_DeviationCalcDelay();				
 				
 				Reset := FALSE;
 				Status := FEED_READY;

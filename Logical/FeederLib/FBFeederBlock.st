@@ -31,6 +31,7 @@ FUNCTION_BLOCK FBFeederBlock
 				END_IF		
 				PrimaryFeeder();
 			FEEDBLOCK_SINGLE:
+				// режим работы когда есть только одна колба
 				PrimaryFeeder.Control := Control.PrimaryFeeder;
 				PrimaryFeeder.IOin := IOin.PrimaryFeeder;
 				PrimaryFeeder.Start := Control.PrimaryStart;
@@ -59,6 +60,7 @@ FUNCTION_BLOCK FBFeederBlock
 				IOout.PrimaryFeeder := PrimaryFeeder.IOout;
 				UserInfo.PrimaryFeeder := PrimaryFeeder.UserInfo;
 			FEEDBLOCK_DUAL:
+				// режим работы при наличии 2-х колб
 				PrimaryFeeder.IOin := IOin.PrimaryFeeder;
 				SecondaryFeeder.IOin := IOin.SecondaryFeeder;
 				IF Control.SeparateMode THEN
