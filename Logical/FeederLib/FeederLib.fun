@@ -93,8 +93,8 @@ END_FUNCTION_BLOCK
 {REDUND_ERROR} FUNCTION_BLOCK FBFeederBlock (*TODO: Add your comment here*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 	VAR_INPUT
 		Enable : {REDUND_UNREPLICABLE} BOOL;
-		Control : FeederBlockControlType;
 		Config : FeederBlockConfigType;
+		Control : FeederBlockControlType;
 		IOin : FeederBlockIOinType;
 	END_VAR
 	VAR_OUTPUT
@@ -107,5 +107,7 @@ END_FUNCTION_BLOCK
 		SecondaryFeeder : FBFeeder;
 		TON_UpdateDefaultTareK1 : TON := (PT:=T#100ms);
 		TON_UpdateDefaultTareK2 : TON := (PT:=T#100ms);
+		ConfigPrimaryFeeder : REFERENCE TO FeederConfigType;
+		ConfigSecondaryFeeder : REFERENCE TO FeederConfigType;
 	END_VAR
 END_FUNCTION_BLOCK

@@ -58,14 +58,13 @@
             </Variable>
             <Variable Name="FeederSwitch" />
           </Variable>
-          <Variable Name="Config">
-            <Variable Name="PrimaryFeeder">
-              <Variable Name="DefaultTareK" />
-            </Variable>
-            <Variable Name="SecondaryFeeder">
-              <Variable Name="DefaultTareK" />
-            </Variable>
-          </Variable>
+          <Variable Name="Config" />
+        </Variable>
+        <Variable Name="ConfigP">
+          <Variable Name="DefaultTareK" />
+        </Variable>
+        <Variable Name="ConfigS">
+          <Variable Name="DefaultTareK" />
         </Variable>
       </Task>
     </Module>
