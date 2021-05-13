@@ -7,26 +7,29 @@ FUNCTION_BLOCK FBFeederBlock
 			FEEDBLOCK_INIT:
 				ConfigPrimaryFeeder ACCESS Config.PrimaryFeederADR;
 				PrimaryFeeder.Config := ConfigPrimaryFeeder;
+				// тарировочный для ручного ружима
+				Control.PrimaryFeeder.TareK := PrimaryFeeder.Config.DefaultTareK;
 				PrimaryFeeder.IOin := IOin.PrimaryFeeder;
 				PrimaryFeeder.Enable := TRUE;
 				TON_UpdateDefaultTareK1.PT := ConfigPrimaryFeeder.DefaultTareKUpdateDelay;
 				IF Config.DualFeederMode THEN
 					ConfigSecondaryFeeder ACCESS Config.SecondaryFeederADR;
 					SecondaryFeeder.Config := ConfigSecondaryFeeder;
+					// тарировочный для ручного ружима
+					Control.SecondaryFeeder.TareK := SecondaryFeeder.Config.DefaultTareK;
 					SecondaryFeeder.IOin := IOin.SecondaryFeeder;
 					SecondaryFeeder.Enable := TRUE;
 					TON_UpdateDefaultTareK2.PT := ConfigSecondaryFeeder.DefaultTareKUpdateDelay;
-					PrimaryFeeder();
 					SecondaryFeeder();
 					IF (PrimaryFeeder.Status = FEED_READY) AND (SecondaryFeeder.Status = FEED_READY) THEN
 						Status := FEEDBLOCK_DUAL;
 					END_IF
 				ELSE
-					PrimaryFeeder();
 					IF (PrimaryFeeder.Status = FEED_READY) THEN
 						Status := FEEDBLOCK_SINGLE;
 					END_IF
-				END_IF				
+				END_IF		
+				PrimaryFeeder();
 			FEEDBLOCK_SINGLE:
 				PrimaryFeeder.Control := Control.PrimaryFeeder;
 				PrimaryFeeder.IOin := IOin.PrimaryFeeder;
@@ -40,6 +43,8 @@ FUNCTION_BLOCK FBFeederBlock
 					IF TON_UpdateDefaultTareK1.Q THEN
 						ConfigPrimaryFeeder.DefaultTareK := PrimaryFeeder.UserInfo.TareK;
 						PrimaryFeeder.Config.DefaultTareK := ConfigPrimaryFeeder.DefaultTareK;
+						// тарировочный для ручного ружима
+						Control.PrimaryFeeder.TareK := PrimaryFeeder.Config.DefaultTareK;
 						TON_UpdateDefaultTareK1.IN := FALSE;
 						TON_UpdateDefaultTareK1();
 					END_IF	
@@ -48,7 +53,7 @@ FUNCTION_BLOCK FBFeederBlock
 				// Обновление веса тары
 				IF Control.PrimaryFeeder.UpdateTareWeight THEN
 					ConfigPrimaryFeeder.TareWeight := UserInfo.PrimaryFeeder.Weight;
-					Control.PrimaryFeeder.UpdateTareWeight := FALSE;
+					Control.PrimaryFeeder.UpdateTareWeight := FALSE; 
 				END_IF
 				
 				IOout.PrimaryFeeder := PrimaryFeeder.IOout;
@@ -79,6 +84,8 @@ FUNCTION_BLOCK FBFeederBlock
 					IF TON_UpdateDefaultTareK1.Q THEN
 						ConfigPrimaryFeeder.DefaultTareK := PrimaryFeeder.UserInfo.TareK;
 						PrimaryFeeder.Config.DefaultTareK := ConfigPrimaryFeeder.DefaultTareK;
+						// тарировочный для ручного ружима
+						Control.PrimaryFeeder.TareK := PrimaryFeeder.Config.DefaultTareK;
 						TON_UpdateDefaultTareK1.IN := FALSE;
 						TON_UpdateDefaultTareK1();
 					END_IF	
@@ -91,6 +98,8 @@ FUNCTION_BLOCK FBFeederBlock
 					IF TON_UpdateDefaultTareK2.Q THEN
 						ConfigSecondaryFeeder.DefaultTareK := SecondaryFeeder.UserInfo.TareK;
 						SecondaryFeeder.Config.DefaultTareK := ConfigSecondaryFeeder.DefaultTareK;
+						// тарировочный для ручного ружима
+						Control.SecondaryFeeder.TareK := SecondaryFeeder.Config.DefaultTareK;
 						TON_UpdateDefaultTareK2.IN := FALSE;
 						TON_UpdateDefaultTareK2();
 					END_IF	
