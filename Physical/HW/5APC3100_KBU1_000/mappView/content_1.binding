@@ -126,14 +126,8 @@
 <Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.PrimaryFeeder.TareK" attribute="value" />
 <Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericOutput3" attribute="value" />
 </Binding>
-<Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.Config.PrimaryFeeder.DefaultTareK" attribute="value" />
-<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericOutput11" attribute="value" />
-</Binding>
-<Binding mode="oneWay">
-<Source xsi:type="opcUa" refId="::HWtest:FeederBlock.Config.SecondaryFeeder.DefaultTareK" attribute="value" />
-<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericOutput12" attribute="value" />
-</Binding>
+
+
 <Binding mode="oneWay">
 <Source xsi:type="opcUa" refId="::HWtest:FeederBlock.UserInfo.SecondaryFeeder.Deviation" attribute="value" />
 <Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericOutput9" attribute="value" />
@@ -141,6 +135,14 @@
 <Binding mode="twoWay">
 <Source xsi:type="opcUa" refId="::HWtest:FeederBlock.Control.FeederSwitch" attribute="value" />
 <Target xsi:type="brease" contentRefId="content_1" widgetRefId="ToggleSwitch3" attribute="value" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:ConfigP.DefaultTareK" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericOutput11" attribute="value" />
+</Binding>
+<Binding mode="oneWay">
+<Source xsi:type="opcUa" refId="::HWtest:ConfigS.DefaultTareK" attribute="value" />
+<Target xsi:type="brease" contentRefId="content_1" widgetRefId="NumericOutput12" attribute="value" />
 </Binding>
 </Bindings>
 </BindingsSet>

@@ -3,8 +3,8 @@ VAR_CONFIG
 	Cyclic#1.::HWtest:FeederBlock.IOout.SecondaryFeeder.doMixer AT %QX."Mixer".StartChannel02;
 	Cyclic#1.::HWtest:FeederBlock.IOin.PrimaryFeeder.aiWeight AT %ID."Tensosensors".AnalogInput01;
 	Cyclic#1.::HWtest:FeederBlock.IOin.SecondaryFeeder.aiWeight AT %ID."Tensosensors".AnalogInput02;
-	Cyclic#1.::HWtest:FeederBlock.Config.PrimaryFeeder.ControlWord AT %QW."Tensosensors".ControlPacked01;
-	Cyclic#1.::HWtest:FeederBlock.Config.SecondaryFeeder.ControlWord AT %QW."Tensosensors".ControlPacked02;
+	Cyclic#1.::HWtest:ConfigP.ControlWord AT %QW."Tensosensors".ControlPacked01;
+	Cyclic#1.::HWtest:ConfigS.ControlWord AT %QW."Tensosensors".ControlPacked02;
 	Cyclic#1.::gLaserIO.Out.doPowerSupply AT %IX."X20SLX842".BOOL001;
 	Cyclic#1.gSealedChamberIO.Out.BasicChamberIOOut.doBlockDoor[0] AT %QX."X20SLX842".BOOL101;
 	Cyclic#1.gSealedChamberIO.In.BasicChamberIOIn.diDoorState[0].DoorIsClosed AT %QX."X20SLX842".BOOL102;

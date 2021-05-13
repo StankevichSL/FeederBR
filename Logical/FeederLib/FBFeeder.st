@@ -36,6 +36,7 @@ FUNCTION_BLOCK FBFeeder
 				IF Start THEN
 					TON_WriteInBufferPeriod.IN := TRUE;
 					TON_WriteInBufferPeriod();
+					// регулировка частоты записи в буффер
 					IF TON_WriteInBufferPeriod.Q THEN	
 						TON_WriteInBufferPeriod.IN := FALSE;
 						TON_WriteInBufferPeriod();
@@ -198,7 +199,7 @@ FUNCTION_BLOCK FBFeeder
 		FBControl.IOin := IOin.Handler;
 		FBControl();
 		UserInfo.Handler := FBControl.UserInfo;
-		UserInfo.Weight := CalibrateREAL(DINT_TO_REAL(IOin.aiWeight), Config.WeightCalibrate);
+		UserInfo.Weight := CalibrateREAL(DINT_TO_REAL(IOin.aiWeight), Config.WeightCalibrate) - Config.TareWeight;
 		UserInfo.Rate := FBControl.UserInfo.ActualSpeed*UserInfo.TareK*0.6/USINT_TO_REAL(Config.Handler.Ratio);
 		IOout := FBControl.IOout;
 	ELSE

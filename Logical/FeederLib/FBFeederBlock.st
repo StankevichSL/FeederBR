@@ -5,15 +5,17 @@ FUNCTION_BLOCK FBFeederBlock
 		CASE Status OF
 			FEEDBLOCK_ERROR:
 			FEEDBLOCK_INIT:
-				PrimaryFeeder.Config := Config.PrimaryFeeder;
+				ConfigPrimaryFeeder ACCESS Config.PrimaryFeederADR;
+				PrimaryFeeder.Config := ConfigPrimaryFeeder;
 				PrimaryFeeder.IOin := IOin.PrimaryFeeder;
 				PrimaryFeeder.Enable := TRUE;
-				TON_UpdateDefaultTareK1.PT := Config.PrimaryFeeder.DefaultTareKUpdateDelay;
+				TON_UpdateDefaultTareK1.PT := ConfigPrimaryFeeder.DefaultTareKUpdateDelay;
 				IF Config.DualFeederMode THEN
-					SecondaryFeeder.Config := Config.SecondaryFeeder;
+					ConfigSecondaryFeeder ACCESS Config.SecondaryFeederADR;
+					SecondaryFeeder.Config := ConfigSecondaryFeeder;
 					SecondaryFeeder.IOin := IOin.SecondaryFeeder;
 					SecondaryFeeder.Enable := TRUE;
-					TON_UpdateDefaultTareK2.PT := Config.SecondaryFeeder.DefaultTareKUpdateDelay;
+					TON_UpdateDefaultTareK2.PT := ConfigSecondaryFeeder.DefaultTareKUpdateDelay;
 					PrimaryFeeder();
 					SecondaryFeeder();
 					IF (PrimaryFeeder.Status = FEED_READY) AND (SecondaryFeeder.Status = FEED_READY) THEN
@@ -30,20 +32,27 @@ FUNCTION_BLOCK FBFeederBlock
 				PrimaryFeeder.IOin := IOin.PrimaryFeeder;
 				PrimaryFeeder.Start := Control.PrimaryStart;
 				PrimaryFeeder();
-				IOout.PrimaryFeeder := PrimaryFeeder.IOout;
-				UserInfo.PrimaryFeeder := PrimaryFeeder.UserInfo;
 				
 				// обновление тарировочного коэффициента по умолчанию	
 				IF PrimaryFeeder.UserInfo.IsAUTO THEN
 					TON_UpdateDefaultTareK1.IN := TRUE;
 					TON_UpdateDefaultTareK1();
 					IF TON_UpdateDefaultTareK1.Q THEN
-						Config.PrimaryFeeder.DefaultTareK := PrimaryFeeder.UserInfo.TareK;
-						PrimaryFeeder.Config.DefaultTareK := Config.PrimaryFeeder.DefaultTareK;
+						ConfigPrimaryFeeder.DefaultTareK := PrimaryFeeder.UserInfo.TareK;
+						PrimaryFeeder.Config.DefaultTareK := ConfigPrimaryFeeder.DefaultTareK;
 						TON_UpdateDefaultTareK1.IN := FALSE;
 						TON_UpdateDefaultTareK1();
 					END_IF	
 				END_IF
+				
+				// Обновление веса тары
+				IF Control.PrimaryFeeder.UpdateTareWeight THEN
+					ConfigPrimaryFeeder.TareWeight := UserInfo.PrimaryFeeder.Weight;
+					Control.PrimaryFeeder.UpdateTareWeight := FALSE;
+				END_IF
+				
+				IOout.PrimaryFeeder := PrimaryFeeder.IOout;
+				UserInfo.PrimaryFeeder := PrimaryFeeder.UserInfo;
 			FEEDBLOCK_DUAL:
 				PrimaryFeeder.IOin := IOin.PrimaryFeeder;
 				SecondaryFeeder.IOin := IOin.SecondaryFeeder;
@@ -68,8 +77,8 @@ FUNCTION_BLOCK FBFeederBlock
 					TON_UpdateDefaultTareK1.IN := TRUE;
 					TON_UpdateDefaultTareK1();
 					IF TON_UpdateDefaultTareK1.Q THEN
-						Config.PrimaryFeeder.DefaultTareK := PrimaryFeeder.UserInfo.TareK;
-						PrimaryFeeder.Config.DefaultTareK := Config.PrimaryFeeder.DefaultTareK;
+						ConfigPrimaryFeeder.DefaultTareK := PrimaryFeeder.UserInfo.TareK;
+						PrimaryFeeder.Config.DefaultTareK := ConfigPrimaryFeeder.DefaultTareK;
 						TON_UpdateDefaultTareK1.IN := FALSE;
 						TON_UpdateDefaultTareK1();
 					END_IF	
@@ -80,11 +89,23 @@ FUNCTION_BLOCK FBFeederBlock
 					TON_UpdateDefaultTareK2.IN := TRUE;
 					TON_UpdateDefaultTareK2();
 					IF TON_UpdateDefaultTareK2.Q THEN
-						Config.SecondaryFeeder.DefaultTareK := SecondaryFeeder.UserInfo.TareK;
-						SecondaryFeeder.Config.DefaultTareK := Config.SecondaryFeeder.DefaultTareK;
+						ConfigSecondaryFeeder.DefaultTareK := SecondaryFeeder.UserInfo.TareK;
+						SecondaryFeeder.Config.DefaultTareK := ConfigSecondaryFeeder.DefaultTareK;
 						TON_UpdateDefaultTareK2.IN := FALSE;
 						TON_UpdateDefaultTareK2();
 					END_IF	
+				END_IF
+				
+				// Обновление веса тары
+				IF Control.SecondaryFeeder.UpdateTareWeight THEN
+					ConfigSecondaryFeeder.TareWeight := UserInfo.SecondaryFeeder.Weight;
+					Control.SecondaryFeeder.UpdateTareWeight := FALSE;
+				END_IF
+				
+				// Обновление веса тары
+				IF Control.PrimaryFeeder.UpdateTareWeight THEN
+					ConfigPrimaryFeeder.TareWeight := UserInfo.PrimaryFeeder.Weight;
+					Control.PrimaryFeeder.UpdateTareWeight := FALSE;
 				END_IF
 				
 				IOout.PrimaryFeeder := PrimaryFeeder.IOout;

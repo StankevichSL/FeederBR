@@ -60,16 +60,16 @@ TYPE
 		Handler : FeederHandlerControlType;
 		ManualTareControl : BOOL;
 		TareK : REAL;
+		UpdateTareWeight : BOOL; (*Записывает текущий вес в вес тары Config.TareWeight*)
 	END_STRUCT;
 	FeederConfigType : 	STRUCT 
 		Handler : FeederHandlerConfigType;
 		GasCalibrateIn : CalibrationType;
 		WeightCalibrate : CalibrationType;
-		DefaultTareK : REAL;
-		WarningWeight : REAL;
-		AlarmWeight : REAL;
+		DefaultTareK : REAL := 1;
+		WarningWeight : REAL := 0.3;
+		AlarmWeight : REAL := 0.1;
 		AlarmPrefix : STRING[80];
-		EnableAutoRateControl : BOOL;
 		BufferDelay : TIME := T#10s;
 		TareCalcDelay : TIME := T#10s;
 		DefaultTareKUpdateDelay : TIME := T#10s;
@@ -79,6 +79,7 @@ TYPE
 		DeviationLimit : REAL;
 		ResetWeightLimit : REAL;
 		ControlWord : UINT := 29828;
+		TareWeight : REAL := 0; (*кг*)
 	END_STRUCT;
 	FeederIOinType : 	STRUCT 
 		Handler : FeederHandlerIOinType;
@@ -113,8 +114,8 @@ TYPE
 		FeederSwitch : BOOL;
 	END_STRUCT;
 	FeederBlockConfigType : 	STRUCT 
-		PrimaryFeeder : FeederConfigType;
-		SecondaryFeeder : FeederConfigType;
+		PrimaryFeederADR : UDINT;
+		SecondaryFeederADR : UDINT;
 		DualFeederMode : BOOL;
 	END_STRUCT;
 	FeederBlockIOinType : 	STRUCT 
