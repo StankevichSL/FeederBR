@@ -41,12 +41,13 @@ PROGRAM _INIT
 	ConfigS.Handler.AxisCyclicSetParLink := ADR(CyclicSet2);
 	ConfigS.WeightCalibrate.C := -5.2;
 	
-	FeederBlock.Config.PrimaryFeederADR := ADR(ConfigP);
-	FeederBlock.Config.SecondaryFeederADR := ADR(ConfigS);
+	FeederConfig.PrimaryFeeder := ConfigP;
+	FeederConfig.SecondaryFeeder := ConfigS;
+	FeederConfig.DualFeederMode := TRUE;
 	
 	FeederBlock.Control.PrimaryFeeder.Handler.KZP := 100;
 	FeederBlock.Control.PrimaryFeeder.Handler.KZU := 0;
-	FeederBlock.Config.DualFeederMode := TRUE;
+	FeederBlock.Config := ADR(FeederConfig);
 	FeederBlock.Enable := TRUE;
 END_PROGRAM
 

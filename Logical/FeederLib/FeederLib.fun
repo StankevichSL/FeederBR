@@ -93,7 +93,7 @@ END_FUNCTION_BLOCK
 {REDUND_ERROR} FUNCTION_BLOCK FBFeederBlock (*TODO: Add your comment here*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 	VAR_INPUT
 		Enable : {REDUND_UNREPLICABLE} BOOL;
-		Config : FeederBlockConfigType;
+		Config : REFERENCE TO FeederBlockConfigType;
 		Control : FeederBlockControlType;
 		IOin : FeederBlockIOinType;
 	END_VAR

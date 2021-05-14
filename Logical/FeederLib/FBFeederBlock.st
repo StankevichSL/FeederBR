@@ -5,21 +5,19 @@ FUNCTION_BLOCK FBFeederBlock
 		CASE Status OF
 			FEEDBLOCK_ERROR:
 			FEEDBLOCK_INIT:
-				ConfigPrimaryFeeder ACCESS Config.PrimaryFeederADR;
-				PrimaryFeeder.Config := ConfigPrimaryFeeder;
+				PrimaryFeeder.Config := Config.PrimaryFeeder;
 				// тарировочный для ручного ружима
 				Control.PrimaryFeeder.TareK := PrimaryFeeder.Config.DefaultTareK;
 				PrimaryFeeder.IOin := IOin.PrimaryFeeder;
 				PrimaryFeeder.Enable := TRUE;
-				TON_UpdateDefaultTareK1.PT := ConfigPrimaryFeeder.DefaultTareKUpdateDelay;
+				TON_UpdateDefaultTareK1.PT := Config.PrimaryFeeder.DefaultTareKUpdateDelay;
 				IF Config.DualFeederMode THEN
-					ConfigSecondaryFeeder ACCESS Config.SecondaryFeederADR;
-					SecondaryFeeder.Config := ConfigSecondaryFeeder;
+					SecondaryFeeder.Config := Config.SecondaryFeeder;
 					// тарировочный для ручного ружима
 					Control.SecondaryFeeder.TareK := SecondaryFeeder.Config.DefaultTareK;
 					SecondaryFeeder.IOin := IOin.SecondaryFeeder;
 					SecondaryFeeder.Enable := TRUE;
-					TON_UpdateDefaultTareK2.PT := ConfigSecondaryFeeder.DefaultTareKUpdateDelay;
+					TON_UpdateDefaultTareK2.PT := Config.SecondaryFeeder.DefaultTareKUpdateDelay;
 					SecondaryFeeder();
 					IF (PrimaryFeeder.Status = FEED_READY) AND (SecondaryFeeder.Status = FEED_READY) THEN
 						Status := FEEDBLOCK_DUAL;
@@ -42,8 +40,8 @@ FUNCTION_BLOCK FBFeederBlock
 					TON_UpdateDefaultTareK1.IN := TRUE;
 					TON_UpdateDefaultTareK1();
 					IF TON_UpdateDefaultTareK1.Q THEN
-						ConfigPrimaryFeeder.DefaultTareK := PrimaryFeeder.UserInfo.TareK;
-						PrimaryFeeder.Config.DefaultTareK := ConfigPrimaryFeeder.DefaultTareK;
+						Config.PrimaryFeeder.DefaultTareK := PrimaryFeeder.UserInfo.TareK;
+						PrimaryFeeder.Config.DefaultTareK := Config.PrimaryFeeder.DefaultTareK;
 						// тарировочный для ручного ружима
 						Control.PrimaryFeeder.TareK := PrimaryFeeder.Config.DefaultTareK;
 						TON_UpdateDefaultTareK1.IN := FALSE;
@@ -53,7 +51,7 @@ FUNCTION_BLOCK FBFeederBlock
 				
 				// Обновление веса тары
 				IF Control.PrimaryFeeder.UpdateTareWeight THEN
-					ConfigPrimaryFeeder.TareWeight := UserInfo.PrimaryFeeder.Weight;
+					Config.PrimaryFeeder.TareWeight := UserInfo.PrimaryFeeder.Weight;
 					Control.PrimaryFeeder.UpdateTareWeight := FALSE; 
 				END_IF
 				
@@ -84,8 +82,8 @@ FUNCTION_BLOCK FBFeederBlock
 					TON_UpdateDefaultTareK1.IN := TRUE;
 					TON_UpdateDefaultTareK1();
 					IF TON_UpdateDefaultTareK1.Q THEN
-						ConfigPrimaryFeeder.DefaultTareK := PrimaryFeeder.UserInfo.TareK;
-						PrimaryFeeder.Config.DefaultTareK := ConfigPrimaryFeeder.DefaultTareK;
+						Config.PrimaryFeeder.DefaultTareK := PrimaryFeeder.UserInfo.TareK;
+						PrimaryFeeder.Config.DefaultTareK := Config.PrimaryFeeder.DefaultTareK;
 						// тарировочный для ручного ружима
 						Control.PrimaryFeeder.TareK := PrimaryFeeder.Config.DefaultTareK;
 						TON_UpdateDefaultTareK1.IN := FALSE;
@@ -98,8 +96,8 @@ FUNCTION_BLOCK FBFeederBlock
 					TON_UpdateDefaultTareK2.IN := TRUE;
 					TON_UpdateDefaultTareK2();
 					IF TON_UpdateDefaultTareK2.Q THEN
-						ConfigSecondaryFeeder.DefaultTareK := SecondaryFeeder.UserInfo.TareK;
-						SecondaryFeeder.Config.DefaultTareK := ConfigSecondaryFeeder.DefaultTareK;
+						Config.SecondaryFeeder.DefaultTareK := SecondaryFeeder.UserInfo.TareK;
+						SecondaryFeeder.Config.DefaultTareK := Config.SecondaryFeeder.DefaultTareK;
 						// тарировочный для ручного ружима
 						Control.SecondaryFeeder.TareK := SecondaryFeeder.Config.DefaultTareK;
 						TON_UpdateDefaultTareK2.IN := FALSE;
@@ -109,13 +107,13 @@ FUNCTION_BLOCK FBFeederBlock
 				
 				// Обновление веса тары
 				IF Control.SecondaryFeeder.UpdateTareWeight THEN
-					ConfigSecondaryFeeder.TareWeight := UserInfo.SecondaryFeeder.Weight;
+					Config.SecondaryFeeder.TareWeight := UserInfo.SecondaryFeeder.Weight;
 					Control.SecondaryFeeder.UpdateTareWeight := FALSE;
 				END_IF
 				
 				// Обновление веса тары
 				IF Control.PrimaryFeeder.UpdateTareWeight THEN
-					ConfigPrimaryFeeder.TareWeight := UserInfo.PrimaryFeeder.Weight;
+					Config.PrimaryFeeder.TareWeight := UserInfo.PrimaryFeeder.Weight;
 					Control.PrimaryFeeder.UpdateTareWeight := FALSE;
 				END_IF
 				

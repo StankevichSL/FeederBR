@@ -110,8 +110,8 @@ TYPE
 		FeederSwitch : BOOL; (*Переключение колб питателя, false - первый*)
 	END_STRUCT;
 	FeederBlockConfigType : 	STRUCT 
-		PrimaryFeederADR : UDINT; (*Ссылка на структуру FeederConfigType для первой колбы*)
-		SecondaryFeederADR : UDINT; (*Ссылка на структуру FeederConfigType для второй колбы*)
+		PrimaryFeeder : FeederConfigType; (*Ссылка на структуру FeederConfigType для первой колбы*)
+		SecondaryFeeder : FeederConfigType; (*Ссылка на структуру FeederConfigType для второй колбы*)
 		DualFeederMode : BOOL := TRUE; (*Количество колб питателя, false - одна*)
 	END_STRUCT;
 	FeederBlockIOinType : 	STRUCT 
