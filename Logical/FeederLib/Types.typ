@@ -38,10 +38,6 @@ TYPE
 		Active : BOOL; (*Отображает запущен ли питатель*)
 		ActualSpeed : REAL; (*Отображает текущую скорость вращения диска в неизвестных единицах*)
 	END_STRUCT;
-	FeederHandlerIOType : 	STRUCT 
-		In : FeederHandlerIOinType;
-		Out : FeederHandlerIOoutType;
-	END_STRUCT;
 END_TYPE
 
 (*FBFeeder*)
@@ -129,5 +125,9 @@ TYPE
 	FeederBlockUserInfoType : 	STRUCT 
 		PrimaryFeeder : FeederUserInfoType;
 		SecondaryFeeder : FeederUserInfoType;
+	END_STRUCT;
+	FeederBlockIOType : 	STRUCT 
+		In : FeederBlockIOinType;
+		Out : FeederBlockIOoutType;
 	END_STRUCT;
 END_TYPE
