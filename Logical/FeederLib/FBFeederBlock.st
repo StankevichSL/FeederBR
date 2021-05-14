@@ -6,12 +6,14 @@ FUNCTION_BLOCK FBFeederBlock
 			FEEDBLOCK_ERROR:
 			FEEDBLOCK_INIT:
 				PrimaryFeeder.Config := Config.PrimaryFeeder;
+				PrimaryFeeder.AlarmXCore := AlarmXCore;
 				// тарировочный для ручного ружима
 				Control.PrimaryFeeder.TareK := PrimaryFeeder.Config.DefaultTareK;
 				PrimaryFeeder.IOin := IOin.PrimaryFeeder;
 				PrimaryFeeder.Enable := TRUE;
 				TON_UpdateDefaultTareK1.PT := Config.PrimaryFeeder.DefaultTareKUpdateDelay;
 				IF Config.DualFeederMode THEN
+					SecondaryFeeder.AlarmXCore := AlarmXCore;
 					SecondaryFeeder.Config := Config.SecondaryFeeder;
 					// тарировочный для ручного ружима
 					Control.SecondaryFeeder.TareK := SecondaryFeeder.Config.DefaultTareK;

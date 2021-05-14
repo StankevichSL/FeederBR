@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="gAlarmXCore" Type="mpalarmxcore">
+    <Group ID="mapp.AlarmX.Core">
+      <Group ID="BySeverity">
+        <Group ID="[0]">
+          <Property ID="Severity" Value="1" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="ReactionWarning" />
+          </Selector>
+        </Group>
+        <Group ID="[1]">
+          <Property ID="Severity" Value="5" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="ReactionWarningAlarm" />
+          </Selector>
+        </Group>
+        <Group ID="[2]">
+          <Property ID="Severity" Value="9" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="ReactionAlarmStopAll" />
+          </Selector>
+        </Group>
+        <Group ID="[3]">
+          <Property ID="Severity" Value="10" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="ReactionAlarmSignalAndStopAll" />
+          </Selector>
+        </Group>
+        <Group ID="[4]">
+          <Property ID="Severity" Value="3" />
+          <Selector ID="[0]" Value="Reaction">
+            <Property ID="Name" Value="ReactionSignal" />
+          </Selector>
+        </Group>
+      </Group>
+      <Group ID="Default">
+        <Selector ID="[0]" Value="Reaction" />
+      </Group>
+    </Group>
+  </Element>
+</Configuration>

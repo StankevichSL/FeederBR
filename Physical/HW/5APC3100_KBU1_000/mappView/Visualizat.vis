@@ -14,7 +14,8 @@
 		<BindingsSet refId="content_1_binding" />
   </BindingsSets>
   <EventBindingsSets>
-    <!--<EventBindingsSet refId="" />-->
+		<!--<EventBindingsSet refId="content_1_eventbinding" />-->
+		<EventBindingsSet refId="content_1_eventbinding" />
   </EventBindingsSets>
   <Dialogs>
     <!--<Dialog refId="" />-->

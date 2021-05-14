@@ -8,4 +8,6 @@ VAR
 	CyclicSet2 : MpAxisCyclicSetParType := (Acceleration:=50000,Deceleration:=50000,PositionModeMaxVelocity:=10000);
 	Handler : FBFeederHandler;
 	FeederConfig : FeederBlockConfigType;
+	MpAlarmXCore_0 : MpAlarmXCore; (*MpRecipeXml_0 : MpRecipeXml;
+	MpRecipeRegPar_0 : MpRecipeRegPar;*)
 END_VAR

@@ -62,6 +62,7 @@ END_FUNCTION_BLOCK
 		Start : BOOL;
 		Config : FeederConfigType;
 		Control : FeederControlType;
+		AlarmXCore : UDINT;
 		IOin : FeederIOinType;
 	END_VAR
 	VAR_OUTPUT
@@ -87,6 +88,14 @@ END_FUNCTION_BLOCK
 		RewriteWTP : BOOL := FALSE;
 		RewriteTareK : BOOL := FALSE;
 		CalcDeviation : BOOL := FALSE;
+		AlarmList : ARRAY[0..1] OF AlarmBVMItemType := [(Config:=(Message:='{$$FeederAlarms/Warning.Weight}',Code:=666,Severity:=1),Name:='WarningWeight'),(Config:=(Message:='{$$FeederAlarms/Alarm.Weight}',Code:=13,Severity:=1),Name:='AlarmWeight')];
+	END_VAR
+	VAR CONSTANT
+		alarmListSize : USINT := 2;
+	END_VAR
+	VAR
+		AlarmControl : FBAlarmListControl;
+		AXCore : REFERENCE TO MpComIdentType;
 	END_VAR
 END_FUNCTION_BLOCK
 
@@ -96,6 +105,7 @@ END_FUNCTION_BLOCK
 		Config : REFERENCE TO FeederBlockConfigType;
 		Control : FeederBlockControlType;
 		IOin : FeederBlockIOinType;
+		AlarmXCore : {REDUND_UNREPLICABLE} UDINT;
 	END_VAR
 	VAR_OUTPUT
 		Status : FeederBlockStatusEnum := FEEDBLOCK_INIT;

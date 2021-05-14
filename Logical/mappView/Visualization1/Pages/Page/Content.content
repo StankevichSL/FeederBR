@@ -97,56 +97,79 @@
         </Widget>
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.OnlineChart" id="OnlineChart1" top="380" left="40" width="440" height="280" zIndex="2">
+    <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitch3" top="140" left="460" width="80" height="60" zIndex="2" />
+    <Widget xsi:type="widgets.brease.TabControl" id="TabControl1" top="340" left="0" width="1000" height="660" zIndex="3">
       <Widgets>
-        <Widget xsi:type="widgets.brease.OnlineChartYAxis" id="OnlineChartYAxis1" zIndex="0">
+        <Widget xsi:type="widgets.brease.TabItem" id="TabItem9" left="0" zIndex="0" text="Графики">
           <Widgets>
-            <Widget xsi:type="widgets.brease.OnlineChartGraph" id="OnlineChartGraph1" zIndex="0" maxValue="30" minValue="5" xAxisRefId="OnlineChartTimeAxis1" />
+            <Widget xsi:type="widgets.brease.OnlineChart" id="OnlineChart1" top="30" left="20" width="440" height="280" zIndex="0">
+              <Widgets>
+                <Widget xsi:type="widgets.brease.OnlineChartYAxis" id="OnlineChartYAxis1" zIndex="0">
+                  <Widgets>
+                    <Widget xsi:type="widgets.brease.OnlineChartGraph" id="OnlineChartGraph1" zIndex="0" maxValue="30" minValue="5" xAxisRefId="OnlineChartTimeAxis1" />
+                  </Widgets>
+                </Widget>
+                <Widget xsi:type="widgets.brease.OnlineChartTimeAxis" id="OnlineChartTimeAxis1" zIndex="1" timeSpan="300">
+                  <Widgets />
+                </Widget>
+              </Widgets>
+            </Widget>
+            <Widget xsi:type="widgets.brease.Label" id="Label27" top="-10" left="240" width="480" zIndex="1" text="Расход" textAlign="center" />
+            <Widget xsi:type="widgets.brease.Label" id="Label28" top="310" left="240" width="480" zIndex="2" text="Отклонение" textAlign="center" />
+            <Widget xsi:type="widgets.brease.OnlineChart" id="OnlineChart3" top="350" left="20" width="440" height="280" zIndex="3">
+              <Widgets>
+                <Widget xsi:type="widgets.brease.OnlineChartYAxis" id="OnlineChartYAxis2" zIndex="0" format="{'metric':{'decimalPlaces':2,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}">
+                  <Widgets>
+                    <Widget xsi:type="widgets.brease.OnlineChartGraph" id="OnlineChartGraph4" zIndex="0" maxValue="0.5" xAxisRefId="OnlineChartTimeAxis2" />
+                  </Widgets>
+                </Widget>
+                <Widget xsi:type="widgets.brease.OnlineChartTimeAxis" id="OnlineChartTimeAxis2" zIndex="1" timeSpan="300">
+                  <Widgets />
+                </Widget>
+              </Widgets>
+            </Widget>
+            <Widget xsi:type="widgets.brease.OnlineChart" id="OnlineChart4" top="350" left="500" width="440" height="280" zIndex="4">
+              <Widgets>
+                <Widget xsi:type="widgets.brease.OnlineChartYAxis" id="OnlineChartYAxis3" zIndex="0" format="{'metric':{'decimalPlaces':2,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}">
+                  <Widgets>
+                    <Widget xsi:type="widgets.brease.OnlineChartGraph" id="OnlineChartGraph3" zIndex="0" maxValue="0.5" xAxisRefId="OnlineChartTimeAxis3" />
+                  </Widgets>
+                </Widget>
+                <Widget xsi:type="widgets.brease.OnlineChartTimeAxis" id="OnlineChartTimeAxis3" zIndex="1" timeSpan="300">
+                  <Widgets />
+                </Widget>
+              </Widgets>
+            </Widget>
+            <Widget xsi:type="widgets.brease.OnlineChart" id="OnlineChart2" top="30" left="500" width="440" height="280" zIndex="5">
+              <Widgets>
+                <Widget xsi:type="widgets.brease.OnlineChartYAxis" id="OnlineChartYAxis4" zIndex="0">
+                  <Widgets>
+                    <Widget xsi:type="widgets.brease.OnlineChartGraph" id="OnlineChartGraph2" zIndex="0" maxValue="20" minValue="5" xAxisRefId="OnlineChartTimeAxis4" />
+                  </Widgets>
+                </Widget>
+                <Widget xsi:type="widgets.brease.OnlineChartTimeAxis" id="OnlineChartTimeAxis4" zIndex="1" timeSpan="300">
+                  <Widgets />
+                </Widget>
+              </Widgets>
+            </Widget>
           </Widgets>
         </Widget>
-        <Widget xsi:type="widgets.brease.OnlineChartTimeAxis" id="OnlineChartTimeAxis1" zIndex="1" timeSpan="300">
-          <Widgets />
+        <Widget xsi:type="widgets.brease.TabItem" id="TabItem10" left="0" zIndex="1" text="Алармы">
+          <Widgets>
+            <Widget xsi:type="widgets.brease.AlarmList" id="AlarmList1" top="10" left="20" width="960" height="530" zIndex="0">
+              <Widgets>
+                <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItem1" width="140" zIndex="0" columnType="timestamp" text="Дата" />
+                <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItem2" width="160" zIndex="1" columnType="name" text="Имя" />
+                <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItem3" width="80" zIndex="2" columnType="code" text="код" />
+                <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItem4" width="460" zIndex="3" text="Сообщение" />
+                <Widget xsi:type="widgets.brease.AlarmListItem" id="AlarmListItem5" width="120" zIndex="4" columnType="severity" text="Опасность" />
+              </Widgets>
+            </Widget>
+            <Widget xsi:type="widgets.brease.Button" id="Button1" top="570" left="40" width="200" height="50" zIndex="1" text="Подтвердить" />
+            <Widget xsi:type="widgets.brease.Button" id="Button2" top="570" left="760" width="200" height="50" zIndex="2" text="Подтвердить все" />
+          </Widgets>
         </Widget>
       </Widgets>
     </Widget>
-    <Widget xsi:type="widgets.brease.Label" id="Label27" top="340" left="260" width="480" zIndex="3" text="Расход" textAlign="center" />
-    <Widget xsi:type="widgets.brease.Label" id="Label28" top="660" left="260" width="480" zIndex="4" text="Отклонение" textAlign="center" />
-    <Widget xsi:type="widgets.brease.OnlineChart" id="OnlineChart3" top="700" left="40" width="440" height="280" zIndex="5">
-      <Widgets>
-        <Widget xsi:type="widgets.brease.OnlineChartYAxis" id="OnlineChartYAxis2" zIndex="0" format="{'metric':{'decimalPlaces':2,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}">
-          <Widgets>
-            <Widget xsi:type="widgets.brease.OnlineChartGraph" id="OnlineChartGraph4" zIndex="0" maxValue="0.5" xAxisRefId="OnlineChartTimeAxis2" />
-          </Widgets>
-        </Widget>
-        <Widget xsi:type="widgets.brease.OnlineChartTimeAxis" id="OnlineChartTimeAxis2" zIndex="1" timeSpan="300">
-          <Widgets />
-        </Widget>
-      </Widgets>
-    </Widget>
-    <Widget xsi:type="widgets.brease.OnlineChart" id="OnlineChart4" top="700" left="520" width="440" height="280" zIndex="6">
-      <Widgets>
-        <Widget xsi:type="widgets.brease.OnlineChartYAxis" id="OnlineChartYAxis3" zIndex="0" format="{'metric':{'decimalPlaces':2,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}">
-          <Widgets>
-            <Widget xsi:type="widgets.brease.OnlineChartGraph" id="OnlineChartGraph3" zIndex="0" maxValue="0.5" xAxisRefId="OnlineChartTimeAxis3" />
-          </Widgets>
-        </Widget>
-        <Widget xsi:type="widgets.brease.OnlineChartTimeAxis" id="OnlineChartTimeAxis3" zIndex="1" timeSpan="300">
-          <Widgets />
-        </Widget>
-      </Widgets>
-    </Widget>
-    <Widget xsi:type="widgets.brease.OnlineChart" id="OnlineChart2" top="380" left="520" width="440" height="280" zIndex="7">
-      <Widgets>
-        <Widget xsi:type="widgets.brease.OnlineChartYAxis" id="OnlineChartYAxis4" zIndex="0">
-          <Widgets>
-            <Widget xsi:type="widgets.brease.OnlineChartGraph" id="OnlineChartGraph2" zIndex="0" maxValue="20" minValue="5" xAxisRefId="OnlineChartTimeAxis4" />
-          </Widgets>
-        </Widget>
-        <Widget xsi:type="widgets.brease.OnlineChartTimeAxis" id="OnlineChartTimeAxis4" zIndex="1" timeSpan="300">
-          <Widgets />
-        </Widget>
-      </Widgets>
-    </Widget>
-    <Widget xsi:type="widgets.brease.ToggleSwitch" id="ToggleSwitch3" top="140" left="460" width="80" height="60" zIndex="8" />
   </Widgets>
 </Content>

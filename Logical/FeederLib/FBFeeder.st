@@ -4,7 +4,19 @@ FUNCTION_BLOCK FBFeeder
 	IF Enable THEN								
 		CASE Status OF
 			FEED_ERROR:
-			FEED_INIT:				
+			FEED_INIT:
+				
+				AlarmList[0].MonitoredValueAdr := ADR(UserInfo.AlarmTriggers.WarningWeight);
+				AlarmList[1].MonitoredValueAdr := ADR(UserInfo.AlarmTriggers.AlarmWeight);
+				
+				AlarmControl.AlarmBVMListAdr := ADR(AlarmList);
+				AlarmControl.ListSize := alarmListSize;
+				AXCore ACCESS AlarmXCore;
+				AlarmControl.AlarmXCore := AXCore;
+				AlarmControl.DeviceName := Config.DeviceName;
+				AlarmControl.Prefix := Config.AlarmPrefix;
+				AlarmControl.Enable := TRUE;
+				
 				FBControl.Enable := TRUE;
 				FBControl.TareK := Config.DefaultTareK;				
 				
@@ -19,7 +31,8 @@ FUNCTION_BLOCK FBFeeder
 				UserInfo.Rate := 0;
 				UserInfo.TareK := 0;
 				UserInfo.Deviation := 0;
-				IF FBControl.Status = FEEDCTRL_READY_TO_FEED THEN
+				
+				IF (FBControl.Status = FEEDCTRL_READY_TO_FEED) AND (AlarmControl.Status = AlarmControl_DONE) THEN
 					Status := FEED_READY;
 				END_IF
 			FEED_READY:
@@ -201,6 +214,8 @@ FUNCTION_BLOCK FBFeeder
 		UserInfo.Weight := CalibrateREAL(DINT_TO_REAL(IOin.aiWeight), Config.WeightCalibrate) - Config.TareWeight;
 		UserInfo.Rate := FBControl.UserInfo.ActualSpeed*UserInfo.TareK*0.6/USINT_TO_REAL(Config.Handler.Ratio);
 		IOout := FBControl.IOout;
+		
+		AlarmControl();
 	ELSE
 		Status := FEED_INIT;
 	END_IF

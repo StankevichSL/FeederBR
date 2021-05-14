@@ -12,8 +12,9 @@
       <Parameter ID="ChannelType1" Value="OCTET[24]" />
     </Connector>
   </Module>
-  <Module Name="5ACCLI02.SD40-000" Type="5ACCLI02.SD40-000" Version="2.0.0.0">
+  <Module Name="5ACCLI02.SD40-000" Type="5ACCLI02.SD40-000" Version="2.0.0.0" Disabled="true">
     <Connection Connector="SL" TargetModule="5APC3100_KBU1_000" TargetConnector="SL3" />
+    <Connector Name="DS1" Disabled="true" />
   </Module>
   <Module Name="5APC3100_KBU1_000" Type="5APC3100.KBU1-000" Version="2.2.1.0">
     <Connector Name="IF3">
@@ -45,6 +46,7 @@
     <Parameter ID="ConfigurationID" Value="5in1" />
     <Parameter ID="ConfigVersion" Value="2.0.0" />
     <Parameter ID="UserPartitionSize" Value="100" />
+    <Parameter ID="Simulation" Value="1" />
     <Parameter ID="UserRamDevice" Value="PCI.2.FPLK.SRAM" />
     <Parameter ID="UserRamSize" Value="520000" />
     <Parameter ID="RemMemDevice" Value="PCI.2.FPLK.SRAM" />

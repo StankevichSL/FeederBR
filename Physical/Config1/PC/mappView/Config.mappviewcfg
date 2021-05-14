@@ -31,7 +31,7 @@
         <Property ID="cachingSlots" Value="200" />
         <Property ID="preserveOldValues" Value="TRUE" />
       </Group>
-      <Property ID="defaultVisu" Value="" />
+      <Property ID="defaultVisu" Value="test" />
       <Group ID="Widget">
         <Selector ID="renderingPolicy" Value="1" />
       </Group>

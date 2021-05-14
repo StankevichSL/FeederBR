@@ -2,7 +2,10 @@
 PROGRAM _INIT
 	(* Insert code here *)
 	
-	ConfigP.AlarmPrefix := '123123';
+	MpAlarmXCore_0.MpLink := ADR(gAlarmXCore);
+	MpAlarmXCore_0.Enable := TRUE;
+	
+	ConfigP.AlarmPrefix := '{$$FeederAlarms/Prefix1}';
 	ConfigP.WarningWeight := 0.3;
 	ConfigP.AlarmWeight := 0.1;	
 	ConfigP.ResetWeightLimit := 0.1;	
@@ -35,6 +38,7 @@ PROGRAM _INIT
 	ConfigP.Handler.GasCalibrateIn.MinValue := 0;
 	ConfigS := ConfigP;
 	
+	ConfigS.AlarmPrefix := '{$$FeederAlarms/Prefix2}';
 	ConfigS.Handler.ACPConfigLink := ADR(gAxis02);
 	ConfigS.Handler.AxisBasicParLink := ADR(Par2);
 	ConfigS.Handler.AxisConfigLink := ADR(gLinkFeeder2);
@@ -43,16 +47,18 @@ PROGRAM _INIT
 	
 	FeederConfig.PrimaryFeeder := ConfigP;
 	FeederConfig.SecondaryFeeder := ConfigS;
-	FeederConfig.DualFeederMode := TRUE;
+	FeederConfig.DualFeederMode := FALSE;
 	
 	FeederBlock.Control.PrimaryFeeder.Handler.KZP := 100;
 	FeederBlock.Control.PrimaryFeeder.Handler.KZU := 0;
 	FeederBlock.Config := ADR(FeederConfig);
+	FeederBlock.AlarmXCore := ADR(gAlarmXCore);
 	FeederBlock.Enable := TRUE;
 END_PROGRAM
 
 PROGRAM _CYCLIC
 	(* Insert code here *)
+	MpAlarmXCore_0();
 	FeederBlock();
 END_PROGRAM
 

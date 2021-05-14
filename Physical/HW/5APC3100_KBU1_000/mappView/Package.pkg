@@ -5,5 +5,6 @@
     <Object Type="File">Visualizat.vis</Object>
     <Object Type="File">Config.mappviewcfg</Object>
     <Object Type="File">content_1.binding</Object>
+    <Object Type="File">content_1.eventbinding</Object>
   </Objects>
 </Package>
