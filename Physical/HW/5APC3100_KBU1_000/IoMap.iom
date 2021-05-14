@@ -15,7 +15,7 @@ VAR_CONFIG
 	Cyclic#1.::HWtest:FeederBlock.Control.PrimaryFeeder.Handler.PowderRate AT %IW."Robot_EIP".Robot_GO_3;
 	Cyclic#1.::HWtest:FeederBlock.Control.PrimaryFeeder.Handler.GasRate AT %IW."Robot_EIP".Robot_GO_4;
 	Cyclic#1.::HWtest:FeederBlock.Control.SecondaryFeeder.Handler.PowderRate AT %IW."Robot_EIP".Robot_GO_5;
-	Cyclic#1.::HWtest:FeederBlock.IOin.SecondaryFeeder.Handler.aiGasRate AT %IW."Robot_EIP".Robot_GO_6;
+	Cyclic#1.::HWtest:FeederBlock.Control.SecondaryFeeder.Handler.GasRate AT %IW."Robot_EIP".Robot_GO_6;
 	Cyclic#1.::HWtest:FeederBlock.IOout.PrimaryFeeder.aoGasRate AT %QW."AoFlowReg".AnalogOutput02;
 	Cyclic#1.::HWtest:FeederBlock.IOout.SecondaryFeeder.aoGasRate AT %QW."AoFlowReg".AnalogOutput03;
 END_VAR

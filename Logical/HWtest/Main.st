@@ -28,11 +28,11 @@ PROGRAM _INIT
 	ConfigP.WeightCalibrate.C := -5.4242;
 	ConfigP.WeightCalibrate.MaxValue := 60;
 	ConfigP.WeightCalibrate.MinValue := 0;	
-	ConfigP.GasCalibrateIn.A := 0;
-	ConfigP.GasCalibrateIn.B := 0.0038000000640749931;
-	ConfigP.GasCalibrateIn.C := -12.600000381469727;
-	ConfigP.GasCalibrateIn.MaxValue := 50;
-	ConfigP.GasCalibrateIn.MinValue := 0;
+	ConfigP.Handler.GasCalibrateIn.A := 0;
+	ConfigP.Handler.GasCalibrateIn.B := 0.0038000000640749931;
+	ConfigP.Handler.GasCalibrateIn.C := -12.600000381469727;
+	ConfigP.Handler.GasCalibrateIn.MaxValue := 50;
+	ConfigP.Handler.GasCalibrateIn.MinValue := 0;
 	ConfigS := ConfigP;
 	
 	ConfigS.Handler.ACPConfigLink := ADR(gAxis02);
