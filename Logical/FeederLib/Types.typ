@@ -24,6 +24,7 @@ TYPE
 		AxisBasicParLink : UDINT; (*Ссылка на структуру конфигурации типа MpAxisBasicParType*)
 		AxisCyclicSetParLink : UDINT; (*Ссылка на структуру конфигурации типа MpAxisCyclicSetParType*)
 		GasCalibrateOut : CalibrationType; (*Конфигурация калибровки подачи транспортного газа*)
+		GasCalibrateIn : CalibrationType; (*Калибровка показаний датчика расхода транспортного газа*)
 		Ratio : USINT := 25; (*Передаточный множитель вращения диска питания*)
 	END_STRUCT;
 	FeederHandlerIOoutType : 	STRUCT 
@@ -32,11 +33,12 @@ TYPE
 		doMixer : BOOL; (*Включения миксера полбы питателя*)
 	END_STRUCT;
 	FeederHandlerIOinType : 	STRUCT 
-		aiGasRate : UINT; (*Показание регулятора расхода*)
+		aiGasRate : INT; (*Показание регулятора расхода*)
 	END_STRUCT;
 	FeederHandlerUserInfoType : 	STRUCT 
 		Active : BOOL; (*Отображает запущен ли питатель*)
 		ActualSpeed : REAL; (*Отображает текущую скорость вращения диска в неизвестных единицах*)
+		TransportGasRate : REAL; (*Расход транспортного газа л/мин*)
 	END_STRUCT;
 END_TYPE
 
@@ -60,7 +62,6 @@ TYPE
 	END_STRUCT;
 	FeederConfigType : 	STRUCT 
 		Handler : FeederHandlerConfigType;
-		GasCalibrateIn : CalibrationType; (*Калибровка показаний датчика расхода транспортного газа*)
 		WeightCalibrate : CalibrationType; (*Калибровка показаний тензодатчика*)
 		DefaultTareK : REAL := 1; (*Тарировочный коэффициент поумолчанию*)
 		WarningWeight : REAL := 0.3; (*Вес придупреждения в кг*)

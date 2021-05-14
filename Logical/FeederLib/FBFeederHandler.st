@@ -87,6 +87,7 @@ FUNCTION_BLOCK FBFeederHandler
 		AxisCyclicSet();
 		
 		UserInfo.ActualSpeed := AxisBasic.Velocity;
+		UserInfo.TransportGasRate := CalibrateREAL(IOin.aiGasRate,Config.GasCalibrateIn);
 	END_IF
 
 END_FUNCTION_BLOCK
