@@ -20,5 +20,7 @@
     <Object Type="Library" Language="Binary" Description="ACOPOS Parameters">Acp10par</Object>
     <Object Type="Library" Language="IEC">UserLib</Object>
     <Object Type="Library" Language="Binary" Description="[mapp Safety] SafeDOMAIN management library">SfDomain</Object>
+    <Object Type="Library" Language="IEC">UsAlarmLib</Object>
+    <Object Type="Library" Language="Binary" Description="Advanced alarm management">MpAlarmX</Object>
   </Objects>
 </Package>

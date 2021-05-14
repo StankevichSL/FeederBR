@@ -1,0 +1,7 @@
+VAR CONSTANT
+	AlarmDVMListItemTypeSize : UINT := 892;
+	AlarmDVMListItemTypeConfigSize : UINT := 800;
+	AlarmDVMListItemTypeNameSize : UINT := 84;
+	AlarmDVMListItemTypeMonValSize : UINT := 4;
+	AlarmDVMListItemTypeTrigValSize : UINT := 1;
+END_VAR

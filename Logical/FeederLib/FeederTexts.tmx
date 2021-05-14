@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<tmx version="1.4">
+  <header creationtool="B&amp;R Automation Studio" creationtoolversion="4.2" datatype="unknown" segtype="sentence" adminlang="en" srclang="en" o-tmf="TMX">
+    <note>Change the namespace to define where this text module should be located within the logical structure of your texts</note>
+    <prop type="x-BR-TS:Namespace">FeederAlarms</prop>
+  </header>
+  <body>
+    <tu tuid="Warning.Weight">
+      <tuv xml:lang="ru-RU">
+        <seg>Мало порошка в колбе</seg>
+      </tuv>
+      <tuv xml:lang="en">
+        <seg>Hello world!</seg>
+      </tuv>
+      <tuv xml:lang="de">
+        <seg>Servus Welt!</seg>
+      </tuv>
+      <tuv xml:lang="fr">
+        <seg>Bonjour tout le monde!</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Alarm.Weight">
+      <tuv xml:lang="ru-RU">
+        <seg>Критически мало порошка в колбе</seg>
+      </tuv>
+    </tu>
+    <tu tuid="Prefix4">
+      <tuv xml:lang="ru-RU">
+        <seg>Колба 4: </seg>
+      </tuv>
+    </tu>
+    <tu tuid="Prefix3">
+      <tuv xml:lang="ru-RU">
+        <seg>Колба 3: </seg>
+      </tuv>
+    </tu>
+    <tu tuid="Prefix2">
+      <tuv xml:lang="ru-RU">
+        <seg>Колба 2: </seg>
+      </tuv>
+    </tu>
+    <tu tuid="Prefix1">
+      <tuv xml:lang="ru-RU">
+        <seg>Колба 1: </seg>
+      </tuv>
+    </tu>
+  </body>
+</tmx>

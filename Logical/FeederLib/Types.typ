@@ -82,6 +82,10 @@ TYPE
 		Handler : FeederHandlerIOinType;
 		aiWeight : DINT; (*Показания тензодатчика*)
 	END_STRUCT;
+	FeederAlarmTriggerType : 	STRUCT 
+		WarningWeight : BOOL;
+		AlarmWeight : BOOL;
+	END_STRUCT;
 	FeederUserInfoType : 	STRUCT 
 		Handler : FeederHandlerUserInfoType;
 		Weight : REAL; (*Текущий вес порошка в питетеле в кг*)
@@ -89,6 +93,7 @@ TYPE
 		TareK : REAL; (*Текущий тарировочный коэффициент*)
 		Deviation : REAL; (*Текущее стандартное откланение тарировочного коэффициента*)
 		IsAUTO : BOOL; (*Включен ли режим автоматического поддержания расхода порошка*)
+		AlarmTriggers : FeederAlarmTriggerType;
 	END_STRUCT;
 END_TYPE
 
