@@ -4,8 +4,7 @@ FUNCTION_BLOCK FBFeeder
 	IF Enable THEN								
 		CASE Status OF
 			FEED_ERROR:
-			FEED_INIT:
-				
+			FEED_INIT:				
 				AlarmList[0].MonitoredValueAdr := ADR(UserInfo.AlarmTriggers.WarningWeight);
 				AlarmList[1].MonitoredValueAdr := ADR(UserInfo.AlarmTriggers.AlarmWeight);
 				
@@ -214,6 +213,17 @@ FUNCTION_BLOCK FBFeeder
 		UserInfo.Weight := CalibrateREAL(DINT_TO_REAL(IOin.aiWeight), Config.WeightCalibrate) - Config.TareWeight;
 		UserInfo.Rate := FBControl.UserInfo.ActualSpeed*UserInfo.TareK*0.6/USINT_TO_REAL(Config.Handler.Ratio);
 		IOout := FBControl.IOout;
+		
+		IF (UserInfo.Weight < Config.WarningWeight) THEN
+			UserInfo.AlarmTriggers.WarningWeight := TRUE;
+		ELSE
+			UserInfo.AlarmTriggers.WarningWeight := FALSE;
+		END_IF
+		IF (UserInfo.Weight < Config.AlarmWeight) THEN
+			UserInfo.AlarmTriggers.AlarmWeight:= TRUE;
+		ELSE
+			UserInfo.AlarmTriggers.AlarmWeight := FALSE;
+		END_IF
 		
 		AlarmControl();
 	ELSE

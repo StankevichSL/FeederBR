@@ -11,7 +11,6 @@
     <File>FBFeeder.st</File>
     <File>FBFeederHandler.st</File>
     <File>FeederTexts.tmx</File>
-    <File>Project.language</File>
   </Files>
   <Dependencies>
     <Dependency ObjectName="MpAxis" />

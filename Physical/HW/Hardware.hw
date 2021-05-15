@@ -46,7 +46,6 @@
     <Parameter ID="ConfigurationID" Value="5in1" />
     <Parameter ID="ConfigVersion" Value="2.0.0" />
     <Parameter ID="UserPartitionSize" Value="100" />
-    <Parameter ID="Simulation" Value="1" />
     <Parameter ID="UserRamDevice" Value="PCI.2.FPLK.SRAM" />
     <Parameter ID="UserRamSize" Value="520000" />
     <Parameter ID="RemMemDevice" Value="PCI.2.FPLK.SRAM" />
