@@ -11,6 +11,7 @@
     <File>FBFeeder.st</File>
     <File>FBFeederHandler.st</File>
     <File>FeederTexts.tmx</File>
+    <File>FBSpendTotalizer.st</File>
   </Files>
   <Dependencies>
     <Dependency ObjectName="MpAxis" />

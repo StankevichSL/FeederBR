@@ -12,7 +12,7 @@ TYPE
 		);
 	FeederHandlerControlType : 	STRUCT 
 		PowderRate : UINT; (*Базовое управляющее значение расхода порошка*)
-		KZP : REAL; (*Коэффициент захвата порошка*)
+		KZP : REAL := 100; (*Коэффициент захвата порошка*)
 		KZU : REAL; (*Коэффициент запаса устойчивости (0-99)*)
 		GasRate : UINT; (*Управляющее значение расходом газа*)
 	END_STRUCT;
@@ -137,4 +137,16 @@ TYPE
 		In : FeederBlockIOinType;
 		Out : FeederBlockIOoutType;
 	END_STRUCT;
+END_TYPE
+
+(*SpendTotalizer*)
+
+TYPE
+	SpendTotalizerStatusEnum : 
+		(
+		SPENDTOTALIZER_INIT := 0,
+		SPENDTOTALIZER_WAIT := 1,
+		SPENDTOTALIZER_BIZY := 2,
+		SPENDTOTALIZER_PAUSE := 3
+		);
 END_TYPE

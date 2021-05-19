@@ -16,8 +16,7 @@ FUNCTION_BLOCK FBFeederHandler
 				AxisCyclicSet.Enable := TRUE;
 				AxisCyclicSet.Parameters := Config.AxisCyclicSetParLink;
 				
-				IF (AxisBasic.Active) THEN 
-					UserInfo.Active := TRUE;
+				IF (AxisBasic.Active) THEN 					
 					AxisBasic.Power := 1;
 					IF (AxisBasic.PowerOn) THEN 
 						IF (AxisBasic.IsHomed = 0) THEN 
@@ -36,7 +35,7 @@ FUNCTION_BLOCK FBFeederHandler
 				IF (Start) THEN	
 					Status := FEEDCTRL_PREPURGE;
 				END_IF
-			
+				UserInfo.Active := FALSE;
 				IOout.aoGasRate := 0;
 				IOout.doShutOff := TRUE;
 				IOout.doMixer := FALSE;
@@ -56,7 +55,9 @@ FUNCTION_BLOCK FBFeederHandler
 			
 				IOout.aoGasRate := Calibrate(Control.GasRate,Config.GasCalibrateOut);
 				IOout.doShutOff := FALSE;
-				IOout.doMixer := TRUE;			
+				IOout.doMixer := TRUE;		
+				
+				UserInfo.Active := TRUE;
 			FEEDCTRL_FEEDING:
 				IF (Start) THEN				
 					AxisCyclicSet.Velocity := ((LIMIT(0,(Control.PowderRate/(TareK*10)),100)*(100+Control.KZU))/Control.KZP)*Config.Ratio/0.6;

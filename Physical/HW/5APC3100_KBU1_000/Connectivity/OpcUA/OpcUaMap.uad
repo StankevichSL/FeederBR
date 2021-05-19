@@ -45,6 +45,7 @@
                 <Variable Name="KZU" />
                 <Variable Name="GasRate" />
               </Variable>
+              <Variable Name="UpdateTareWeight" />
             </Variable>
             <Variable Name="SecondaryFeeder">
               <Variable Name="ManualTareControl" />
@@ -55,10 +56,10 @@
                 <Variable Name="KZU" />
                 <Variable Name="GasRate" />
               </Variable>
+              <Variable Name="UpdateTareWeight" />
             </Variable>
             <Variable Name="FeederSwitch" />
           </Variable>
-          <Variable Name="Config" />
         </Variable>
         <Variable Name="ConfigP">
           <Variable Name="DefaultTareK" />
@@ -66,6 +67,15 @@
         <Variable Name="ConfigS">
           <Variable Name="DefaultTareK" />
         </Variable>
+        <Variable Name="FeederConfig">
+          <Variable Name="PrimaryFeeder">
+            <Variable Name="TareWeight" />
+          </Variable>
+          <Variable Name="SecondaryFeeder">
+            <Variable Name="TareWeight" />
+          </Variable>
+        </Variable>
+        <Variable Name="var" />
       </Task>
     </Module>
   </DefaultView>

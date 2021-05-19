@@ -12,5 +12,6 @@
     <Object Type="Package" Description="gAxis01obj">gAxis01obj</Object>
     <Object Type="Package" Description="gAxis02obj">gAxis02obj</Object>
     <Object Type="Program" Language="IEC">HWtest</Object>
+    <Object Type="File">Project.language</Object>
   </Objects>
 </Package>

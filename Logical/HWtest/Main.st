@@ -54,12 +54,18 @@ PROGRAM _INIT
 	FeederBlock.Config := ADR(FeederConfig);
 	FeederBlock.AlarmXCore := ADR(gAlarmXCore);
 	FeederBlock.Enable := TRUE;
+	
+	var := 10;
+	Counter.CounterLink := ADR(var);
+	Counter.Delta := 0.1;
 END_PROGRAM
 
 PROGRAM _CYCLIC
 	(* Insert code here *)
 	MpAlarmXCore_0();
 	FeederBlock();
+	Counter.Weight := FeederBlock.UserInfo.PrimaryFeeder.Weight;
+	Counter();
 END_PROGRAM
 
 PROGRAM _EXIT

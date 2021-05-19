@@ -26,6 +26,11 @@
           <Widgets>
             <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput11" top="30" left="240" width="160" height="50" zIndex="0" format="{'metric':{'decimalPlaces':3,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" />
             <Widget xsi:type="widgets.brease.Label" id="Label29" top="30" left="20" width="160" height="50" zIndex="1" multiLine="true" text="Тарировочный поумолчанию" wordWrap="true" />
+            <Widget xsi:type="widgets.brease.NumericInput" id="NumericInput11" top="90" left="240" width="160" zIndex="2" />
+            <Widget xsi:type="widgets.brease.Label" id="Label31" top="90" left="20" width="220" zIndex="3" text="Вес тары, кг" />
+            <Widget xsi:type="widgets.brease.Button" id="Button3" top="130" left="240" width="160" height="50" zIndex="4" text="Обновить" />
+            <Widget xsi:type="widgets.brease.NumericOutput" id="NumericOutput13" top="210" left="300" zIndex="5" />
+            <Widget xsi:type="widgets.brease.Label" id="Label32" top="210" left="20" width="180" zIndex="6" text="Высыпано, кг" />
           </Widgets>
         </Widget>
         <Widget xsi:type="widgets.brease.TabItem" id="TabItem3" left="0" zIndex="2" text="Control">

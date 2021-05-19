@@ -121,3 +121,20 @@ END_FUNCTION_BLOCK
 		ConfigSecondaryFeeder : REFERENCE TO FeederConfigType;
 	END_VAR
 END_FUNCTION_BLOCK
+
+{REDUND_ERROR} FUNCTION_BLOCK FBSpendTotalizer (*TODO: Add your comment here*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
+	VAR_INPUT
+		Active : {REDUND_UNREPLICABLE} BOOL;
+		Period : TIME := T#1m;
+		Weight : REAL;
+		Delta : REAL;
+		CounterLink : REFERENCE TO REAL;
+	END_VAR
+	VAR
+		TON_WeightCheckPeriod : TON;
+		TempVal : REAL;
+	END_VAR
+	VAR_OUTPUT
+		Status : SpendTotalizerStatusEnum := SPENDTOTALIZER_INIT;
+	END_VAR
+END_FUNCTION_BLOCK
