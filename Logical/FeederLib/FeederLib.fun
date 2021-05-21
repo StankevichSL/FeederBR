@@ -103,7 +103,7 @@ END_FUNCTION_BLOCK
 	VAR_INPUT
 		Enable : {REDUND_UNREPLICABLE} BOOL;
 		Config : REFERENCE TO FeederBlockConfigType;
-		Control : FeederBlockControlType;
+		Control : REFERENCE TO FeederBlockControlType;
 		IOin : FeederBlockIOinType;
 		AlarmXCore : {REDUND_UNREPLICABLE} UDINT;
 	END_VAR
@@ -130,11 +130,11 @@ END_FUNCTION_BLOCK
 		Delta : REAL;
 		CounterLink : REFERENCE TO REAL;
 	END_VAR
+	VAR_OUTPUT
+		Status : SpendTotalizerStatusEnum := SPENDTOTALIZER_INIT;
+	END_VAR
 	VAR
 		TON_WeightCheckPeriod : TON;
 		TempVal : REAL;
-	END_VAR
-	VAR_OUTPUT
-		Status : SpendTotalizerStatusEnum := SPENDTOTALIZER_INIT;
 	END_VAR
 END_FUNCTION_BLOCK

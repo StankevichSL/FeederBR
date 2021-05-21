@@ -49,8 +49,8 @@ PROGRAM _INIT
 	FeederConfig.SecondaryFeeder := ConfigS;
 	FeederConfig.DualFeederMode := FALSE;
 	
-	FeederBlock.Control.PrimaryFeeder.Handler.KZP := 100;
-	FeederBlock.Control.PrimaryFeeder.Handler.KZU := 0;
+//	FeederBlock.Control.PrimaryFeeder.Handler.KZP := 100;
+//	FeederBlock.Control.PrimaryFeeder.Handler.KZU := 0;
 	FeederBlock.Config := ADR(FeederConfig);
 	FeederBlock.AlarmXCore := ADR(gAlarmXCore);
 	FeederBlock.Enable := TRUE;
