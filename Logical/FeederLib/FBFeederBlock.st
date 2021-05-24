@@ -75,13 +75,20 @@ FUNCTION_BLOCK FBFeederBlock
 				ELSE
 					IF Control.FeederSwitch THEN				
 						SecondaryFeeder.Control := Control.PrimaryFeeder;
-						SecondaryFeeder.Start := Control.PrimaryStart;						
+						SecondaryFeeder.Start := Control.PrimaryStart;	
+						SecondaryFeeder();				
+						IOout.SecondaryFeeder := SecondaryFeeder.IOout;
+						UserInfo.SecondaryFeeder := SecondaryFeeder.UserInfo;
 					ELSE
 						PrimaryFeeder.Control := Control.PrimaryFeeder;
 						PrimaryFeeder.Start := Control.PrimaryStart;
+						PrimaryFeeder();
+						IOout.PrimaryFeeder := PrimaryFeeder.IOout;
+						UserInfo.PrimaryFeeder := PrimaryFeeder.UserInfo;
 					END_IF
+					Control.SecondaryFeeder.ManualTareControl := FALSE;
 				END_IF
-				PrimaryFeeder();
+				
 				// обновление тарировочного коэффициента по умолчанию	
 				IF PrimaryFeeder.UserInfo.IsAUTO THEN
 					TON_UpdateDefaultTareK1.IN := TRUE;
@@ -95,7 +102,7 @@ FUNCTION_BLOCK FBFeederBlock
 						TON_UpdateDefaultTareK1();
 					END_IF	
 				END_IF
-				SecondaryFeeder();
+				
 				// обновление тарировочного коэффициента по умолчанию	
 				IF SecondaryFeeder.UserInfo.IsAUTO THEN
 					TON_UpdateDefaultTareK2.IN := TRUE;
@@ -120,13 +127,7 @@ FUNCTION_BLOCK FBFeederBlock
 				IF Control.PrimaryFeeder.UpdateTareWeight THEN
 					Config.PrimaryFeeder.TareWeight := UserInfo.PrimaryFeeder.Weight;
 					Control.PrimaryFeeder.UpdateTareWeight := FALSE;
-				END_IF
-				
-				IOout.PrimaryFeeder := PrimaryFeeder.IOout;
-				UserInfo.PrimaryFeeder := PrimaryFeeder.UserInfo;
-				
-				IOout.SecondaryFeeder := SecondaryFeeder.IOout;
-				UserInfo.SecondaryFeeder := SecondaryFeeder.UserInfo;	
+				END_IF	
 		END_CASE
 	END_IF	
 END_FUNCTION_BLOCK

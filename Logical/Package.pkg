@@ -5,7 +5,6 @@
     <Object Type="File" Description="Global data types">Global.typ</Object>
     <Object Type="File" Description="Global variables">Global.var</Object>
     <Object Type="Package" Description="Global libraries">Libraries</Object>
-    <Object Type="Library" Language="IEC">FeederLib</Object>
     <Object Type="Package">mappView</Object>
     <Object Type="Program" Language="IEC">ReadData</Object>
     <Object Type="DataObject" Language="Ett">acp10etxen</Object>
@@ -13,5 +12,6 @@
     <Object Type="Package" Description="gAxis02obj">gAxis02obj</Object>
     <Object Type="Program" Language="IEC">HWtest</Object>
     <Object Type="File">Project.language</Object>
+    <Object Type="Library" Language="IEC">FeederLib</Object>
   </Objects>
 </Package>

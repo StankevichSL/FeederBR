@@ -130,7 +130,7 @@ FUNCTION_BLOCK FBFeeder
 						IF NOT UserInfo.IsAUTO THEN
 							FBControl.TareK := Config.DefaultTareK;
 							IF CalcDeviation THEN
-								IF (UserInfo.Deviation <> 0) AND (UserInfo.Deviation < Config.DeviationLimit) THEN
+								IF (UserInfo.Deviation <> 0) AND (UserInfo.Deviation < Config.DeviationLimit) AND (UserInfo.TareK > 0) THEN
 									TON_ToGoToAutoDelay.IN := TRUE;
 									IF TON_ToGoToAutoDelay.Q THEN
 										UserInfo.IsAUTO := TRUE;

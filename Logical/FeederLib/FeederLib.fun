@@ -88,7 +88,7 @@ END_FUNCTION_BLOCK
 		RewriteWTP : BOOL := FALSE;
 		RewriteTareK : BOOL := FALSE;
 		CalcDeviation : BOOL := FALSE;
-		AlarmList : ARRAY[0..1] OF AlarmBVMItemType := [(Config:=(Message:='{$$FeederAlarms/Warning.Weight}',Code:=666,Severity:=1),Name:='WarningWeight'),(Config:=(Message:='{$$FeederAlarms/Alarm.Weight}',Code:=13,Severity:=1),Name:='AlarmWeight')];
+		AlarmList : ARRAY[0..1] OF AlarmBVMItemType := [(Config:=(Message:='{$$FeederAlarms/Warning.Weight}',Code:=602,Severity:=1),Name:='WarningWeight'),(Config:=(Message:='{$$FeederAlarms/Alarm.Weight}',Code:=603,Severity:=1),Name:='AlarmWeight')];
 	END_VAR
 	VAR CONSTANT
 		alarmListSize : USINT := 2;

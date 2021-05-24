@@ -80,7 +80,6 @@
     <LibraryObject Name="MpCom" Source="Libraries.MpCom.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="AsBrStr" Source="Libraries.AsBrStr.lby" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="SfDomain" Source="Libraries.SfDomain.lby" Memory="UserROM" Language="Binary" Debugging="true" />
-    <LibraryObject Name="FeederLib" Source="FeederLib.lby" Memory="UserROM" Language="IEC" Debugging="true" />
     <LibraryObject Name="UserLib" Source="Libraries.UserLib.lby" Memory="UserROM" Language="IEC" Debugging="true" />
     <LibraryObject Name="asieccon" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="powerlnk" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
@@ -96,5 +95,6 @@
     <LibraryObject Name="areventlog" Source="" Memory="UserROM" Language="Binary" Debugging="true" />
     <LibraryObject Name="UsAlarmLib" Source="Libraries.UsAlarmLib.lby" Memory="UserROM" Language="IEC" Debugging="true" />
     <LibraryObject Name="MpAlarmX" Source="Libraries.MpAlarmX.lby" Memory="UserROM" Language="Binary" Debugging="true" />
+    <LibraryObject Name="FeederLib" Source="FeederLib.lby" Memory="UserROM" Language="IEC" Debugging="true" />
   </Libraries>
 </SwConfiguration>
