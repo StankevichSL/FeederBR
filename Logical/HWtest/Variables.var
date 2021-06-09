@@ -11,4 +11,5 @@ VAR
 	MpRecipeRegPar_0 : MpRecipeRegPar;*)
 	Counter : FBSpendTotalizer;
 	var : REAL;
+	Control : FeederBlockControlType;
 END_VAR

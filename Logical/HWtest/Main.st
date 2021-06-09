@@ -54,6 +54,7 @@ PROGRAM _INIT
 	FeederBlock.Config := ADR(FeederConfig);
 	FeederBlock.AlarmXCore := ADR(gAlarmXCore);
 	FeederBlock.Enable := TRUE;
+	FeederBlock.Control := ADR(Control);
 	
 	var := 10;
 	Counter.CounterLink := ADR(var);

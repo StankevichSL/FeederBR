@@ -35,9 +35,9 @@ FUNCTION_BLOCK FBFeeder
 					Status := FEED_READY;
 				END_IF
 			FEED_READY:
-				IF Start THEN
-					FBControl.Start := TRUE;
-				END_IF
+//				IF Start THEN
+//					FBControl.Start := TRUE;
+//				END_IF
 				IF Reset THEN
 					Status := FEED_RESET;
 				END_IF
@@ -45,7 +45,7 @@ FUNCTION_BLOCK FBFeeder
 					Status := FEED_FEEDING;
 				END_IF
 			FEED_FEEDING:	
-				IF Start THEN
+				IF Control.Handler.Robot.Start THEN
 					TON_WriteInBufferPeriod.IN := TRUE;
 					TON_WriteInBufferPeriod();
 					// регулировка частоты записи в буффер
@@ -152,7 +152,7 @@ FUNCTION_BLOCK FBFeeder
 						END_IF			
 					END_IF
 				ELSE
-					FBControl.Start := FALSE;
+//					FBControl.Start := FALSE;
 					Status := FEED_PAUSE;
 				END_IF				
 			FEED_RESET:
@@ -186,7 +186,7 @@ FUNCTION_BLOCK FBFeeder
 				UserInfo.TareK := 0;
 				UserInfo.Deviation := 0;
 			FEED_PAUSE:		
-				IF Start THEN
+				IF Control.Handler.Robot.Start THEN
 					Status := FEED_READY;
 					IF RewriteWTP THEN
 						IF i = 0 THEN

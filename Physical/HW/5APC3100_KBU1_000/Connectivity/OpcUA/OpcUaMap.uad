@@ -35,31 +35,6 @@
               </Variable>
             </Variable>
           </Variable>
-          <Variable Name="Control">
-            <Variable Name="PrimaryFeeder">
-              <Variable Name="ManualTareControl" />
-              <Variable Name="TareK" />
-              <Variable Name="Handler">
-                <Variable Name="PowderRate" />
-                <Variable Name="KZP" />
-                <Variable Name="KZU" />
-                <Variable Name="GasRate" />
-              </Variable>
-              <Variable Name="UpdateTareWeight" />
-            </Variable>
-            <Variable Name="SecondaryFeeder">
-              <Variable Name="ManualTareControl" />
-              <Variable Name="TareK" />
-              <Variable Name="Handler">
-                <Variable Name="PowderRate" />
-                <Variable Name="KZP" />
-                <Variable Name="KZU" />
-                <Variable Name="GasRate" />
-              </Variable>
-              <Variable Name="UpdateTareWeight" />
-            </Variable>
-            <Variable Name="FeederSwitch" />
-          </Variable>
         </Variable>
         <Variable Name="ConfigP">
           <Variable Name="DefaultTareK" />
@@ -76,6 +51,42 @@
           </Variable>
         </Variable>
         <Variable Name="var" />
+        <Variable Name="Control">
+          <Variable Name="PrimaryFeeder">
+            <Variable Name="Handler">
+              <Variable Name="Robot">
+                <Variable Name="PowderRate" />
+                <Variable Name="GasRate" />
+                <Variable Name="Start" />
+              </Variable>
+              <Variable Name="UI">
+                <Variable Name="KZP" />
+                <Variable Name="KZU" />
+                <Variable Name="VelocityKoef" />
+              </Variable>
+            </Variable>
+            <Variable Name="ManualTareControl" />
+            <Variable Name="TareK" />
+            <Variable Name="UpdateTareWeight" />
+          </Variable>
+          <Variable Name="SecondaryFeeder">
+            <Variable Name="Handler">
+              <Variable Name="Robot">
+                <Variable Name="PowderRate" />
+                <Variable Name="GasRate" />
+                <Variable Name="Start" />
+              </Variable>
+              <Variable Name="UI">
+                <Variable Name="KZP" />
+                <Variable Name="KZU" />
+                <Variable Name="VelocityKoef" />
+              </Variable>
+            </Variable>
+            <Variable Name="ManualTareControl" />
+            <Variable Name="TareK" />
+            <Variable Name="UpdateTareWeight" />
+          </Variable>
+        </Variable>
       </Task>
     </Module>
   </DefaultView>

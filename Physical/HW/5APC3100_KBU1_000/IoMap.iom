@@ -10,12 +10,12 @@ VAR_CONFIG
 	Cyclic#1.gSealedChamberIO.In.BasicChamberIOIn.diDoorState[0].DoorIsClosed AT %QX."X20SLX842".BOOL102;
 	Cyclic#1.::HWtest:FeederBlock.IOout.PrimaryFeeder.doShutOff AT %QX."Valves".DigitalOutput01;
 	Cyclic#1.::HWtest:FeederBlock.IOout.SecondaryFeeder.doShutOff AT %QX."Valves".DigitalOutput02;
-	Cyclic#1.::HWtest:FeederBlock.Control.PrimaryStart AT %IX."Robot_EIP".Robot_DO_5;
-	Cyclic#1.::HWtest:FeederBlock.Control.SecondaryStart AT %IX."Robot_EIP".Robot_DO_6;
-	Cyclic#1.::HWtest:FeederBlock.Control.PrimaryFeeder.Handler.PowderRate AT %IW."Robot_EIP".Robot_GO_3;
-	Cyclic#1.::HWtest:FeederBlock.Control.PrimaryFeeder.Handler.GasRate AT %IW."Robot_EIP".Robot_GO_4;
-	Cyclic#1.::HWtest:FeederBlock.Control.SecondaryFeeder.Handler.PowderRate AT %IW."Robot_EIP".Robot_GO_5;
-	Cyclic#1.::HWtest:FeederBlock.Control.SecondaryFeeder.Handler.GasRate AT %IW."Robot_EIP".Robot_GO_6;
+	Cyclic#1.::HWtest:Control.PrimaryFeeder.Handler.Robot.Start AT %IX."Robot_EIP".Robot_DO_5;
+	Cyclic#1.::HWtest:Control.SecondaryFeeder.Handler.Robot.Start AT %IX."Robot_EIP".Robot_DO_6;
+	Cyclic#1.::HWtest:Control.PrimaryFeeder.Handler.Robot.PowderRate AT %IW."Robot_EIP".Robot_GO_3;
+	Cyclic#1.::HWtest:Control.PrimaryFeeder.Handler.Robot.GasRate AT %IW."Robot_EIP".Robot_GO_4;
+	Cyclic#1.::HWtest:Control.SecondaryFeeder.Handler.Robot.PowderRate AT %IW."Robot_EIP".Robot_GO_5;
+	Cyclic#1.::HWtest:Control.SecondaryFeeder.Handler.Robot.GasRate AT %IW."Robot_EIP".Robot_GO_6;
 	Cyclic#1.::HWtest:FeederBlock.IOout.PrimaryFeeder.aoGasRate AT %QW."AoFlowReg".AnalogOutput02;
 	Cyclic#1.::HWtest:FeederBlock.IOout.SecondaryFeeder.aoGasRate AT %QW."AoFlowReg".AnalogOutput03;
 END_VAR

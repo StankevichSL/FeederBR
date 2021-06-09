@@ -10,12 +10,19 @@ TYPE
 		FEEDCTRL_FEEDING := 4,
 		FEEDCTRL_POSTPURGE := 5
 		);
-	FeederHandlerControlType : 	STRUCT 
-		PowderRate : UINT; (*Базовое управляющее значение расхода порошка*)
+	FeederUIControlType : 	STRUCT 
 		KZP : REAL := 100; (*Коэффициент захвата порошка*)
 		KZU : REAL; (*Коэффициент запаса устойчивости (0-99)*)
-		GasRate : UINT; (*Управляющее значение расходом газа*)
 		VelocityKoef : REAL := 1; (*Коэффициент скорости*)
+	END_STRUCT;
+	FeederRobotControlType : 	STRUCT 
+		PowderRate : UINT; (*Базовое управляющее значение расхода порошка*)
+		GasRate : UINT; (*Управляющее значение расходом газа*)
+		Start : BOOL := FALSE; (*Старт питателя*)
+	END_STRUCT;
+	FeederHandlerControlType : 	STRUCT 
+		Robot : FeederRobotControlType;
+		UI : FeederUIControlType;
 	END_STRUCT;
 	FeederHandlerConfigType : 	STRUCT 
 		PrepurgeTime : TIME := T#5s; (*Время предварительной продувки магистрали питателя, перед подачей порошка*)
@@ -112,15 +119,15 @@ TYPE
 	FeederBlockControlType : 	STRUCT 
 		PrimaryFeeder : FeederControlType;
 		SecondaryFeeder : FeederControlType;
-		PrimaryStart : BOOL; (*Старт первого питателя*)
-		SecondaryStart : BOOL; (*Старт второго питателя*)
-		SeparateMode : BOOL; (*Режим раздельной подачи порошка, при false - последовательный режим*)
-		FeederSwitch : BOOL; (*Переключение колб питателя, false - первый*)
 	END_STRUCT;
 	FeederBlockConfigType : 	STRUCT 
 		PrimaryFeeder : FeederConfigType; (*Ссылка на структуру FeederConfigType для первой колбы*)
 		SecondaryFeeder : FeederConfigType; (*Ссылка на структуру FeederConfigType для второй колбы*)
 		DualFeederMode : BOOL := TRUE; (*Количество колб питателя, false - одна*)
+		PowderSpendTemp : REAL;
+		PowderSpendTotal : REAL;
+		SeparateMode : BOOL; (*Режим раздельной подачи порошка, при false - последовательный режим*)
+		FeederSwitch : BOOL; (*Переключение колб питателя, false - первый*)
 	END_STRUCT;
 	FeederBlockIOinType : 	STRUCT 
 		PrimaryFeeder : FeederIOinType;

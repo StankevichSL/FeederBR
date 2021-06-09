@@ -32,7 +32,7 @@ FUNCTION_BLOCK FBFeederHandler
 				END_IF
 				
 			FEEDCTRL_READY_TO_FEED:
-				IF (Start) THEN	
+				IF (Control.Robot.Start) THEN	
 					Status := FEEDCTRL_PREPURGE;
 				END_IF
 				UserInfo.Active := FALSE;
@@ -40,7 +40,7 @@ FUNCTION_BLOCK FBFeederHandler
 				IOout.doShutOff := TRUE;
 				IOout.doMixer := FALSE;
 			FEEDCTRL_PREPURGE:
-				IF (Start) THEN
+				IF (Control.Robot.Start) THEN
 					IF (TON_Prepurge.Q) THEN 
 						TON_Prepurge.IN := 0;		
 						Status := FEEDCTRL_FEEDING;
@@ -53,22 +53,22 @@ FUNCTION_BLOCK FBFeederHandler
 				END_IF
 				TON_Prepurge(PT := Config.PrepurgeTime);
 			
-				IOout.aoGasRate := Calibrate(Control.GasRate,Config.GasCalibrateOut);
+				IOout.aoGasRate := Calibrate(Control.Robot.GasRate,Config.GasCalibrateOut);
 				IOout.doShutOff := FALSE;
 				IOout.doMixer := TRUE;		
 				
 				UserInfo.Active := TRUE;
 			FEEDCTRL_FEEDING:
-				IF (Start) THEN				
-					AxisCyclicSet.Velocity := ((LIMIT(0,(Control.PowderRate/(TareK*10)),100)*Control.VelocityKoef*(100+Control.KZU))/Control.KZP)*Config.Ratio/0.6;
+				IF (Control.Robot.Start) THEN				
+					AxisCyclicSet.Velocity := ((LIMIT(0,(Control.Robot.PowderRate/(TareK*10)),100)*Control.UI.VelocityKoef*(100+Control.UI.KZU))/Control.UI.KZP)*Config.Ratio/0.6;
 				ELSE
 					AxisCyclicSet.Velocity := 0;
 					Status := FEEDCTRL_POSTPURGE;	
 				END_IF
 			
-				IOout.aoGasRate := Calibrate(Control.GasRate,Config.GasCalibrateOut);			
+				IOout.aoGasRate := Calibrate(Control.Robot.GasRate,Config.GasCalibrateOut);			
 			FEEDCTRL_POSTPURGE:
-				IF (Start) THEN
+				IF (Control.Robot.Start) THEN
 					TON_Postpurge.IN := 0;
 					Status := FEEDCTRL_FEEDING;
 				ELSE
@@ -81,7 +81,7 @@ FUNCTION_BLOCK FBFeederHandler
 				END_IF			
 				TON_Postpurge(PT := Config.PostpurgeTime);
 			
-				IOout.aoGasRate := Calibrate(Control.GasRate,Config.GasCalibrateOut);
+				IOout.aoGasRate := Calibrate(Control.Robot.GasRate,Config.GasCalibrateOut);
 		END_CASE	
 		// добавить проверку чтобы AxisConfigLink != 0
 		AxisBasic();

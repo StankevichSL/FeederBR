@@ -36,7 +36,6 @@ END_FUNCTION
 {REDUND_ERROR} FUNCTION_BLOCK FBFeederHandler (*TODO: Add your comment here*) (*$GROUP=User,$CAT=User,$GROUPICON=User.png,$CATICON=User.png*)
 	VAR_INPUT
 		Enable : BOOL;
-		Start : BOOL;
 		Config : FeederHandlerConfigType;
 		Control : FeederHandlerControlType;
 		TareK : REAL;
@@ -59,7 +58,6 @@ END_FUNCTION_BLOCK
 	VAR_INPUT
 		Enable : {REDUND_UNREPLICABLE} BOOL;
 		Reset : BOOL;
-		Start : BOOL;
 		Config : FeederConfigType;
 		Control : FeederControlType;
 		AlarmXCore : UDINT;
@@ -88,7 +86,7 @@ END_FUNCTION_BLOCK
 		RewriteWTP : BOOL := FALSE;
 		RewriteTareK : BOOL := FALSE;
 		CalcDeviation : BOOL := FALSE;
-		AlarmList : ARRAY[0..1] OF AlarmBVMItemType := [(Config:=(Message:='{$$FeederAlarms/Warning.Weight}',Code:=602,Severity:=1),Name:='WarningWeight'),(Config:=(Message:='{$$FeederAlarms/Alarm.Weight}',Code:=603,Severity:=1),Name:='AlarmWeight')];
+		AlarmList : ARRAY[0..1] OF AlarmBVMItemType := [(Config:=(Message:='{$$FeederAlarms/Warning.Weight}',Code:=5000,Severity:=1,Behavior:=(AutoReset:=TRUE,Acknowledge:=mpALARMX_ACK_DISABLED)),Name:='WarningWeight'),(Config:=(Message:='{$$FeederAlarms/Alarm.Weight}',Code:=5001,Severity:=9,Behavior:=(AutoReset:=TRUE,Acknowledge:=mpALARMX_ACK_DISABLED)),Name:='AlarmWeight')];
 	END_VAR
 	VAR CONSTANT
 		alarmListSize : USINT := 2;
@@ -119,6 +117,10 @@ END_FUNCTION_BLOCK
 		TON_UpdateDefaultTareK2 : TON := (PT:=T#100ms);
 		ConfigPrimaryFeeder : REFERENCE TO FeederConfigType;
 		ConfigSecondaryFeeder : REFERENCE TO FeederConfigType;
+		TON_SwitchFeeder1Off : TON;
+		TOF_SwitchFeeder2Off : TOF;
+		R_TRIG_SwitchFeeder1Off : R_TRIG;
+		F_TRIG_SwitchFeeder2Off : F_TRIG;
 	END_VAR
 END_FUNCTION_BLOCK
 

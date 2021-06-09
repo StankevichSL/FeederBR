@@ -24,6 +24,8 @@ FUNCTION_BLOCK FBFeederBlock
 					IF (PrimaryFeeder.Status = FEED_READY) AND (SecondaryFeeder.Status = FEED_READY) THEN
 						Status := FEEDBLOCK_DUAL;
 					END_IF
+					TON_SwitchFeeder1Off.PT := Config.SecondaryFeeder.Handler.PrepurgeTime;
+					TOF_SwitchFeeder2Off.PT := Config.PrimaryFeeder.Handler.PrepurgeTime;
 				ELSE
 					IF (PrimaryFeeder.Status = FEED_READY) THEN
 						Status := FEEDBLOCK_SINGLE;
@@ -35,7 +37,7 @@ FUNCTION_BLOCK FBFeederBlock
 				PrimaryFeeder.Config := Config.PrimaryFeeder;
 				PrimaryFeeder.Control := Control.PrimaryFeeder;
 				PrimaryFeeder.IOin := IOin.PrimaryFeeder;
-				PrimaryFeeder.Start := Control.PrimaryStart;
+	//			PrimaryFeeder.Start := Control.PrimaryStart;
 				PrimaryFeeder();
 				
 				// обновление тарировочного коэффициента по умолчанию	
@@ -64,30 +66,44 @@ FUNCTION_BLOCK FBFeederBlock
 				// режим работы при наличии 2-х колб
 				PrimaryFeeder.Config := Config.PrimaryFeeder;
 				PrimaryFeeder.IOin := IOin.PrimaryFeeder;
+				
 				SecondaryFeeder.Config := Config.SecondaryFeeder;
 				SecondaryFeeder.IOin := IOin.SecondaryFeeder;
-				IF Control.SeparateMode THEN
-					PrimaryFeeder.Control := Control.PrimaryFeeder;					
-					PrimaryFeeder.Start := Control.PrimaryStart;					
-			
-					SecondaryFeeder.Control := Control.SecondaryFeeder;					
-					SecondaryFeeder.Start := Control.SecondaryStart;
+				
+				IF Config.SeparateMode THEN
+					PrimaryFeeder.Control := Control.PrimaryFeeder;
+					SecondaryFeeder.Control := Control.SecondaryFeeder;
 				ELSE
-					IF Control.FeederSwitch THEN				
-						SecondaryFeeder.Control := Control.PrimaryFeeder;
-						SecondaryFeeder.Start := Control.PrimaryStart;	
-						SecondaryFeeder();				
-						IOout.SecondaryFeeder := SecondaryFeeder.IOout;
-						UserInfo.SecondaryFeeder := SecondaryFeeder.UserInfo;
+					IF Config.FeederSwitch THEN
+						Control.PrimaryFeeder.ManualTareControl := FALSE;
+						SecondaryFeeder.Control := Control.SecondaryFeeder;
+						SecondaryFeeder.Control.Handler.Robot := Control.PrimaryFeeder.Handler.Robot;						
 					ELSE
+						Control.SecondaryFeeder.ManualTareControl := FALSE;
 						PrimaryFeeder.Control := Control.PrimaryFeeder;
-						PrimaryFeeder.Start := Control.PrimaryStart;
-						PrimaryFeeder();
-						IOout.PrimaryFeeder := PrimaryFeeder.IOout;
-						UserInfo.PrimaryFeeder := PrimaryFeeder.UserInfo;
 					END_IF
-					Control.SecondaryFeeder.ManualTareControl := FALSE;
+					//Delayed switch off of feeders when FeederChoice is changed
+					TON_SwitchFeeder1Off(IN := Config.FeederSwitch); //When FeederChoice is True Timer is activated
+					TOF_SwitchFeeder2Off(IN := Config.FeederSwitch); //When FeederChoice is False Timer is activated
+		
+					R_TRIG_SwitchFeeder1Off(CLK := TON_SwitchFeeder1Off.Q); // Catching timer expiration  and generating pulse to switch off feeder
+					F_TRIG_SwitchFeeder2Off(CLK := TOF_SwitchFeeder2Off.Q);
+					IF (R_TRIG_SwitchFeeder1Off.Q) THEN						
+						PrimaryFeeder.Control.Handler.Robot.Start := FALSE;
+					END_IF
+					IF (F_TRIG_SwitchFeeder2Off.Q) THEN
+						SecondaryFeeder.Control.Handler.Robot.Start := FALSE;
+					END_IF
 				END_IF
+				
+				PrimaryFeeder();
+				SecondaryFeeder();
+				
+				UserInfo.PrimaryFeeder := PrimaryFeeder.UserInfo;
+				UserInfo.SecondaryFeeder := SecondaryFeeder.UserInfo;
+				
+				IOout.PrimaryFeeder := PrimaryFeeder.IOout;	
+				IOout.SecondaryFeeder := SecondaryFeeder.IOout;	
 				
 				// обновление тарировочного коэффициента по умолчанию	
 				IF PrimaryFeeder.UserInfo.IsAUTO THEN
@@ -119,13 +135,13 @@ FUNCTION_BLOCK FBFeederBlock
 				
 				// Обновление веса тары
 				IF Control.SecondaryFeeder.UpdateTareWeight THEN
-					Config.SecondaryFeeder.TareWeight := UserInfo.SecondaryFeeder.Weight;
+					Config.SecondaryFeeder.TareWeight := Config.SecondaryFeeder.TareWeight + UserInfo.SecondaryFeeder.Weight;
 					Control.SecondaryFeeder.UpdateTareWeight := FALSE;
 				END_IF
 				
 				// Обновление веса тары
 				IF Control.PrimaryFeeder.UpdateTareWeight THEN
-					Config.PrimaryFeeder.TareWeight := UserInfo.PrimaryFeeder.Weight;
+					Config.PrimaryFeeder.TareWeight := Config.PrimaryFeeder.TareWeight + UserInfo.PrimaryFeeder.Weight;
 					Control.PrimaryFeeder.UpdateTareWeight := FALSE;
 				END_IF	
 		END_CASE

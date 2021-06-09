@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version=4.9.2.46 FileVersion="4.9"?>
+<?AutomationStudio Version=4.10.2.37 FileVersion="4.9"?>
 <Hardware xmlns="http://br-automation.co.at/AS/Hardware">
   <Module Name="5AC901.IUPS-01" Type="5AC901.IUPS-01" Version="1.3.1.0">
     <Connection Connector="SL" TargetModule="5APC3100_KBU1_000" TargetConnector="SL1" />
@@ -687,12 +687,12 @@
     <Parameter ID="ConfigModule" Value="asnxdb1" />
     <Parameter ID="CycleTime" Value="2000" />
   </Module>
-  <Module Name="X20PS9400" Type="X20PS9400" Version="1.4.0.0">
+  <Module Name="X20PS9400" Type="X20PS9400" Version="1.5.0.0">
     <Connection Connector="SS1" TargetModule="X20TB12q" TargetConnector="SS" />
     <Connection Connector="PS" TargetModule="X20BB81" TargetConnector="PS1" />
     <Parameter ID="PowerInfo" Value="on" />
   </Module>
-  <Module Name="X20SLX842" Type="X20SLX842" Version="2.2.0.0">
+  <Module Name="X20SLX842" Type="X20SLX842" Version="2.4.0.0">
     <Connection Connector="SS1" TargetModule="X20TB52" TargetConnector="SS" />
     <Connection Connector="SS2" TargetModule="X20TB52a" TargetConnector="SS" />
     <Connection Connector="SL" TargetModule="X20BM33" TargetConnector="SL1" />
